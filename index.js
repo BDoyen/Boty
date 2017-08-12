@@ -1,6 +1,4 @@
 
-require('dotenv').config()
-
 var builder = require("botbuilder");
 var restify = require('restify'); // pour le serveur
 var sentiment = require('sentiment-multilang'); //sentiment analysis
@@ -17,7 +15,6 @@ var connector = new builder.ChatConnector({
  appId: process.env.MICROSOFT_APP_ID,
  appPassword: process.env.MICROSOFT_APP_PASSWORD
 });
-
 
 var bot = new builder.UniversalBot(connector);
 
@@ -94,7 +91,7 @@ bot.dialog("/preinscription", require("./dialogs/preinscription"));
 
 bot.dialog("/feedback", require("./dialogs/feedback"))
     .triggerAction({ 
-        matches:/😉 donner son avis/i 
+        matches:/💌 donner son avis/i 
     });
 
 bot.dialog("/catch", require("./dialogs/catch"));
@@ -111,9 +108,15 @@ bot.dialog("/meet", require("./dialogs/meet"))
         matches: /Je recherche une communauté de runners... 🏃‍👥/i 
     });
 
+
 bot.dialog("/temps2", require("./dialogs/temps2"));
 
-bot.dialog("/adresse", require("./dialogs/adresse"));
+
+bot.dialog("/adresse", require("./dialogs/adresse"))
+    .triggerAction({
+        matches: /📍 je veux changer d'adresse/i
+    })
+
 
 bot.dialog("/run", require("./dialogs/run")).
     triggerAction({ 
@@ -124,7 +127,6 @@ bot.dialog("/astuce", require("./dialogs/astuce"))
     .triggerAction({ 
         matches: /💡 Une astuce running/i 
     });
-
 
 
 

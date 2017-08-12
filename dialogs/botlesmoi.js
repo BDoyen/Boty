@@ -64,7 +64,7 @@ module.exports = [
 
     function(session,results){
         session.userData.lasttip = tipsArray[math.round(math.random()*(N+1))];
-        session.send("🔆🏃-Running Tips by Boty-🏃🔆");
+        session.send("Running Tips by boty 🔆🏃");
         session.send(session.userData.lasttip);
         builder.Prompts.choice(session,"Encore ?",["oui !","ça ira merci..."],{maxRetries:0})  
     },

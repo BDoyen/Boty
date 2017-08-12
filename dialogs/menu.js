@@ -65,7 +65,7 @@ module.exports = [
         var d = new Date();
         var num_day = d.getDay();
         var h = d.getHours();
-        if((5<h)&&(h<12)){
+        if((4<h)&&(h<12)){
             session.userData.moment = 0;
         }else if((12<=h)&&(h<19)){
             session.userData.moment = 1;
@@ -74,7 +74,7 @@ module.exports = [
         }
         var moment = time[session.userData.moment];
         var day = week[num_day];
-        builder.Prompts.choice(session,"" + day + " " + moment +", je peux t'aider à trouver...",["une course 🏃","une communauté running 👥","un stage,alternance 👔👟","des astûces running 💡"],{maxRetries:0}); 
+        builder.Prompts.choice(session,day + " " + moment +", je peux t'aider à trouver",["une course🏃","une communauté👥","un stage,alternance👔👟","des astûces💡"],{maxRetries:0}); 
     
     },
     function(session,results){
