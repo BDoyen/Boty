@@ -119,7 +119,7 @@ bot.dialog("/run", require("./dialogs/run")).
 
 bot.dialog("/astuce", require("./dialogs/astuce"))
     .triggerAction({ 
-        matches: /Une astûce...💡/i 
+        matches: /💡 Une astuce running/i 
     });
 
 

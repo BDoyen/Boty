@@ -100,6 +100,22 @@ gifsArray.push("https://media.giphy.com/media/3mVl9Qf7eSbnO/giphy.gif");
 gifsArray.push("https://media.giphy.com/media/xT0BKkcALfm8KUVur6/giphy.gif");
 gifsArray.push("https://media.giphy.com/media/Jipm0wuLhOXJe/giphy.gif");
 gifsArray.push("https://media.giphy.com/media/aQInYv8OpB4Gs/giphy.gif");
+gifsArray.push("https://media.giphy.com/media/ODcV6Y7RJ46FG/giphy.gif");
+gifsArray.push("https://media.giphy.com/media/l2Sqc3POpzkj5r8SQ/giphy.gif");
+gifsArray.push("https://media.giphy.com/media/D6uUoxFgRL1GU/giphy.gif");
+gifsArray.push("https://media.giphy.com/media/DdkR5dtHkwGrK/giphy.gif");
+gifsArray.push("https://media.giphy.com/media/3owyoTHcCsmo5o43tK/giphy.gif");
+gifsArray.push("https://media.giphy.com/media/3owyp3X4XCmXpkvMT6/giphy.gif");
+gifsArray.push("https://media.giphy.com/media/BQGLAkWjqjBpS/giphy.gif");
+gifsArray.push("https://media.giphy.com/media/Pk20jMIe44bHa/giphy.gif");
+
+
+
+
+
+
+
+
 
 var G = gifsArray.length;
 

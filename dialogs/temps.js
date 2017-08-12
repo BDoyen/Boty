@@ -178,11 +178,7 @@ module.exports = [
                             console.log(session.userData.timemin);
                             session.beginDialog('/temps2',session.userData);
                         }else if((session.userData.chronology == 'future')){
-                            var min = new Date(session.userData.iso);
-                            var currentDay = min.getDay();
-                            var distance = 6 - currentDay + 1;
-                            min.setDate(-6 + distance + min.getDate());
-                            min.setHours(2);
+                            var min = new Date();
                             session.userData.timemin = min;
                             console.log(session.userData.timemin);
                             session.beginDialog('/temps2',session.userData);

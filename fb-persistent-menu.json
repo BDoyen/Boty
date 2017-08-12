@@ -1,0 +1,41 @@
+{
+  "setting_type" : "call_to_actions",
+  "thread_state" : "existing_thread",
+  "call_to_actions":[
+    {
+      "title":"🏃 je recherche...",
+      "type":"nested",
+          "call_to_actions":[
+            {
+              "title":"🎽 une course",
+              "type":"postback",
+              "payload":"je recherche une course"
+            },
+            {
+              "title":"👥 une communauté running",
+              "type":"postback",
+              "payload":"je recherche une communauté running"
+            },
+            {
+              "title":"👔👟 un stage,alternance",
+              "type":"postback",
+              "payload":"je recherche un stage,alternance"
+            }
+          ]
+    },{
+      "type":"postback",
+      "title":"💡 Une astuce running",
+      "payload":"💡 une astuce running"
+    },{
+      "type":"postback",
+      "title":"😉 donner son avis",
+      "payload":"😉 donner son avis"
+    }
+  ]
+}
+
+
+
+
+
+

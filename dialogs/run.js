@@ -59,7 +59,7 @@ module.exports = [
 
     function(session){
         session.send("(y)");
-        builder.Prompts.choice(session,"Quel type de course t'intéresse le plus ?",["Relax 🕶","Fun 🍭","Un peu musclé 💪","Pour les pros 🏅"],{maxRetries:0})
+        builder.Prompts.choice(session,"Quel type de course t'intéresse le plus ?",["relax 🕶","solidaire 💚","fun 🍭","un peu musclé 💪","pour les pros 🏅"],{maxRetries:0})
     },
 
     function(session,results){
@@ -73,11 +73,11 @@ module.exports = [
                 var slug = intent.slug;
                 if(slug == 'pro'){
                     session.send("Wow...");
-                    session.userData.level = 4;
+                    session.userData.level = 5;
                     session.beginDialog('/catchrun',session.userData);
                 }else if(slug == 'intermediaire'){
                     session.send(";)");
-                    session.userData.level = 3;
+                    session.userData.level = 4;
                     session.beginDialog('/meet',session.userData);
                 }else if(slug == 'fun'){
                     session.userData.positiveemoji = positiveSentimentArray[math.round(math.random()*(l+1))];
@@ -87,6 +87,10 @@ module.exports = [
                 }else if(slug == 'relax'){
                     session.send("😎");
                     session.userData.level = 1;
+                    session.beginDialog('/salut',session.userData);
+                }else if(slug == 'solidaire'){
+                    session.send("(y)");
+                    session.userData.level = 3;
                     session.beginDialog('/salut',session.userData);
                 }else{
                     session.send("aïe aïe aïe, j'ai pas tout compris là...");

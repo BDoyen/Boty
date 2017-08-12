@@ -22,6 +22,7 @@
     "http": "0.0.0",
     "mathjs": "^3.14.2",
     "recastai": "^3.4.1",
+    "request": "^2.81.0",
     "restify": "^5.0.1",
     "sentiment": "^4.0.0",
     "sentiment-multilang": "0.0.2"
@@ -1958,10 +1959,6 @@
     "repeating": {
       "version": "https://registry.npmjs.org/repeating/-/repeating-2.0.1.tgz",
       "integrity": "sha1-UhTFOpJtNVJwdSf7q0FdvAjQbdo="
-    },
-    "request": {
-      "version": "https://registry.npmjs.org/request/-/request-2.81.0.tgz",
-      "integrity": "sha1-xpKJRqDgbF+Nb4qTM0af/aRimKA="
     },
     "rsa-pem-from-mod-exp": {
       "version": "https://registry.npmjs.org/rsa-pem-from-mod-exp/-/rsa-pem-from-mod-exp-0.8.4.tgz",

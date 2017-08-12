@@ -102,7 +102,7 @@ module.exports = [
                         .title("Trouver une course")
                         .subtitle("Et profiter des meilleurs bons plans du moment")
                         .images([
-                            builder.CardImage.create(session, "https://media.giphy.com/media/14d8cvUx2o982I/giphy.gif")
+                            builder.CardImage.create(session, "https://media.giphy.com/media/3owyoTEnUMvvd4WmYg/giphy.gif")
                         ])
                         .buttons([
                             builder.CardAction
@@ -113,7 +113,7 @@ module.exports = [
                         .title("Trouver une communauté")
                         .subtitle("Pour rencontrer de nouveaux runners")
                         .images([
-                            builder.CardImage.create(session, "https://media.giphy.com/media/wSln2Kx4N4VPi/giphy.gif")
+                            builder.CardImage.create(session, "https://media.giphy.com/media/5z7TxaCulbxYY/giphy.gif")
                         ])
                         .buttons([
                             builder.CardAction
@@ -124,7 +124,7 @@ module.exports = [
                         .title("Trouver un stage/alternance")
                         .subtitle("Viens passer un entretien en running")
                         .images([
-                            builder.CardImage.create(session,"http://static.tumblr.com/3ec6a95c9d7177cdca08d616ad250b53/sxathna/ZhKohat67/tumblr_static_d5b4h45ce00k08o8c8w0scg8c.jpg")
+                            builder.CardImage.create(session,"https://media.giphy.com/media/10jUpXZZDBITyo/giphy.gif")
                         ])
                         .buttons([
                             builder.CardAction

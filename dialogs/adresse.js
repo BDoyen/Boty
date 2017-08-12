@@ -62,10 +62,21 @@ var week = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"]
 module.exports = [
 
     function(session){
-        builder.Prompts.text(session,"Quelle est ton adresse du coup ?")
+        let replyMessage = new builder.Message(session).text("Quelle est ton adresse du coup ? Tu peux l'écrire ou bien appuyer sur le bouton juste en-bas 👇");
+            replyMessage.sourceEvent({
+                facebook: {
+                    quick_replies: [{
+                        content_type: 'location'
+                    }]
+                }
+            });
+            builder.Prompts.text(session,replyMessage,{maxRetries:0});
     },
+    
     function(session,results){
-        session.userData.address = results.response
+
+      session.send(results.response)
+      session.userData.address = results.response + " France";
 
       var data = JSON.stringify([{Id:session.userData.idstring,Adresse:session.userData.address}]);
 
@@ -81,7 +92,8 @@ module.exports = [
         session.beginDialog("/query",session.userData);
       }else{
         session.beginDialog("/temps",session.userData);
-      } 
+      }
+
     }
     
 ];
