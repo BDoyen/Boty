@@ -1,4 +1,6 @@
 
+require('dotenv').config()
+
 var builder = require("botbuilder");
 var restify = require('restify'); // pour le serveur
 var sentiment = require('sentiment-multilang'); //sentiment analysis
