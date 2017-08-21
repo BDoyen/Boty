@@ -178,7 +178,7 @@ bot.dialog("/",
                 var entities = res.entities;          
                 if(slug == 'ask-courir'){
                     if(!res.entities.datetime){
-                        if(!entities.rungly[0]){
+                        if(!entities.rungly){
                             session.beginDialog('/which-run',session.userData);
                         }else{
                             var value = entities.rungly[0].value

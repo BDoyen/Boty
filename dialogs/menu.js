@@ -75,11 +75,12 @@ module.exports = [
         }
         var moment = time[session.userData.moment];
         var day = week[num_day];
-        builder.Prompts.choice(session,day+moment+", je peux t'aider à trouver",["une course🏃","une communauté👥","un stage,alternance👔👟","des astûces💡"],{maxRetries:0}); 
+        session.send(day+moment);
+        builder.Prompts.choice(session,"je peux t'aider à trouver",["une course🏃","une communauté👥","un stage,alternance👔👟","des astûces💡"],{maxRetries:0}); 
     
     },
     function(session,results){
-        if(!results.response.entity){
+        if(!results.response){
             var sent = sentiment(session.message.text,'fr');
             var valence = sent.score;
             if(valence == 0){

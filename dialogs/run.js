@@ -62,7 +62,7 @@ module.exports = [
     },
 
     function(session,results){
-        if(!results.response.entity){
+        if(!results.response){
             session.userData.tokenspec = 'f588de924cc4ef7209a10d80d565da1f'
             var client = new recastai(session.userData.tokenspec)
             var request = client.request

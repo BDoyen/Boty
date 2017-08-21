@@ -63,7 +63,7 @@ module.exports = [
 	},
 
 	function(session,results){
-		if(!results){
+		if(!results.response){
 			session.userData.tokengen = 'cac49b88e2afe148fe34bffeca605bdb'
 	        var client = new recastai(session.userData.tokengen)
 	        var request = client.request
@@ -74,6 +74,8 @@ module.exports = [
 	                if(slug == "communaute"){
 	                	session.userData.category = 2;
 		                session.beginDialog('/cross',session.userData);
+	                }else if(slug == "goodbye"){
+	                	session.beginDialog('/catch',session.userData);
 	                }else{
 	                	session.userData.category = 1;
 	                	session.beginDialog('/run',session.userData);

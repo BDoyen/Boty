@@ -176,6 +176,6 @@ module.exports = [
     },
     function (session, results) {
         // Always say goodbye
-        session.beginDialog('/catch',session.userData);
+        session.beginDialog('/',session.userData);
     }
 ];

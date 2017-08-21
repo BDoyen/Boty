@@ -74,8 +74,8 @@ module.exports = [
     },
     
     function(session,results){
-
       var entity = session.message.entities
+
 
       if(entity.length == 0){
         session.userData.address = results.response + " France";
