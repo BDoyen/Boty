@@ -16,6 +16,7 @@
   "dependencies": {
     "@google/maps": "^0.4.2",
     "asn1": "^0.2.3",
+    "body-parser": "^1.17.2",
     "botbuilder": "^3.8.4",
     "date-and-time": "^0.5.0",
     "dotenv": "^4.0.0",

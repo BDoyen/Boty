@@ -5,9 +5,7 @@ var restify = require('restify'); // pour le serveur
 var sentiment = require('sentiment-multilang'); //sentiment analysis
 var math = require('mathjs'); //math module
 var sentiment = require('sentiment-multilang');
-var http = require('http');
-
-
+var request = require('request');
 
 
 //APIs//
@@ -24,7 +22,6 @@ var post_options = {
 //Facebook
 var FB = require('fb');
 FB.setAccessToken("EAAfV9rKoBcIBAH8B2sVAgJacS8JYlRvDAUctPbysZAK7NJ9s0beZC8Xi1J4b8jyqu4FZBgq9F3mohyT0ebptrseUx3QZBLU74ypcxzpjotG7xv5FZC1zTSHTmoevq794eJbc4r4hVDDCXYWOTRsZA1ojDTno0GZCQZBEZCfmftdCUZBAZDZD");
-
 
 
 //Recast.ai
@@ -50,10 +47,12 @@ var negativeSentimentArray = new Array("😑","😣","😶","😐","😕","😞"
 var l = positiveSentimentArray.length;
 var k = negativeSentimentArray.length;
 
+
 //time variables
 var days = new Array('lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche');
 var time = ["en matinée","dans l'après-midi","le soir venu"]
 var week = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"]
+
 
 
 //////////////////////functions//////////////////////
@@ -68,30 +67,33 @@ module.exports = [
     var name = session.message.address.user.id;
     session.userData.idstring = name.toString();
 
-    console.log(session.userData.idstring)
 
-
+    //LeChaboté API request
+    session.userData.post_options = {
+              url: "http://217.182.206.5:8000/user",
+              method: 'POST',
+    };
     var data = JSON.stringify([{Id:session.userData.idstring,Adresse:""}]);
-
-    var post_req = http.request(post_options, function(res){
-        res.on('data', function (chunk){})
+    session.userData.post_options.form = data;
+    var post_req = request(session.userData.post_options, function(error,response,body){
+        if(error){
+            console.log(error);
+            session.send("Je rencontre un petit souci actuellement, les équipes techniques sont déjà dessus... Tu seras recontacté quand tout sera normal ;) 🐅");
+        }else{}
     });
 
 
-    post_req.write(data);
-    post_req.end();
-
-
-
+    //Facebook API request
     FB.api('/'+session.userData.idstring+'?fields=first_name', function(response) {
         session.userData.name = response.first_name;
         session.send("Salut " + session.userData.name);
-        session.send("Moi c'est Boty et je suis là pour t'aider à trouver les meilleures sorties et bons plans running autour de toi :)");
+        session.send("Moi c'est Rungly " + "🐆" + " et je suis là pour t'aider à trouver les meilleures sorties et bons plans running autour de toi 🌴🏢");
         builder.Prompts.choice(session,"On est partis ?",["Oui !","Pas encore..."],{maxRetries:0});
         session.userData.givenadresse = 0;
         session.userData.giventemps = 0; 
     });
     
+
 
     },
     function (session, results) {
@@ -102,40 +104,40 @@ module.exports = [
                         .title("Trouver une course")
                         .subtitle("Et profiter des meilleurs bons plans du moment")
                         .images([
-                            builder.CardImage.create(session, "https://media.giphy.com/media/3owyoTEnUMvvd4WmYg/giphy.gif")
+                            builder.CardImage.create(session, "https://image.ibb.co/c4oRsF/Capture_d_e_cran_2017_08_12_a_17_15_54.png")
                         ])
                         .buttons([
                             builder.CardAction
                                 .imBack(session,"Je recherche une course... 🏃")
-                                .title("Trouver une course 🏃")
+                                .title("courir 🏃")
                         ]),
                     new builder.HeroCard(session)
                         .title("Trouver une communauté")
-                        .subtitle("Pour rencontrer de nouveaux runners")
+                        .subtitle("Pour rencontrer de nouveaux runners comme toi")
                         .images([
-                            builder.CardImage.create(session, "https://media.giphy.com/media/5z7TxaCulbxYY/giphy.gif")
+                            builder.CardImage.create(session, "https://image.ibb.co/kcWeCF/Capture_d_e_cran_2017_08_12_a_17_17_14.png")
                         ])
                         .buttons([
                             builder.CardAction
                                 .imBack(session,"Je recherche une communauté de runners... 🏃‍👥")
-                                .title("Trouver une communauté 👥")
+                                .title("communauté 👥")
                         ]),
                     new builder.HeroCard(session)
                         .title("Trouver un stage/alternance")
                         .subtitle("Viens passer un entretien en running")
                         .images([
-                            builder.CardImage.create(session,"https://media.giphy.com/media/10jUpXZZDBITyo/giphy.gif")
+                            builder.CardImage.create(session,"https://image.ibb.co/dzNmsF/Capture_d_e_cran_2017_08_12_a_17_18_29.png")
                         ])
                         .buttons([
                             builder.CardAction
                                 .imBack(session,"Je recherche un stage,alternance... 🏃👔")
-                                .title("JobRun 👔")
+                                .title("JobRun 🏃👔")
                         ]),
                         new builder.HeroCard(session)
                         .title("Astuces running")
                         .subtitle("Pour courir comme les pros ;)")
                         .images([
-                            builder.CardImage.create(session, "https://media.giphy.com/media/35Ceb7KBCP5jG/giphy.gif")
+                            builder.CardImage.create(session, "https://image.ibb.co/eb6Pev/Capture_d_e_cran_2017_08_12_a_17_25_07.png")
                         ])
                         .buttons([
                             builder.CardAction
@@ -147,12 +149,12 @@ module.exports = [
             var sent = sentiment(session.message.text,'fr');
             var valence = sent.score;
             if(valence == 0){
-                session.send("Ok, attends moi 2s, j'enfile mes runnings...👟👟");
+                session.send("Ok, attends moi 2s, j'enfile mes runnings...👟🐯");
                 session.sendTyping();
                 session.send("Voilà un aperçu de ce que je peux faire pour toi");
                 session.endDialog(msg);
             }else if(valence > 0){
-                session.send("Ok! attends moi 2s, j'enfile mes runnings...👟👟");
+                session.send("Ok! attends moi 2s, j'enfile mes runnings...👟🐯");
                 session.sendTyping();
                 session.send("Voilà un aperçu de ce que je peux faire pour toi");
                 session.endDialog(msg);

@@ -6,7 +6,6 @@ var math = require('mathjs'); //math module
 var sentiment = require('sentiment-multilang');
 
 
-
 //APIs//
 
 //LeChaboté
@@ -63,8 +62,8 @@ module.exports = [
     },
 
     function(session,results){
-        if(!results.response){
-            session.userData.tokenspec = 'e8bb2cf13e8438e1415a39136f3519d7'
+        if(!results.response.entity){
+            session.userData.tokenspec = 'f588de924cc4ef7209a10d80d565da1f'
             var client = new recastai(session.userData.tokenspec)
             var request = client.request
             request.analyseText(session.message.text)
@@ -74,24 +73,24 @@ module.exports = [
                 if(slug == 'pro'){
                     session.send("Wow...");
                     session.userData.level = 5;
-                    session.beginDialog('/catchrun',session.userData);
+                    session.beginDialog('/cross',session.userData);
                 }else if(slug == 'intermediaire'){
                     session.send(";)");
                     session.userData.level = 4;
-                    session.beginDialog('/meet',session.userData);
+                    session.beginDialog('/cross',session.userData);
                 }else if(slug == 'fun'){
                     session.userData.positiveemoji = positiveSentimentArray[math.round(math.random()*(l+1))];
                     session.send(session.userData.positiveemoji);
                     session.userData.level = 2;
-                    session.beginDialog('/network',session.userData);
+                    session.beginDialog('/cross',session.userData);
                 }else if(slug == 'relax'){
                     session.send("😎");
                     session.userData.level = 1;
-                    session.beginDialog('/salut',session.userData);
+                    session.beginDialog('/cross',session.userData);
                 }else if(slug == 'solidaire'){
                     session.send("(y)");
                     session.userData.level = 3;
-                    session.beginDialog('/salut',session.userData);
+                    session.beginDialog('/cross',session.userData);
                 }else{
                     session.send("aïe aïe aïe, j'ai pas tout compris là...");
                     session.beginDialog('/menu',session.userData);
@@ -101,13 +100,10 @@ module.exports = [
             session.beginDialog('/menu',session.userData);     
         })
         }else{
+            console.log(session.userData.timemin)
             session.userData.level = results.response.index + 1;
             session.userData.category = 1;
-            if(session.userData.givenadresse == 1){
-                session.beginDialog('/temps',session.userData);
-            }else{
-                session.beginDialog('/adresse',session.userData);
-            }         
+            session.beginDialog('/cross',session.userData);  
         }   
     }
 ];

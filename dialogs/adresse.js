@@ -5,9 +5,7 @@ var restify = require('restify'); // pour le serveur
 var sentiment = require('sentiment-multilang'); //sentiment analysis
 var math = require('mathjs'); //math module
 var sentiment = require('sentiment-multilang');
-var http = require('http');
-
-
+var request = require('request');
 
 
 //APIs//
@@ -26,19 +24,19 @@ var FB = require('fb');
 FB.setAccessToken("EAAfV9rKoBcIBAH8B2sVAgJacS8JYlRvDAUctPbysZAK7NJ9s0beZC8Xi1J4b8jyqu4FZBgq9F3mohyT0ebptrseUx3QZBLU74ypcxzpjotG7xv5FZC1zTSHTmoevq794eJbc4r4hVDDCXYWOTRsZA1ojDTno0GZCQZBEZCfmftdCUZBAZDZD");
 
 
-
 //Recast.ai
 var recastai = require('recastai').default
 
 
 //resources from other scripts
 
+
 //Tips
 var getTip = require('../get/getTip');
 var tipsArray = getTip.tipsArray;
 var N = getTip.N;
 
-//Gifs
+//GifsB
 var getGif = require('../get/getGif');
 var gifsArray = getGif.gifsArray;
 var G = getGif.G;
@@ -50,6 +48,7 @@ var negativeSentimentArray = new Array("😑","😣","😶","😐","😕","😞"
 var l = positiveSentimentArray.length;
 var k = negativeSentimentArray.length;
 
+
 //time variables
 var days = new Array('lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche');
 var time = ["en matinée","dans l'après-midi","le soir venu"]
@@ -57,6 +56,7 @@ var week = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"]
 
 
 //////////////////////functions//////////////////////
+
 
 
 module.exports = [
@@ -75,25 +75,39 @@ module.exports = [
     
     function(session,results){
 
-      session.send(results.response)
-      session.userData.address = results.response + " France";
+      var entity = session.message.entities
 
+      if(entity.length == 0){
+        session.userData.address = results.response + " France";
+      }else{
+        var lat = entity[0].geo.latitude
+        var lng = entity[0].geo.longitude
+        session.userData.address = lat+","+lng
+      }
+
+
+      //LeChaboté API request
+      session.userData.post_options = {
+              url: "http://217.182.206.5:8000/user",
+              method: 'POST',
+      };
       var data = JSON.stringify([{Id:session.userData.idstring,Adresse:session.userData.address}]);
-
-      var post_req = http.request(post_options, function(res){
-        res.on('data', function (chunk){})
+      session.userData.post_options.form = data;
+      var post_req = request(session.userData.post_options, function(error,response,body){
+        if(!error){
+          session.userData.givenadresse = 1;
+          session.beginDialog("/cross",session.userData);
+        }else{
+          session.send("aïe j'ai bugué là...");
+          session.beginDialog("/menu",session.userData);
+        }
       });
 
-      post_req.write(data);
-      post_req.end();
-
-      session.userData.givenadresse = 1;
-      if(session.userData.givenadresse*session.userData.giventemps == 1){
-        session.beginDialog("/query",session.userData);
-      }else{
-        session.beginDialog("/temps",session.userData);
-      }
 
     }
     
 ];
+
+
+
+

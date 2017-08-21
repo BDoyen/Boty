@@ -1,47 +1,50 @@
-
-{
+{"persistent_menu":[
+  {
   "locale":"default",
   "composer_input_disabled":false,
   "call_to_actions":[
     {
-      "title":"🏃 je recherche...",
+      "title":"🏃🐆 je veux...",
       "type":"nested",
           "call_to_actions":[
             {
-              "title":"🎽 une course",
+              "title":"🎽👟 courir",
               "type":"postback",
               "payload":"je recherche une course"
             },
             {
-              "title":"👥 une communauté running",
-              "type":"postback",
-              "payload":"je recherche une communauté running"
-            },
-            {
-              "title":"👔👟 un stage,alternance",
+              "title":"👔👟 trouver un stage,alternance",
               "type":"postback",
               "payload":"je recherche un stage,alternance"
             }
           ]
-    },{
+    },
+    {
+      "title":"📍 changer d'adresse",
+      "type":"postback",
+      "payload":"📍 je veux changer d'adresse"
+    },
+    {
       "type":"postback",
       "title":"🔧 options",
       "type":"nested",
         "call_to_actions":[
           {
-            "title":"📍 changer d'adresse",
-            "type":"postback",
-            "payload":"📍 je veux changer d'adresse"
-          },
-          {
             "title":"💌 donner son avis",
             "type":"postback",
             "payload":"💌 donner son avis"
+          },
+          {
+            "title":"🔄 recommencer",
+            "type":"postback",
+            "payload":"recommencer"
           }
         ]
     }
   ]
 }
+]}
+
 
 
 

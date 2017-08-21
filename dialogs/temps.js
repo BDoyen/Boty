@@ -4,6 +4,7 @@ var restify = require('restify'); // pour le serveur
 var sentiment = require('sentiment-multilang'); //sentiment analysis
 var math = require('mathjs'); //math module
 var sentiment = require('sentiment-multilang');
+var funcs_time = require('./funcs/funcs_time.js')
 
 
 
@@ -53,8 +54,12 @@ var time = ["en matinée","dans l'après-midi","le soir venu"]
 var week = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"]
 
 
-//////////////////////functions//////////////////////
+//time functions 
+var f1_time = funcs_time.f1_time
+var f2_time = funcs_time.f2_time
 
+
+//////////////////////functions//////////////////////
 
 
 module.exports = [
@@ -62,24 +67,21 @@ module.exports = [
     function(session){
         builder.Prompts.choice(session,"Quand est-ce que tu veux aller courir ?",["cette semaine","la semaine prochaine","ce mois"],{maxRetries:0})
     },
-
     function(session,results){
-        session.userData.tokentime = 'db12a4a11825dfaa4f85ebdf13fdea9d'
+        session.userData.tokentime = 'db12a4a11825dfaa4f85ebdf13fdea9d' //botyv2time
         var client = new recastai(session.userData.tokentime)
         var request = client.request
 
         //no buttons
-        if(!results.response){
+        if(!results.response.entity){
 
             request.analyseText(session.message.text)
             .then(function(res){
-                session.userData.chronology = res.entities.datetime[0].chronology;
-                session.userData.accuracy = res.entities.datetime[0].accuracy;
-                session.userData.iso = res.entities.datetime[0].iso;
-                //no datetime
-                if(session.userData.iso == ""){
-                    var intent = res.intent();
-                    var slug = intent.slug;
+
+                var intent = res.intent();
+                var slug = intent.slug;
+
+                if(!res.entities.datetime){
                     if(slug == 'jamais'){
                         session.send(":(");
                         session.endDialog();
@@ -90,112 +92,59 @@ module.exports = [
                         session.send("À bientôt j'espère :)");
                         session.endDialog();
                     }else{
-                        session.send("aïe aïe aïe, j'ai pas tout compris là...");
+                        session.send("aïe aïe aïe, j'ai pas tout compris là 🐯...");
                         session.endDialog(); 
                     }
-                //with iso datetime
                 }else{
-                    if(session.userData.chronology == 'present' || session.userData.chronology == 'past' ){
-                        if(session.userData.accuracy == 'day' || session.userData.accuracy == 'day,halfday' || session.userData.accuracy == 'sec' || session.userData.accuracy == 'min' || session.userData.accuracy == 'now'){
-                            var min = new Date();
-                            min.setHours(min.getHours()+2);
-                            session.userData.timemin = min;
-                            console.log(session.userData.timemin);
-                            session.beginDialog('/temps2',session.userData);
-                        }else if(session.userData.accuracy == 'week'){
-                            var min = new Date(session.userData.iso);
-                            var currentDay = min.getDay();
-                            var distance = 6 - currentDay + 1;
-                            min.setDate(-6 + distance + min.getDate());
-                            min.setHours(2);
-                            session.userData.timemin = min;
-                            console.log(session.userData.timemin);
-                            session.beginDialog('/temps2',session.userData);
-                        }else if(session.userData.accuracy == 'hour'){
-                            var min = new Date(session.userData.iso);
-                            min.setHours(min.getHours()+2);
-                            session.userData.timemin = min;
-                            console.log(session.userData.timemin);
-                            session.beginDialog('/temps2',session.userData);
-                        }else{
-                            session.send("aïe aïe aïe, j'ai pas tout compris là...");
-                            session.endDialog(); 
-                        }               
-                    }else if(session.userData.chronology == 'future'){
-                        if(session.userData.accuracy == 'day' || session.userData.accuracy == 'day,halfday'){
-                            var min = new Date(session.userData.iso);
-                            min.setHours(2);
-                            session.userData.timemin = min;
-                            console.log(session.userData.timemin);
-                            session.beginDialog('/temps2',session.userData);
-                        }else if(session.userData.accuracy == 'weekend'){
-                            var min = new Date(session.userData.iso);
-                            session.userData.timemin = min;
-                            console.log(session.userData.timemin);
-                            session.beginDialog('/temps2',session.userData);
-                        }else if(session.userData.accuracy == 'week'){
-                            var min = new Date(session.userData.iso);
-                            var currentDay = min.getDay();
-                            var distance = 6 - currentDay + 1;
-                            min.setDate(-6 + distance + min.getDate());
-                            min.setHours(2);
-                            session.userData.timemin = min;
-                            console.log(session.userData.timemin);
-                            session.beginDialog('/temps2',session.userData);
-                        }else if(session.userData.accuracy == 'month'){
-                            session.userData.timemin = new Date();
-                            console.log(session.userData.timemin);
-                            session.beginDialog('/temps2',session.userData);
-                        }else if(session.userData.accuracy == 'year'){
-                            var min = new Date(session.userData.iso);
-                            min.setMonth(0);
-                            min.setDate(1);
-                            session.userData.timemin = min;
-                            console.log(session.userData.timemin);
-                            session.beginDialog('/temps2',session.userData);
-                        }else{
-                            session.send("aïe aïe aïe, j'ai pas tout compris là...");
-                            session.endDialog(); 
-                        }
-                    }
+                    var accuracy = res.entities.datetime[0].accuracy;
+                    var chronology = res.entities.datetime[0].chronology;
+                    var iso = res.entities.datetime[0].iso;
+                    session.userData.giventemps = 1;
+                    console.log(1111)
+                    f1_time(session,chronology,accuracy,iso,slug)
+                    session.beginDialog('/cross',session.userData);
                 }
+
             }).catch(function(err){
-                session.send("aïe, j'ai bugué là... 😬");
+                session.send("aïe, j'ai bugué là... 😬 🐯");
                 session.endDialog();   
             });
         //with buttons
         }else{
             request.analyseText(results.response.entity)
                 .then(function(res){
-                    session.userData.accuracy = res.entities.datetime[0].accuracy;
-                    session.userData.chronology = res.entities.datetime[0].chronology;
-                    session.userData.iso = res.entities.datetime[0].iso;
-                    if(session.userData.accuracy == 'week'){
-                        if(session.userData.chronology == 'past'){
-                            var min = new Date(session.userData.iso);
-                            min.setHours(2)
-                            session.userData.timemin = min;
-                            console.log(session.userData.timemin);
-                            session.beginDialog('/temps2',session.userData);
-                        }else if((session.userData.chronology == 'future')){
-                            var min = new Date();
-                            session.userData.timemin = min;
-                            console.log(session.userData.timemin);
-                            session.beginDialog('/temps2',session.userData);
-                        }else{
-                            session.send("aïe aïe aïe, j'ai pas tout compris là...");
-                            session.endDialog(); 
-                        }  
-                    }else if(session.userData.accuracy == 'month'){ 
-                            session.userData.timemin = new Date();
-                            console.log(session.userData.timemin);
-                            session.beginDialog('/temps2',session.userData);
+
+                var intent = res.intent();
+                var slug = intent.slug;
+
+                if(!res.entities.datetime){
+                    if(slug == 'jamais'){
+                        session.send(":(");
+                        session.endDialog();
+                    }else if(slug == 'greetings'){
+                        session.send("coucou :)");
+                        session.endDialog();
+                    }else if(slug == 'goodbye'){
+                        session.send("À bientôt j'espère :)");
+                        session.endDialog();
                     }else{
-                        session.send("aïe aïe aïe, j'ai pas tout compris là...");
+                        session.send("aïe aïe aïe, j'ai pas tout compris là 🐯...");
                         session.endDialog(); 
                     }
+                }else{
+                    console.log(res.entities.datetime[0])
+                    var accuracy = res.entities.datetime[0].accuracy;
+                    var chronology = res.entities.datetime[0].chronology;
+                    var iso = res.entities.datetime[0].iso;
+                    session.userData.giventemps = 1;
+                    console.log(2222)
+                    f2_time(session,chronology,accuracy,iso,slug)
+                    session.beginDialog('/cross',session.userData);
+                }
+
             }).catch(function(err){
-                session.send("aïe, j'ai bugué là... 😬");
+                console.log(err)
+                session.send("aïe, j'ai bugué là... 😬 🐯");
                 session.endDialog();     
             }) 
         }

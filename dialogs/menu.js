@@ -51,8 +51,9 @@ var k = negativeSentimentArray.length;
 
 //time variables
 var days = new Array('lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche');
-var time = ["en matinée","dans l'après-midi","le soir venu"]
+var time = [" matin"," après-midi"," soir"]
 var week = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"]
+
 
 
 //////////////////////functions//////////////////////
@@ -74,11 +75,11 @@ module.exports = [
         }
         var moment = time[session.userData.moment];
         var day = week[num_day];
-        builder.Prompts.choice(session,day + " " + moment +", je peux t'aider à trouver",["une course🏃","une communauté👥","un stage,alternance👔👟","des astûces💡"],{maxRetries:0}); 
+        builder.Prompts.choice(session,day+moment+", je peux t'aider à trouver",["une course🏃","une communauté👥","un stage,alternance👔👟","des astûces💡"],{maxRetries:0}); 
     
     },
     function(session,results){
-        if(!results.response){
+        if(!results.response.entity){
             var sent = sentiment(session.message.text,'fr');
             var valence = sent.score;
             if(valence == 0){
@@ -93,35 +94,16 @@ module.exports = [
                 session.beginDialog("/",session.userData);
             }
         }else{
-            switch (results.response.index){
+            switch(results.response.index){
             case 0:
-                session.userData.category = "event";
+                session.userData.category = 1;
                 session.beginDialog('/run',session.userData);
                 break;
             case 1:
-                session.userData.category = "meet";
-                if(session.userData.givenadresse*session.userData.giventemps == 1){
-                    session.beginDialog('/query',session.userData);
-                }else if(session.userData.givenadresse == 1){
-                    session.beginDialog('/temps',session.userData);
-                }else if(session.userData.giventemps == 1){
-                    session.beginDialog('/adresse',session.userData);
-                }else{
-                    session.beginDialog('/adresse',session.userData);
-                }
+                session.beginDialog('/cross',session.userData);
                 break;
             case 2:
-                session.userData.category = "network";
-                if(session.userData.givenadresse*session.userData.giventemps == 1){
-                    session.beginDialog('/query',session.userData);
-                }else if(session.userData.givenadresse == 1){
-                    session.beginDialog('/temps',session.userData);
-                }else if(session.userData.giventemps == 1){
-                    session.beginDialog('/adresse',session.userData);
-                }else{
-                    session.beginDialog('/adresse',session.userData);
-                }
-                break;
+                session.beginDialog('/jobrun',session.userData);
             case 3: 
                 session.beginDialog('/botlesmoi',session.userData);
                 break;
