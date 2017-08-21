@@ -74,8 +74,7 @@ module.exports = [
         }
         var moment = time[session.userData.moment];
         var day = week[num_day];
-        session.send(day+moment);
-        builder.Prompts.choice(session,"je peux t'aider à trouver",["une course🏃","une communauté👥","un stage👔👟","des astûces💡"],{maxRetries:0}); 
+        builder.Prompts.choice(session,day+moment+"je peux t'aider à trouver",["une course 🏃","une communauté 👥","un stage 👔👟","des astûces💡"],{maxRetries:0}); 
     
     },
     function(session,results){
