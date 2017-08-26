@@ -63,9 +63,13 @@ var week = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"]
 module.exports = [
 
     function(session,results){
-        session.userData.lasttip = tipsArray[math.round(math.random()*(N+1))];
+        var tip = tipsArray[math.round(math.random()*(N+1))];
         session.send("Running Tips by boty 🔆🏃");
-        session.send(session.userData.lasttip);
+        if(!tip){
+            tipsArray[N]
+        }else{
+            session.send(tip);
+        }
         builder.Prompts.choice(session,"Encore ?",["oui !","ça ira merci..."],{maxRetries:0})  
     },
     function(session,results){

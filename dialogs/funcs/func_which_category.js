@@ -1,44 +1,27 @@
 
 
-//Recast.ai
-var recastai = require('recastai').default
 
 
 ////functions//////
 
 
 
-function f_which_category(value,session){
+function f_which_category(b1,b2,b3,b4,b5,session){
 
-
-			session.userData.tokenspec = 'e8bb2cf13e8438e1415a39136f3519d7'
-            var client = new recastai(session.userData.tokenspec)
-            var request = client.request
-            request.analyseText(value)
-            .then(function(res){
-                var intent = res.intent();
-                var slug = intent.slug;
-                if(slug == 'pro'){
-                    session.userData.level = 5;
-                }else if(slug == 'intermediaire'){
-                    session.userData.level = 4;
-                }else if(slug == 'fun'){
-                    session.userData.level = 2;
-                }else if(slug == 'relax'){
-                    session.userData.level = 1;
-                }else if(slug == 'solidaire'){
-                    session.userData.level = 3;
-                }else{
-                    session.send("aïe aïe aïe, j'ai pas tout compris là...");
-                    session.beginDialog('/menu',session.userData);
-                }
-        }).catch(function(err){
-            session.send("aïe aïe aïe, j'ai pas tout compris là...");
-            session.beginDialog('/menu',session.userData);     
-        })
-
+    if(!b2 && !b3 && !b4 && !b5){
+        session.userData.category = 1
+    }else if(!b1 && !b3 && !b4 && !b5){
+        session.userData.category = 2
+    }else if(!b1 && !b2 && !b4 && !b5){
+        session.userData.category = 3
+    }else if(!b1 && !b2 && !b3 && !b5){
+        session.userData.category = 4
+    }else if(!b1 && !b2 && !b3 && !b4){
+        session.userData.category = 5
+    }else{}
 
 }
+
 
 
 module.exports = {

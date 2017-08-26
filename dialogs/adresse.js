@@ -98,7 +98,7 @@ module.exports = [
           session.userData.givenadresse = 1;
           session.beginDialog("/cross",session.userData);
         }else{
-          session.send("aïe j'ai bugué là...");
+          session.send("aïe j'ai bugué là, mais pas d'inquiétude on peut recommencer...");
           session.beginDialog("/menu",session.userData);
         }
       });

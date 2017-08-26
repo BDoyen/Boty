@@ -175,14 +175,15 @@ bot.dialog("/",
             .then(function(res){
                 var intent = res.intent();
                 var slug = intent.slug;
-                var entities = res.entities;          
+                var entities = res.entities;
+                console.log(entities)
+                var rungly = !entities.runglyrelax || !entities.runglyfun || !entities.runglysolidaire || !entities.runglyintermediaire || !entities.runglypro       
                 if(slug == 'ask-courir'){
                     if(!res.entities.datetime){
-                        if(!entities.rungly){
+                        if(!rungly){
                             session.beginDialog('/which-run',session.userData);
                         }else{
-                            var value = entities.rungly[0].value
-                            f_which_category(value,session)
+                            f_which_category(entities.runglyrelax,entities.runglysolidaire,entities.runglyfun,entities.runglyintermediaire,entities.runglypro,session)//go for tagging
                             session.beginDialog('/cross',session.userData);
                         }
                     }else{
@@ -191,11 +192,10 @@ bot.dialog("/",
                         var iso = res.entities.datetime[0].iso;
                         session.userData.giventemps = 1;
                         f1_time(session,chronology,accuracy,iso,slug)
-                        if(!entities.rungly){
+                        if(!rungly){
                             session.beginDialog('/which-run',session.userData);
                         }else{
-                            var value = entities.rungly.value
-                            f_which_category(value,session)
+                            f_which_category(entities.runglyrelax,entities.runglysolidaire,entities.runglyfun,entities.runglyintermediaire,entities.runglypro,session)//go for tagging
                             session.beginDialog('/cross',session.userData);
                         }
                     }
@@ -203,7 +203,7 @@ bot.dialog("/",
                     session.beginDialog('/network',session.userData);
                 }else if(slug == 'greetings'){
                     session.beginDialog('/salut',session.userData);
-                }else if(slug == 'goodbye'){
+                }else if(slug == 'goodbye' || slug == "reset"){
                     session.beginDialog('/catch',session.userData);
                 }else if(slug == 'say-thanks'){
                     session.beginDialog('/merci',session.userData);
@@ -213,6 +213,8 @@ bot.dialog("/",
                     session.beginDialog('/contact_createur',session.userData);
                 }else if(slug == 'insult'){
                     session.beginDialog('/insult',session.userData);
+                }else if(slug == 'help'){
+                    session.beginDialog('/botlesmoi',session.userData);
                 }else{
                     session.send("aïe aïe aïe, j'ai pas tout compris là...");
                     session.beginDialog('/menu',session.userData);
@@ -223,8 +225,6 @@ bot.dialog("/",
             session.beginDialog('/menu',session.userData);     
     })    
 });
-
-
 
 
 

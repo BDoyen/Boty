@@ -74,10 +74,11 @@ module.exports = [
         }
         var moment = time[session.userData.moment];
         var day = week[num_day];
-        builder.Prompts.choice(session,day+moment+"je peux t'aider à trouver",["une course 🏃","une communauté 👥","un stage 👔👟","des astûces💡"],{maxRetries:0}); 
+        builder.Prompts.choice(session,day+moment+", je peux t'aider à trouver...",["une course 🏃","une communauté 👥","un stage 👔👟","des astûces💡"],{maxRetries:0}); 
     
     },
     function(session,results){
+        console.log(!results.response)
         if(!results.response){
             var sent = sentiment(session.message.text,'fr');
             var valence = sent.score;
