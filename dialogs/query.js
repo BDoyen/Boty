@@ -76,15 +76,13 @@ module.exports = [
         var post_req = request(session.userData.post_options, function(error,response,body){
 
             if(!error){
-                console.log(body);
-                var res = body;
+                var res = session.userData.body = JSON.parse(body)
                 if(res == null){
                     session.send("Je suis désolé " + session.userData.name);
                     session.send("pour le moment, je n'ai pas d'évènements qui correspondent à ta demande mais tu peux essayer avec une autre recherche ;)");
                     session.beginDialog('/menu',session.userData);
                 }else{
-                    var n = res.length;
-                    session.userData.reslength = n;
+                    var n = session.userData.reslength = res.length;
                     if(n == 1){
                         var res0 = res[0]
                         session.userData.title0 = res0.Title
@@ -228,6 +226,7 @@ module.exports = [
                         var res0 = res[0]
                         var res1 = res[1]
                         var res2 = res[2]
+                        console.log(res0)
                         session.userData.title0 = res0.Title
                         session.userData.title1 = res1.Title
                         session.userData.title2 = res2.Title

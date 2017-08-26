@@ -141,6 +141,9 @@ bot.dialog("/meet", require("./dialogs/meet"))
 bot.dialog("/cross", require("./dialogs/cross"));
 
 
+bot.dialog("/insult", require("./dialogs/insult"));
+
+
 bot.dialog("/adresse", require("./dialogs/adresse"))
     .triggerAction({
         matches: /📍 changer d'adresse/i
@@ -177,10 +180,11 @@ bot.dialog("/",
                 var slug = intent.slug;
                 var entities = res.entities;
                 console.log(entities)
-                var rungly = !entities.runglyrelax || !entities.runglyfun || !entities.runglysolidaire || !entities.runglyintermediaire || !entities.runglypro       
+                var rungly = !entities.runglyrelax && !entities.runglyfun && !entities.runglysolidaire && !entities.runglyintermediaire && !entities.runglypro
+                console.log(rungly)       
                 if(slug == 'ask-courir'){
                     if(!res.entities.datetime){
-                        if(!rungly){
+                        if(rungly){
                             session.beginDialog('/which-run',session.userData);
                         }else{
                             f_which_category(entities.runglyrelax,entities.runglysolidaire,entities.runglyfun,entities.runglyintermediaire,entities.runglypro,session)//go for tagging
@@ -192,7 +196,7 @@ bot.dialog("/",
                         var iso = res.entities.datetime[0].iso;
                         session.userData.giventemps = 1;
                         f1_time(session,chronology,accuracy,iso,slug)
-                        if(!rungly){
+                        if(rungly){
                             session.beginDialog('/which-run',session.userData);
                         }else{
                             f_which_category(entities.runglyrelax,entities.runglysolidaire,entities.runglyfun,entities.runglyintermediaire,entities.runglypro,session)//go for tagging

@@ -10,19 +10,19 @@
             {
               "title":"🎽👟 courir",
               "type":"postback",
-              "payload":"je recherche une course"
+              "payload":"🎽👟 courir"
             },
             {
               "title":"👔👟 trouver un stage,alternance",
               "type":"postback",
-              "payload":"je recherche un stage,alternance"
+              "payload":"👔👟 trouver un stage,alternance"
             }
           ]
     },
     {
       "title":"📍 changer d'adresse",
       "type":"postback",
-      "payload":"📍 je veux changer d'adresse"
+      "payload":"📍 changer d'adresse"
     },
     {
       "type":"postback",
@@ -37,7 +37,7 @@
           {
             "title":"🔄 recommencer",
             "type":"postback",
-            "payload":"recommencer"
+            "payload":"🔄 recommencer"
           }
         ]
     }
