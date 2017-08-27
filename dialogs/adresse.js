@@ -4,7 +4,6 @@ var builder = require("botbuilder");
 var restify = require('restify'); // pour le serveur
 var sentiment = require('sentiment-multilang'); //sentiment analysis
 var math = require('mathjs'); //math module
-var sentiment = require('sentiment-multilang');
 var request = require('request');
 
 
@@ -74,8 +73,8 @@ module.exports = [
     },
     
     function(session,results){
-      var entity = session.message.entities
 
+      var entity = session.message.entities
 
       if(entity.length == 0){
         session.userData.address = results.response + " France";
@@ -84,7 +83,6 @@ module.exports = [
         var lng = entity[0].geo.longitude
         session.userData.address = lat+","+lng
       }
-
 
       //LeChaboté API request
       session.userData.post_options = {
@@ -102,7 +100,6 @@ module.exports = [
           session.beginDialog("/menu",session.userData);
         }
       });
-
 
     }
     

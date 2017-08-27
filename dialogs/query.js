@@ -76,7 +76,8 @@ module.exports = [
         var post_req = request(session.userData.post_options, function(error,response,body){
 
             if(!error){
-                var res = session.userData.body = JSON.parse(body)
+                var res = JSON.parse(body)
+                console.log(res)
                 if(res == null){
                     session.send("Je suis désolé " + session.userData.name);
                     session.send("pour le moment, je n'ai pas d'évènements qui correspondent à ta demande mais tu peux essayer avec une autre recherche ;)");
@@ -109,7 +110,7 @@ module.exports = [
                                                     {
                                                         type:"postback",
                                                         title:"Ça m'intéresse 😍",
-                                                        payload:"je me pré-inscris à "+ res0.Title
+                                                        payload:"je me pré-inscris à " + res0.Title
                                                     },
                                                     {
                                                         type:"element_share",
@@ -228,6 +229,7 @@ module.exports = [
                         var res2 = res[2]
                         console.log(res0)
                         session.userData.title0 = res0.Title
+                        console.log(session.userData.title0)
                         session.userData.title1 = res1.Title
                         session.userData.title2 = res2.Title
                         session.userData.id0 = res0.Id
