@@ -101,6 +101,9 @@ bot.dialog("/temps", require("./dialogs/temps"));
 bot.dialog("/query", require("./dialogs/query"));
 
 
+bot.dialog("/query_bis", require("./dialogs/query_bis"));
+
+
 bot.dialog("/botlesmoi", require("./dialogs/botlesmoi"));
 
 
@@ -162,10 +165,8 @@ bot.dialog("/astuce", require("./dialogs/astuce"))
     });
 
 
-bot.dialog("/which-run", require("./dialogs/which-run"))
-    .triggerAction({
-        matches: /🎽👟 courir/i
-    });
+bot.dialog("/which-run", require("./dialogs/which-run"));
+
 
 
 
@@ -219,6 +220,8 @@ bot.dialog("/",
                     session.beginDialog('/insult',session.userData);
                 }else if(slug == 'help'){
                     session.beginDialog('/botlesmoi',session.userData);
+                }else if(slug == "change-address"){
+                    session.beginDialog("/adresse",session.userData);
                 }else{
                     session.send("aïe aïe aïe, j'ai pas tout compris là...");
                     session.beginDialog('/menu',session.userData);

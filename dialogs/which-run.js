@@ -59,7 +59,7 @@ module.exports = [
 
 	function(session){
 		session.send("Bravo "+session.userData.name+" pour ta détermination ;)")
-		builder.Prompts.choice(session,"Que recherches-tu plus précisément ?",["une course","une communauté running"],{maxRetries:0})
+		builder.Prompts.choice(session,"que recherches-tu plus précisément ?",["une course","une communauté"],{maxRetries:0})
 	},
 
 	function(session,results){

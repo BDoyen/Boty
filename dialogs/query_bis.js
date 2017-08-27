@@ -1,5 +1,3 @@
-
-
 var builder = require("botbuilder");
 var restify = require('restify'); // pour le serveur
 var sentiment = require('sentiment-multilang'); //sentiment analysis
@@ -52,40 +50,17 @@ var week = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"]
 
 module.exports = [
 
+		function(session){
 
-    function(session,results){
+			if(!session.userData.rest){
+				session.send("Je suis désolé " + session.userData.name);
+                session.send("pour le moment, je n'ai pas d'évènements qui correspondent à ta demande mais tu peux essayer avec une autre recherche ;)");
+                session.beginDialog('/menu',session.userData);
+			}else{
 
-        //éléments pour requête 
-        console.log(session.userData.timemin)
-        console.log(session.userData.address)
-        console.log(session.userData.level)
-        console.log(session.userData.category)
+				var res = session.userData.rest;
+				var n = session.userData.reslength = res.length;
 
-        //LeChaboté
-        session.userData.post_options = {
-              url: "http://217.182.206.5:8000/event/getevent",
-              method: 'POST',
-        };
-
-        var dt = session.userData.timemin
-
-        var data = JSON.stringify([{Times:dt.toString(),Addr:session.userData.address,Cat:session.userData.category,Lvl:session.userData.level}]);
-
-        session.userData.post_options.form = data;
-
-        var post_req = request(session.userData.post_options, function(error,response,body){
-
-            if(!error){
-
-                var res = JSON.parse(body)
-
-                console.log(res)
-                if(res == null){
-                    session.send("Je suis désolé " + session.userData.name);
-                    session.send("pour le moment, je n'ai pas d'évènements qui correspondent à ta demande mais tu peux essayer avec une autre recherche ;)");
-                    session.beginDialog('/menu',session.userData);
-                }else{
-                    var n = session.userData.reslength = res.length;
                     if(n == 1){
                         var res0 = res[0]
                         session.userData.title0 = res0.Title
@@ -248,19 +223,13 @@ module.exports = [
                         session.userData.giventemps = 0;
                         builder.Prompts.choice(session,msg,["je me pré-inscris à l'évènement "+ res0.Title,"je me pré-inscris à l'évènement "+ res1.Title,"je me pré-inscris à l'évènement "+ res2.Title,"plus d'évènements","C'est bon merci :)"],{maxRetries:0});       
                     }
-                }
-            }else{
-                console.log(error);
-                session.send("Je suis désolé " + session.userData.name + "... 😕");
-                session.send("j'ai un petit trou de mémoire, mais tu peux essayer avec une autre demande ;)");
-                session.beginDialog('/menu',session.userData);
-            }       
-        })
 
+			}
 
-    },
-    function(session, results){
-        if(!results.response){
+		},
+		function(session,results){
+
+			if(!results.response){
             var sent = sentiment(session.message.text,'fr');
             var valence = sent.score;
             if(valence < 0){
@@ -272,6 +241,7 @@ module.exports = [
             response: null,
             resumed: builder.ResumeReason.completed
             });
+            
         }else{
             var item
             switch (results.response.index){
@@ -383,5 +353,13 @@ module.exports = [
                     break;
             }
         }
-    }    
-];
+		}
+
+
+
+
+
+
+
+
+]
