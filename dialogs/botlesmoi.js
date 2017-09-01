@@ -64,7 +64,7 @@ module.exports = [
 
     function(session,results){
         var tip = tipsArray[math.round(math.random()*(N+1))];
-        session.send("Running Tips by boty 🔆🏃");
+        session.send("Running Tips by Rungly 🔆🏃");
         if(!tip){
             tipsArray[N]
         }else{

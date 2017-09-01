@@ -4,7 +4,6 @@ var builder = require("botbuilder");
 var restify = require('restify'); // pour le serveur
 var sentiment = require('sentiment-multilang'); //sentiment analysis
 var math = require('mathjs'); //math module
-var sentiment = require('sentiment-multilang');
 var funcs_time = require('./dialogs/funcs/funcs_time.js');
 var func_which_category = require('./dialogs/funcs/func_which_category.js');
 
@@ -221,7 +220,7 @@ bot.dialog("/",
                 }else if(slug == 'help'){
                     session.beginDialog('/botlesmoi',session.userData);
                 }else if(slug == "change-address"){
-                    session.beginDialog("/adresse",session.userData);
+                    session.beginDialog("/adresse_bis",session.userData);
                 }else{
                     session.send("aïe aïe aïe, j'ai pas tout compris là...");
                     session.beginDialog('/menu',session.userData);

@@ -186,6 +186,8 @@ module.exports = [
                         session.userData.Time1 = res1.Time
                         session.userData.Time2 = res2.Time
 
+                        console.log( session.userData.Time2)
+
                         session.userData.rest = res.slice(3,n)
 
                         var msg = new builder.Message(session)
@@ -288,7 +290,11 @@ module.exports = [
                                 ])
                     ]);
 
-                    var data = JSON.stringify([{Event:session.userData.id0,User:session.userData.idstring,Times:session.userData.Time0}]);
+                    var time = session.userData.Time0
+
+                    console.log(time.toString())
+
+                    var data = JSON.stringify([{Event:session.userData.id0,User:session.userData.idstring,Times:time.toString()}]);
 
                     session.userData.post_options = {
                         url: "http://217.182.206.5:8000/push/inscription",
@@ -319,7 +325,9 @@ module.exports = [
                                     ])
                         ]);
 
-                        var data = JSON.stringify([{Event:session.userData.id1,User:session.userData.idstring,Times:session.userData.Time1}]);
+                        var time = session.userData.Time1
+
+                        var data = JSON.stringify([{Event:session.userData.id1,User:session.userData.idstring,Times:time.toString()}]);
 
                         session.userData.post_options = {
                             url: "http://217.182.206.5:8000/push/inscription",
@@ -354,7 +362,9 @@ module.exports = [
                                     ])
                         ]);
 
-                        var data = JSON.stringify([{Event:session.userData.id2,User:session.userData.idstring,Times:session.userData.Time2}]);
+                        var time = session.userData.Time2
+
+                        var data = JSON.stringify([{Event:session.userData.id2,User:session.userData.idstring,Times:time.toString()}]);
 
                         session.userData.post_options = {
                             url: "http://217.182.206.5:8000/push/inscription",

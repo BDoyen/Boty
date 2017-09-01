@@ -6,9 +6,7 @@ var sentiment = require('sentiment-multilang'); //sentiment analysis
 var math = require('mathjs'); //math module
 var request = require('request');
 
-
 //APIs//
-
 
 //Facebook
 var FB = require('fb');
@@ -86,7 +84,8 @@ module.exports = [
       var post_req = request(session.userData.post_options, function(error,response,body){
         if(!error){
           session.userData.givenadresse = 1;
-          session.beginDialog("/cross",session.userData);
+          session.send("reçu 5/5" + session.userData.name + "👌")
+          session.beginDialog("/menu",session.userData);
         }else{
           session.send("aïe j'ai bugué là, mais pas d'inquiétude on peut recommencer...");
           session.beginDialog("/menu",session.userData);
@@ -96,6 +95,16 @@ module.exports = [
     }
     
 ];
+
+
+
+
+
+
+
+
+
+
 
 
 
