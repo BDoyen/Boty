@@ -146,10 +146,10 @@ bot.dialog("/cross", require("./dialogs/cross"));
 bot.dialog("/insult", require("./dialogs/insult"));
 
 
-bot.dialog("/adresse", require("./dialogs/adresse"))
-    .triggerAction({
-        matches: /📍 changer d'adresse/i
-    })
+bot.dialog("/adresse", require("./dialogs/adresse"));
+
+
+bot.dialog("/adresse_bis", require("./dialogs/adresse_bis"));
 
 
 bot.dialog("/run", require("./dialogs/run")).
@@ -222,12 +222,12 @@ bot.dialog("/",
                 }else if(slug == "change-address"){
                     session.beginDialog("/adresse_bis",session.userData);
                 }else{
-                    session.send("aïe aïe aïe, j'ai pas tout compris là...");
+                    session.send("🐅 👟");
                     session.beginDialog('/menu',session.userData);
                 }
         }).catch(function(err){
             console.log(err)
-            session.send("aïe aïe aïe, j'ai pas tout compris là...");
+            session.send("🐅 👟");
             session.beginDialog('/menu',session.userData);     
     })    
 });
