@@ -100,6 +100,7 @@ module.exports = [
                 session.beginDialog('/run',session.userData);
                 break;
             case 1:
+                session.userData.category = 2;
                 session.beginDialog('/cross',session.userData);
                 break;
             case 2:

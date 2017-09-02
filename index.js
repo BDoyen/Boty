@@ -62,14 +62,6 @@ var week = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"]
 
 //APIs//
 
-//LeChaboté
-var post_options = {
-      host: '217.182.206.5',
-      port: '9000',
-      path: '/All',
-      method: 'POST'
-};
-
 
 //Facebook
 var FB = require('fb');

@@ -64,6 +64,7 @@ module.exports = [
 	            	var intent = res.intent();
 	                var slug = intent.slug;
 	                if(slug == "communaute"){
+	                	session.userData.level = 1;
 	                	session.userData.category = 2;
 		                session.beginDialog('/cross',session.userData);
 	                }else if(slug == "goodbye"){
@@ -84,6 +85,7 @@ module.exports = [
                 	session.beginDialog('/run',session.userData);
 					break;
 				case 1:
+					session.userData.level = 1;
 					session.userData.category = 2;
 	                session.beginDialog('/cross',session.userData);
 	                break;

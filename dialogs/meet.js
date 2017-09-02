@@ -51,6 +51,7 @@ var week = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"]
 module.exports = [
 
     function(session){
+    	session.userData.level = 1;
         session.userData.category = 2;
         session.beginDialog('/cross',session.userData);
     }
