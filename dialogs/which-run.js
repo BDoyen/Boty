@@ -6,8 +6,6 @@ var math = require('mathjs'); //math module
 
 //APIs//
 
-
-
 //Facebook
 var FB = require('fb');
 FB.setAccessToken("EAAFL0ok0ZCS0BAGADUvzuFBcGKcH9Dcj4YSMRimsUAZBd145iE8sL75r8BvVQCmxzHYMynrVVWAKmYyCVfwZAlgTMDeeGcQsTXOZBZBtIpiI4nXDW47sVoCxrZBcnXMQoFlGkN6fKgYAYVaATb08GfuIAFmDf9ryYKEgc24UqmhwZDZD");
@@ -51,10 +49,11 @@ module.exports = [
 
 	function(session){
 		session.send("Bravo "+session.userData.name+" pour ta détermination ;)")
-		builder.Prompts.choice(session,"que recherches-tu plus précisément ?",["une course","une communauté"],{maxRetries:0})
+		builder.Prompts.choice(session,"que recherches-tu plus précisément ?",["une course 🏃","une communauté 👥"],{maxRetries:0})
 	},
 
 	function(session,results){
+		console.log(results.response)
 		if(!results.response){
 			session.userData.tokengen = 'cac49b88e2afe148fe34bffeca605bdb'
 	        var client = new recastai(session.userData.tokengen)
@@ -67,8 +66,8 @@ module.exports = [
 	                	session.userData.level = 1;
 	                	session.userData.category = 2;
 		                session.beginDialog('/cross',session.userData);
-	                }else if(slug == "goodbye"){
-	                	session.beginDialog('/catch',session.userData);
+	                }else if(slug == "help"){
+	                	session.beginDialog('/botlesmoi',session.userData);
 	                }else{
 	                	session.userData.category = 1;
 	                	session.beginDialog('/run',session.userData);

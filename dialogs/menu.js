@@ -1,32 +1,17 @@
 
-
-
 var builder = require("botbuilder");
 var restify = require('restify'); // pour le serveur
 var sentiment = require('sentiment-multilang'); //sentiment analysis
 var math = require('mathjs'); //math module
-var sentiment = require('sentiment-multilang');
 
 
 //APIs//
-
-//LeChaboté
-var post_options = {
-      host: '217.182.206.5',
-      port: '9000',
-      path: '/All',
-      method: 'POST'
-};
-
 
 //Facebook
 var FB = require('fb');
 FB.setAccessToken("EAAFL0ok0ZCS0BAGADUvzuFBcGKcH9Dcj4YSMRimsUAZBd145iE8sL75r8BvVQCmxzHYMynrVVWAKmYyCVfwZAlgTMDeeGcQsTXOZBZBtIpiI4nXDW47sVoCxrZBcnXMQoFlGkN6fKgYAYVaATb08GfuIAFmDf9ryYKEgc24UqmhwZDZD");
 
 
-
-//Recast.ai
-var recastai = require('recastai').default
 
 
 //resources from other scripts
@@ -74,11 +59,11 @@ module.exports = [
         }
         var moment = time[session.userData.moment];
         var day = week[num_day];
-        builder.Prompts.choice(session,day+moment+", je peux t'aider à trouver...",["une course 🏃","une communauté 👥","un stage 👔👟","des astûces💡"],{maxRetries:0}); 
+        builder.Prompts.choice(session,day+moment+", je peux t'aider à trouver...",["une course 🏃","une communauté 👥","des astuces💡"],{maxRetries:0}); 
     
     },
     function(session,results){
-        console.log(!results.response)
+        console.log(results.response)
         if(!results.response){
             var sent = sentiment(session.message.text,'fr');
             var valence = sent.score;
@@ -100,6 +85,7 @@ module.exports = [
                 session.beginDialog('/run',session.userData);
                 break;
             case 1:
+                session.userData.level = 1;
                 session.userData.category = 2;
                 session.beginDialog('/cross',session.userData);
                 break;

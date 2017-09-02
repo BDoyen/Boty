@@ -105,7 +105,7 @@ module.exports = [
                                     ]),
                                     new builder.HeroCard(session)
                                         .images([
-                                            builder.CardImage.create(session, "https://image.ibb.co/h29ip5/rungly3.jpg")
+                                            builder.CardImage.create(session, "https://image.ibb.co/iRYuKF/bye_bye_emoji.jpg")
                                         ])
                                         .buttons([
                                             builder.CardAction.imBack(session, "C'est bon merci :)")
@@ -155,7 +155,7 @@ module.exports = [
                                     ]),
                                 new builder.HeroCard(session)
                                     .images([
-                                        builder.CardImage.create(session, "https://image.ibb.co/h29ip5/rungly3.jpg")
+                                        builder.CardImage.create(session, "https://image.ibb.co/iRYuKF/bye_bye_emoji.jpg")
                                     ])
                                     .buttons([
                                         builder.CardAction.imBack(session, "C'est bon merci :)")
@@ -223,15 +223,15 @@ module.exports = [
                                             ]),
                                 new builder.HeroCard(session)
                                             .images([
-                                                builder.CardImage.create(session, "https://image.ibb.co/h29ip5/rungly3.jpg")
+                                                builder.CardImage.create(session, "https://image.ibb.co/iPDBia/plus_events.jpg")
                                             ])
                                             .buttons([
                                                 builder.CardAction.imBack(session, "plus d'évènements")
-                                                    .title("plus d'évènements...")
+                                                    .title("plus ➕")
                                             ]),       
                                 new builder.HeroCard(session)
                                             .images([
-                                                builder.CardImage.create(session, "https://image.ibb.co/h29ip5/rungly3.jpg")
+                                                builder.CardImage.create(session, "https://image.ibb.co/iRYuKF/bye_bye_emoji.jpg")
                                             ])
                                             .buttons([
                                                 builder.CardAction.imBack(session, "C'est bon merci :)")

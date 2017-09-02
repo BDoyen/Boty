@@ -62,6 +62,7 @@ module.exports = [
     },
 
     function(session,results){
+        console.log(results.response)
         if(!results.response){
             session.userData.tokenspec = 'f588de924cc4ef7209a10d80d565da1f'
             var client = new recastai(session.userData.tokenspec)
@@ -100,7 +101,6 @@ module.exports = [
             session.beginDialog('/menu',session.userData);     
         })
         }else{
-            console.log(session.userData.timemin)
             session.userData.level = results.response.index + 1;
             session.userData.category = 1;
             session.beginDialog('/cross',session.userData);  

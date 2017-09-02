@@ -68,12 +68,14 @@ module.exports = [
         builder.Prompts.choice(session,"Quand est-ce que tu veux aller courir ?",["cette semaine","la semaine prochaine","ce mois"],{maxRetries:0})
     },
     function(session,results){
-        session.userData.tokentime = 'db12a4a11825dfaa4f85ebdf13fdea9d' //botyv2time
+        session.userData.tokentime = 'fdf3c62ee815158983106d5f5189af81' //rungly-time
         var client = new recastai(session.userData.tokentime)
         var request = client.request
 
+        console.log(results.response);
+        
         //no buttons
-        if(!results.response.entity){
+        if(!results.response){
 
             request.analyseText(session.message.text)
             .then(function(res){
@@ -84,29 +86,26 @@ module.exports = [
                 if(!res.entities.datetime){
                     if(slug == 'jamais'){
                         session.send(":(");
-                        session.endDialog();
+                        session.beginDialog("/menu",session.userData);
                     }else if(slug == 'greetings'){
                         session.send("coucou :)");
-                        session.endDialog();
+                        session.beginDialog("/menu",session.userData);
                     }else if(slug == 'goodbye'){
-                        session.send("À bientôt j'espère :)");
-                        session.endDialog();
+                        session.beginDialog("/catch",session.userData);
                     }else{
-                        session.send("aïe aïe aïe, j'ai pas tout compris là 🐯...");
-                        session.endDialog(); 
+                        session.beginDialog("/menu",session.userData); 
                     }
                 }else{
                     var accuracy = res.entities.datetime[0].accuracy;
                     var chronology = res.entities.datetime[0].chronology;
                     var iso = res.entities.datetime[0].iso;
                     session.userData.giventemps = 1;
-                    console.log(1111)
                     f1_time(session,chronology,accuracy,iso,slug)
                     session.beginDialog('/cross',session.userData);
                 }
 
             }).catch(function(err){
-                session.send("aïe, j'ai bugué là... 😬 🐯");
+                console.log(err);
                 session.endDialog();   
             });
         //with buttons
@@ -132,19 +131,16 @@ module.exports = [
                         session.endDialog(); 
                     }
                 }else{
-                    console.log(res.entities.datetime[0])
                     var accuracy = res.entities.datetime[0].accuracy;
                     var chronology = res.entities.datetime[0].chronology;
                     var iso = res.entities.datetime[0].iso;
                     session.userData.giventemps = 1;
-                    console.log(2222)
                     f2_time(session,chronology,accuracy,iso,slug)
                     session.beginDialog('/cross',session.userData);
                 }
 
             }).catch(function(err){
                 console.log(err)
-                session.send("aïe, j'ai bugué là... 😬 🐯");
                 session.endDialog();     
             }) 
         }

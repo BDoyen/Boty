@@ -84,7 +84,7 @@ module.exports = [
       var post_req = request(session.userData.post_options, function(error,response,body){
         if(!error){
           session.userData.givenadresse = 1;
-          session.send("reçu 5/5" + session.userData.name + "👌")
+          session.send("reçu 5/5 " + session.userData.name + " 👌")
           session.beginDialog("/menu",session.userData);
         }else{
           session.send("aïe j'ai bugué là, mais pas d'inquiétude on peut recommencer...");
