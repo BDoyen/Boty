@@ -73,7 +73,7 @@ var post_options = {
 
 //Facebook
 var FB = require('fb');
-FB.setAccessToken("EAAfV9rKoBcIBAH8B2sVAgJacS8JYlRvDAUctPbysZAK7NJ9s0beZC8Xi1J4b8jyqu4FZBgq9F3mohyT0ebptrseUx3QZBLU74ypcxzpjotG7xv5FZC1zTSHTmoevq794eJbc4r4hVDDCXYWOTRsZA1ojDTno0GZCQZBEZCfmftdCUZBAZDZD");
+FB.setAccessToken("EAAFL0ok0ZCS0BAGADUvzuFBcGKcH9Dcj4YSMRimsUAZBd145iE8sL75r8BvVQCmxzHYMynrVVWAKmYyCVfwZAlgTMDeeGcQsTXOZBZBtIpiI4nXDW47sVoCxrZBcnXMQoFlGkN6fKgYAYVaATb08GfuIAFmDf9ryYKEgc24UqmhwZDZD");
 
 
 //Recast.ai
@@ -118,7 +118,7 @@ bot.dialog("/network", require("./dialogs/network")).
 
 bot.dialog("/feedback", require("./dialogs/feedback"))
     .triggerAction({ 
-        matches:/💌 donner son avis/i 
+        matches:/donner son avis 💌/i 
     });
 
 

@@ -16,7 +16,7 @@ messengerProfileAPI('./fb-persistent-menu.json', 'Persistent Menu');
 function messengerProfileAPI(jsonFile, cmd){
     // Start the request
     request({
-        url: 'https://graph.facebook.com/v2.6/me/messenger_profile?access_token=EAAfV9rKoBcIBAH8B2sVAgJacS8JYlRvDAUctPbysZAK7NJ9s0beZC8Xi1J4b8jyqu4FZBgq9F3mohyT0ebptrseUx3QZBLU74ypcxzpjotG7xv5FZC1zTSHTmoevq794eJbc4r4hVDDCXYWOTRsZA1ojDTno0GZCQZBEZCfmftdCUZBAZDZD',
+        url: 'https://graph.facebook.com/v2.6/me/messenger_profile?access_token=EAAFL0ok0ZCS0BAGADUvzuFBcGKcH9Dcj4YSMRimsUAZBd145iE8sL75r8BvVQCmxzHYMynrVVWAKmYyCVfwZAlgTMDeeGcQsTXOZBZBtIpiI4nXDW47sVoCxrZBcnXMQoFlGkN6fKgYAYVaATb08GfuIAFmDf9ryYKEgc24UqmhwZDZD',
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         form: require(jsonFile)
@@ -39,7 +39,7 @@ function messengerProfileAPI(jsonFile, cmd){
 function facebookThreadAPI(jsonFile, cmd){
     // Start the request
     request({
-        url: 'https://graph.facebook.com/v2.6/me/thread_settings?access_token=EAAfV9rKoBcIBAH8B2sVAgJacS8JYlRvDAUctPbysZAK7NJ9s0beZC8Xi1J4b8jyqu4FZBgq9F3mohyT0ebptrseUx3QZBLU74ypcxzpjotG7xv5FZC1zTSHTmoevq794eJbc4r4hVDDCXYWOTRsZA1ojDTno0GZCQZBEZCfmftdCUZBAZDZD',
+        url: 'https://graph.facebook.com/v2.6/me/thread_settings?access_token=EAAFL0ok0ZCS0BAGADUvzuFBcGKcH9Dcj4YSMRimsUAZBd145iE8sL75r8BvVQCmxzHYMynrVVWAKmYyCVfwZAlgTMDeeGcQsTXOZBZBtIpiI4nXDW47sVoCxrZBcnXMQoFlGkN6fKgYAYVaATb08GfuIAFmDf9ryYKEgc24UqmhwZDZD',
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         form: require(jsonFile)

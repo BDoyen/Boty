@@ -12,7 +12,7 @@ var request = require('request');
 
 //Facebook
 var FB = require('fb');
-FB.setAccessToken("EAAfV9rKoBcIBAH8B2sVAgJacS8JYlRvDAUctPbysZAK7NJ9s0beZC8Xi1J4b8jyqu4FZBgq9F3mohyT0ebptrseUx3QZBLU74ypcxzpjotG7xv5FZC1zTSHTmoevq794eJbc4r4hVDDCXYWOTRsZA1ojDTno0GZCQZBEZCfmftdCUZBAZDZD");
+FB.setAccessToken("EAAFL0ok0ZCS0BAGADUvzuFBcGKcH9Dcj4YSMRimsUAZBd145iE8sL75r8BvVQCmxzHYMynrVVWAKmYyCVfwZAlgTMDeeGcQsTXOZBZBtIpiI4nXDW47sVoCxrZBcnXMQoFlGkN6fKgYAYVaATb08GfuIAFmDf9ryYKEgc24UqmhwZDZD");
 
 
 //Recast.ai
@@ -56,10 +56,6 @@ module.exports = [
     function(session,results){
 
         //éléments pour requête 
-        console.log(session.userData.timemin)
-        console.log(session.userData.address)
-        console.log(session.userData.level)
-        console.log(session.userData.category)
 
         //LeChaboté
         session.userData.post_options = {
@@ -174,9 +170,7 @@ module.exports = [
                         var res0 = res[0]
                         var res1 = res[1]
                         var res2 = res[2]
-                        console.log(res0)
                         session.userData.title0 = res0.Title
-                        console.log(session.userData.title0)
                         session.userData.title1 = res1.Title
                         session.userData.title2 = res2.Title
                         session.userData.id0 = res0.Id
@@ -185,8 +179,6 @@ module.exports = [
                         session.userData.Time0 = res0.Time
                         session.userData.Time1 = res1.Time
                         session.userData.Time2 = res2.Time
-
-                        console.log( session.userData.Time2)
 
                         session.userData.rest = res.slice(3,n)
 
@@ -291,8 +283,6 @@ module.exports = [
                     ]);
 
                     var time = session.userData.Time0
-
-                    console.log(time.toString())
 
                     var data = JSON.stringify([{Event:session.userData.id0,User:session.userData.idstring,Times:time.toString()}]);
 

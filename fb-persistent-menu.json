@@ -4,40 +4,40 @@
   "composer_input_disabled":false,
   "call_to_actions":[
     {
-      "title":"🏃🐆 aller courir...",
+      "title":"aller courir 🏃🐆 ",
       "type":"nested",
           "call_to_actions":[
             {
-              "title":"🎽 une course",
+              "title":"une course 🎽",
               "type":"postback",
-              "payload":"🎽 une course"
+              "payload":"une course 🎽"
             },
             {
-              "title":"👟 avec une communauté",
+              "title":"avec une communauté 👟",
               "type":"postback",
-              "payload":"👟 avec une communauté"
+              "payload":"avec une communauté 👟"
             }
           ]
     },
     {
-      "title":"📍 changer d'adresse",
+      "title":"changer d'adresse 📍",
       "type":"postback",
-      "payload":"📍 changer d'adresse"
+      "payload":"changer d'adresse 📍"
     },
     {
       "type":"postback",
-      "title":"🔧 options",
+      "title":"options 🔧",
       "type":"nested",
         "call_to_actions":[
           {
-            "title":"💌 donner son avis",
+            "title":"donner son avis 💌",
             "type":"postback",
-            "payload":"💌 donner son avis"
+            "payload":"💌 donner son avis 💌"
           },
           {
-            "title":"🔄 recommencer",
+            "title":"recommencer 🔄",
             "type":"postback",
-            "payload":"🔄 recommencer"
+            "payload":"recommencer 🔄"
           }
         ]
     }

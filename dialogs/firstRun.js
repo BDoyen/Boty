@@ -4,24 +4,15 @@ var builder = require("botbuilder");
 var restify = require('restify'); // pour le serveur
 var sentiment = require('sentiment-multilang'); //sentiment analysis
 var math = require('mathjs'); //math module
-var sentiment = require('sentiment-multilang');
 var request = require('request');
 
 
 //APIs//
 
-//LeChaboté
-var post_options = {
-      host: '217.182.206.5',
-      port: '8000',
-      path: '/user',
-      method: 'POST'
-};
-
 
 //Facebook
 var FB = require('fb');
-FB.setAccessToken("EAAfV9rKoBcIBAH8B2sVAgJacS8JYlRvDAUctPbysZAK7NJ9s0beZC8Xi1J4b8jyqu4FZBgq9F3mohyT0ebptrseUx3QZBLU74ypcxzpjotG7xv5FZC1zTSHTmoevq794eJbc4r4hVDDCXYWOTRsZA1ojDTno0GZCQZBEZCfmftdCUZBAZDZD");
+FB.setAccessToken("EAAFL0ok0ZCS0BAGADUvzuFBcGKcH9Dcj4YSMRimsUAZBd145iE8sL75r8BvVQCmxzHYMynrVVWAKmYyCVfwZAlgTMDeeGcQsTXOZBZBtIpiI4nXDW47sVoCxrZBcnXMQoFlGkN6fKgYAYVaATb08GfuIAFmDf9ryYKEgc24UqmhwZDZD");
 
 
 //Recast.ai
@@ -78,15 +69,19 @@ module.exports = [
     var post_req = request(session.userData.post_options, function(error,response,body){
         if(error){
             console.log(error);
-            session.send("Je rencontre un petit souci actuellement, les équipes techniques sont déjà dessus... Tu seras recontacté quand tout sera normal ;) 🐅");
         }else{}
     });
+
 
 
     //Facebook API request
     FB.api('/'+session.userData.idstring+'?fields=first_name', function(response) {
         session.userData.name = response.first_name;
-        session.send("Salut " + session.userData.name);
+        if(!session.userData.name){
+            session.send("Salut !")
+        }else{
+            session.send("Salut " + session.userData.name + " !"); 
+        }
         session.send("Moi c'est Rungly " + "🐆" + " et je suis là pour t'aider à trouver les meilleures sorties et bons plans running autour de toi 🌴🏢");
         builder.Prompts.choice(session,"On est partis ?",["Oui !","Pas encore..."],{maxRetries:0});
         session.userData.givenadresse = 0;
