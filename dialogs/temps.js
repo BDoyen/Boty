@@ -65,7 +65,7 @@ var f2_time = funcs_time.f2_time
 module.exports = [
 
     function(session){
-        builder.Prompts.choice(session,"Quand est-ce que tu veux aller courir ?",["cette semaine","la semaine prochaine","ce mois"],{maxRetries:0})
+        builder.Prompts.choice(session,"Quand est-ce que tu veux aller courir ? 🕑",["cette semaine","la semaine prochaine","ce mois"],{maxRetries:0})
     },
     function(session,results){
         session.userData.tokentime = 'fdf3c62ee815158983106d5f5189af81' //rungly-time

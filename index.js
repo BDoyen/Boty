@@ -101,7 +101,7 @@ bot.dialog("/botlesmoi", require("./dialogs/botlesmoi"));
 bot.dialog("/contact_phatique", require("./dialogs/contact_phatique"));
 
 
-bot.dialog("/network", require("./dialogs/network")).
+bot.dialog("/jobrun", require("./dialogs/network")).
     triggerAction({ 
         matches: /Je recherche un stage,alternance... 🏃👔/i 
     });
@@ -152,7 +152,7 @@ bot.dialog("/run", require("./dialogs/run")).
 
 bot.dialog("/astuce", require("./dialogs/astuce"))
     .triggerAction({ 
-        matches: /💡 Une astuce running/i 
+        matches: /des astuces 💡/i 
     });
 
 

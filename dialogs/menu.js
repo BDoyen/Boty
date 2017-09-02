@@ -90,10 +90,7 @@ module.exports = [
                 session.beginDialog('/cross',session.userData);
                 break;
             case 2:
-                session.beginDialog('/jobrun',session.userData);
-            case 3: 
                 session.beginDialog('/botlesmoi',session.userData);
-                break;
             }
         }
     }

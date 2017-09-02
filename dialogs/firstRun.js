@@ -97,7 +97,7 @@ module.exports = [
                 .attachments([
                     new builder.HeroCard(session)
                         .title("Trouver une course")
-                        .subtitle("Et profiter des meilleurs bons plans du moment")
+                        .subtitle("Et profiter des meilleures sorties du moment")
                         .images([
                             builder.CardImage.create(session, "https://image.ibb.co/c4oRsF/Capture_d_e_cran_2017_08_12_a_17_15_54.png")
                         ])
@@ -108,7 +108,7 @@ module.exports = [
                         ]),
                     new builder.HeroCard(session)
                         .title("Trouver une communauté")
-                        .subtitle("Pour rencontrer de nouveaux runners comme toi")
+                        .subtitle("Pour rencontrer de nouveaux runners ")
                         .images([
                             builder.CardImage.create(session, "https://image.ibb.co/kcWeCF/Capture_d_e_cran_2017_08_12_a_17_17_14.png")
                         ])
