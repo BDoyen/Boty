@@ -101,7 +101,7 @@ bot.dialog("/botlesmoi", require("./dialogs/botlesmoi"));
 bot.dialog("/contact_phatique", require("./dialogs/contact_phatique"));
 
 
-bot.dialog("/jobrun", require("./dialogs/network")).
+bot.dialog("/jobrun", require("./dialogs/jobrun")).
     triggerAction({ 
         matches: /Je recherche un stage,alternance... 🏃👔/i 
     });
