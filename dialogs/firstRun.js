@@ -9,6 +9,11 @@ var request = require('request');
 
 //APIs//
 
+//Facebook
+var FB = require('fb');
+FB.setAccessToken("EAAFL0ok0ZCS0BAPjCnmZABVSBLDXvOyJPSFlXuyMWemyjPqapFqZCRqfX0srzsYQFVJveLHZATyKXoLpNIduekW0nbnKPyRpWKid4jk7l1RbGF6QEDiD7K3qC0D1EsuTsayrtsogMCjZA3zPMGMufjlA63RSoMwWXpd3l0WaZAMgZDZD");
+
+
 //Recast.ai
 var recastai = require('recastai').default
 
