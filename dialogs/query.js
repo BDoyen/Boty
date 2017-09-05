@@ -9,12 +9,6 @@ var math = require('mathjs'); //math module
 var request = require('request');
 
 
-
-//Facebook
-var FB = require('fb');
-FB.setAccessToken("EAAFL0ok0ZCS0BAGADUvzuFBcGKcH9Dcj4YSMRimsUAZBd145iE8sL75r8BvVQCmxzHYMynrVVWAKmYyCVfwZAlgTMDeeGcQsTXOZBZBtIpiI4nXDW47sVoCxrZBcnXMQoFlGkN6fKgYAYVaATb08GfuIAFmDf9ryYKEgc24UqmhwZDZD");
-
-
 //Recast.ai
 var recastai = require('recastai').default
 
@@ -270,17 +264,8 @@ module.exports = [
             var item
             switch (results.response.index){
                 case 0:
-                    var item = session.userData.title0;
-                    session.send("Bon choix " + session.userData.name + ", tu t'es pré-inscrit à " + item);
-                    session.send("Je t'enverrai un petit rappel 24h avant 😉");
-                    var gif = gifsArray[math.round(math.random()*(G+1))];
-                    var msg = new builder.Message(session)
-                        .attachments([
-                            new builder.AnimationCard(session)
-                                .media([
-                                    {url: gif}
-                                ])
-                    ]);
+
+                    
 
                     var time = session.userData.Time0
 
@@ -296,8 +281,27 @@ module.exports = [
                         if(error){
                             console.log(error);
                             session.send(";) 🐅");
-                            }else{}
+                            }else{
+
+
+
+
+
+
+
+                                session.send("Bon choix " + session.userData.name + ", tu t'es pré-inscrit à " + session.userData.title0;);
+                    session.send("Je t'enverrai un petit rappel 24h avant 😉");
+                    var gif = gifsArray[math.round(math.random()*(G+1))];
+                    var msg = new builder.Message(session)
+                        .attachments([
+                            new builder.AnimationCard(session)
+                                .media([
+                                    {url: gif}
+                                ])
+                    ]);
+                            }
                     });
+
 
                     session.endDialog(msg);
                     break;

@@ -8,13 +8,6 @@ var math = require('mathjs'); //math module
 //APIs//
 
 
-
-//Facebook
-var FB = require('fb');
-FB.setAccessToken("EAAFL0ok0ZCS0BAGADUvzuFBcGKcH9Dcj4YSMRimsUAZBd145iE8sL75r8BvVQCmxzHYMynrVVWAKmYyCVfwZAlgTMDeeGcQsTXOZBZBtIpiI4nXDW47sVoCxrZBcnXMQoFlGkN6fKgYAYVaATb08GfuIAFmDf9ryYKEgc24UqmhwZDZD");
-
-
-
 //Recast.ai
 var recastai = require('recastai').default
 

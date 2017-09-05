@@ -65,7 +65,7 @@ var week = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"]
 
 //Facebook
 var FB = require('fb');
-FB.setAccessToken("EAAFL0ok0ZCS0BAGADUvzuFBcGKcH9Dcj4YSMRimsUAZBd145iE8sL75r8BvVQCmxzHYMynrVVWAKmYyCVfwZAlgTMDeeGcQsTXOZBZBtIpiI4nXDW47sVoCxrZBcnXMQoFlGkN6fKgYAYVaATb08GfuIAFmDf9ryYKEgc24UqmhwZDZD");
+FB.setAccessToken("EAAFL0ok0ZCS0BAPjCnmZABVSBLDXvOyJPSFlXuyMWemyjPqapFqZCRqfX0srzsYQFVJveLHZATyKXoLpNIduekW0nbnKPyRpWKid4jk7l1RbGF6QEDiD7K3qC0D1EsuTsayrtsogMCjZA3zPMGMufjlA63RSoMwWXpd3l0WaZAMgZDZD");
 
 
 //Recast.ai
@@ -95,7 +95,10 @@ bot.dialog("/query", require("./dialogs/query"));
 bot.dialog("/query_bis", require("./dialogs/query_bis"));
 
 
-bot.dialog("/botlesmoi", require("./dialogs/botlesmoi"));
+bot.dialog("/botlesmoi", require("./dialogs/botlesmoi"))
+    .triggerAction({ 
+        matches: /des astuces 💡/i 
+    });
 
 
 bot.dialog("/contact_phatique", require("./dialogs/contact_phatique"));
@@ -144,16 +147,12 @@ bot.dialog("/adresse", require("./dialogs/adresse"));
 bot.dialog("/adresse_bis", require("./dialogs/adresse_bis"));
 
 
+
 bot.dialog("/run", require("./dialogs/run")).
     triggerAction({ 
         matches: /Je recherche une course... 🏃/i 
     });
 
-
-bot.dialog("/astuce", require("./dialogs/astuce"))
-    .triggerAction({ 
-        matches: /des astuces 💡/i 
-    });
 
 
 bot.dialog("/which-run", require("./dialogs/which-run"));
