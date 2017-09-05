@@ -3,26 +3,11 @@ var builder = require("botbuilder");
 var restify = require('restify'); // pour le serveur
 var sentiment = require('sentiment-multilang'); //sentiment analysis
 var math = require('mathjs'); //math module
-var sentiment = require('sentiment-multilang');
 var funcs_time = require('./funcs/funcs_time.js')
 
 
 
 //APIs//
-
-//LeChaboté
-var post_options = {
-      host: '217.182.206.5',
-      port: '9000',
-      path: '/All',
-      method: 'POST'
-};
-
-
-//Facebook
-var FB = require('fb');
-FB.setAccessToken("EAAFL0ok0ZCS0BAGADUvzuFBcGKcH9Dcj4YSMRimsUAZBd145iE8sL75r8BvVQCmxzHYMynrVVWAKmYyCVfwZAlgTMDeeGcQsTXOZBZBtIpiI4nXDW47sVoCxrZBcnXMQoFlGkN6fKgYAYVaATb08GfuIAFmDf9ryYKEgc24UqmhwZDZD");
-
 
 
 //Recast.ai
