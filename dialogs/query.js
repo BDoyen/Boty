@@ -56,7 +56,7 @@ module.exports = [
 
         var dt = session.userData.timemin
 
-        var data = JSON.stringify([{Times:dt.toString(),Addr:session.userData.address,Cat:session.userData.category,Lvl:session.userData.level}]);
+        var data = JSON.stringify([{User:session.userData.idstring,Times:dt.toString(),Addr:session.userData.address,Cat:session.userData.category,Lvl:session.userData.level}]);
 
         session.userData.post_options.form = data;
 
