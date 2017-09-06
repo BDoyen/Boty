@@ -70,7 +70,7 @@ module.exports = [
                                     ])
                                     .buttons([
                                         builder.CardAction.openUrl(session,res0.Url)
-                                            .title("Inscription 🎫"),
+                                            .title("S'inscrire en ligne 🎫"),
                                         builder.CardAction.imBack(session, "je me pré-inscris à "+ res0.Title)
                                             .title("Ça m'intéresse 😍")
                                     ]),
@@ -108,7 +108,7 @@ module.exports = [
                                     ])
                                     .buttons([
                                         builder.CardAction.openUrl(session,res0.Url)
-                                            .title("Inscription 🎫"),
+                                            .title("S'inscrire en ligne 🎫"),
                                         builder.CardAction.imBack(session, "je me pré-inscris à "+ res0.Title)
                                              .title("Ça m'intéresse 😍")
                                     ]),
@@ -120,7 +120,7 @@ module.exports = [
                                     ])
                                     .buttons([
                                         builder.CardAction.openUrl(session,res1.Url)
-                                            .title("Inscription 🎫"),
+                                            .title("S'inscrire en ligne 🎫"),
                                         builder.CardAction.imBack(session, "je me pré-inscris à "+ res1.Title)
                                             .title("Ça m'intéresse 😍")
                                     ]),
@@ -166,7 +166,7 @@ module.exports = [
                                             ])
                                             .buttons([
                                                 builder.CardAction.openUrl(session,res0.Url)
-                                                    .title("Inscription 🎫"),
+                                                    .title("S'inscrire en ligne 🎫"),
                                                 builder.CardAction.imBack(session, "je me pré-inscris à "+ res0.Title)
                                                     .title("Ça m'intéresse 😍")
                                             ]),        
@@ -178,7 +178,7 @@ module.exports = [
                                             ])
                                             .buttons([
                                                 builder.CardAction.openUrl(session,res1.Url)
-                                                    .title("Inscription 🎫"),
+                                                    .title("S'inscrire en ligne 🎫"),
                                                 builder.CardAction.imBack(session, "je me pré-inscris à "+ res1.Title)
                                                     .title("Ça m'intéresse 😍")
                                             ]),       
@@ -190,7 +190,7 @@ module.exports = [
                                             ])
                                             .buttons([
                                                 builder.CardAction.openUrl(session,res2.Url)
-                                                    .title("Inscription 🎫"),
+                                                    .title("S'inscrire en ligne 🎫"),
                                                 builder.CardAction.imBack(session, "je me pré-inscris à "+ res2.Title)
                                                     .title("Ça m'intéresse 😍")
                                             ]),

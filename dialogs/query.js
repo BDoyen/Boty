@@ -1,13 +1,10 @@
 
-
 var builder = require("botbuilder");
 var restify = require('restify'); // pour le serveur
 var sentiment = require('sentiment-multilang'); //sentiment analysis
 var math = require('mathjs'); //math module
 
-
 var request = require('request');
-
 
 //Recast.ai
 var recastai = require('recastai').default
@@ -93,7 +90,7 @@ module.exports = [
                                     ])
                                     .buttons([
                                         builder.CardAction.openUrl(session,res0.Url)
-                                            .title("Inscription 🎫"),
+                                            .title("S'inscrire en ligne 🎫"),
                                         builder.CardAction.imBack(session, "je me pré-inscris à "+ res0.Title)
                                             .title("Ça m'intéresse 😍")
                                     ]),
@@ -131,7 +128,7 @@ module.exports = [
                                     ])
                                     .buttons([
                                         builder.CardAction.openUrl(session,res0.Url)
-                                            .title("Inscription 🎫"),
+                                            .title("S'inscrire en ligne 🎫"),
                                         builder.CardAction.imBack(session, "je me pré-inscris à "+ res0.Title)
                                              .title("Ça m'intéresse 😍")
                                     ]),
@@ -143,7 +140,7 @@ module.exports = [
                                     ])
                                     .buttons([
                                         builder.CardAction.openUrl(session,res1.Url)
-                                            .title("Inscription 🎫"),
+                                            .title("S'inscrire en ligne 🎫"),
                                         builder.CardAction.imBack(session, "je me pré-inscris à "+ res1.Title)
                                             .title("Ça m'intéresse 😍")
                                     ]),
@@ -187,7 +184,7 @@ module.exports = [
                                             ])
                                             .buttons([
                                                 builder.CardAction.openUrl(session,res0.Url)
-                                                    .title("Inscription 🎫"),
+                                                    .title("S'inscrire en ligne 🎫"),
                                                 builder.CardAction.imBack(session, "je me pré-inscris à "+ res0.Title)
                                                     .title("Ça m'intéresse 😍")
                                             ]),        
@@ -199,7 +196,7 @@ module.exports = [
                                             ])
                                             .buttons([
                                                 builder.CardAction.openUrl(session,res1.Url)
-                                                    .title("Inscription 🎫"),
+                                                    .title("S'inscrire en ligne 🎫"),
                                                 builder.CardAction.imBack(session, "je me pré-inscris à "+ res1.Title)
                                                     .title("Ça m'intéresse 😍")
                                             ]),       
@@ -211,7 +208,7 @@ module.exports = [
                                             ])
                                             .buttons([
                                                 builder.CardAction.openUrl(session,res2.Url)
-                                                    .title("Inscription 🎫"),
+                                                    .title("S'inscrire en ligne 🎫"),
                                                 builder.CardAction.imBack(session, "je me pré-inscris à "+ res2.Title)
                                                     .title("Ça m'intéresse 😍")
                                             ]),
@@ -234,7 +231,7 @@ module.exports = [
                             ]);       
 
                         session.userData.giventemps = 0;
-                        builder.Prompts.choice(session,msg,["je me pré-inscris à l'évènement "+ res0.Title,"je me pré-inscris à l'évènement "+ res1.Title,"je me pré-inscris à l'évènement "+ res2.Title,"plus d'évènements","C'est bon merci :)"],{maxRetries:0});       
+                        builder.Prompts.choice(session,msg,["je me pré-inscris à "+ res0.Title,"je me pré-inscris à "+ res1.Title,"je me pré-inscris à "+ res2.Title,"plus d'évènements","C'est bon merci :)"],{maxRetries:0});       
                     }
                 }
             }else{
@@ -244,138 +241,17 @@ module.exports = [
                 session.beginDialog('/menu',session.userData);
             }       
         })
-
-
     },
     function(session, results){
         if(!results.response){
-            var sent = sentiment(session.message.text,'fr');
-            var valence = sent.score;
-            if(valence < 0){
-                session.send("Si un des évènements t'intéresse, tu peux cliquer sur 'Ça m'intéresse' pour te pré-inscrire")
-            }else if(valence >= 0){
-                session.send("Ok ! si un des évènements t'intéresse, cliquer sur 'Ça m'intéresse' pour te pré-inscrire ;)")
-            }else{}
-            session.endDialogWithResult({
-            response: null,
-            resumed: builder.ResumeReason.completed
-            });
+            session.beginDialog("/menu",session.userData);
         }else{
-            var item
-            switch (results.response.index){
-                case 0:
-
-                    session.send("Bon choix " + session.userData.name + ", tu t'es pré-inscrit à " + session.userData.title0);
-                    session.send("Je t'enverrai un petit rappel 24h avant 😉");
-                    var gif = gifsArray[math.round(math.random()*(G+1))];
-                    var msg = new builder.Message(session)
-                        .attachments([
-                            new builder.AnimationCard(session)
-                                .media([
-                                    {url: gif}
-                                ])
-                    ]);
-
-                    var time = session.userData.Time0
-                    var data = JSON.stringify([{Event:session.userData.id0,User:session.userData.idstring,Times:time.toString()}]);
-
-                    session.userData.post_options = {
-                        url: "http://217.182.206.5:8000/push/inscription",
-                        method: 'POST',
-                        form:data
-                    };
-
-                    var post_req = request(session.userData.post_options, function(error,response,body){
-                        if(error){
-                            console.log(error);
-                            session.send(";) 🐅");
-                            }else{}
-                    });
-
-
-                    session.endDialog(msg);
-                    break;
-                case 1:
-                    if(session.userData.reslength != 1){
-                        var item = session.userData.title1;
-                        session.send("Bon choix " + session.userData.name + ", tu t'es pré-inscrit à " + item);
-                        session.send("Je t'enverrai un petit rappel 24h avant 😉");
-                        var gif = gifsArray[math.round(math.random()*(G+1))];
-                        var msg = new builder.Message(session)
-                            .attachments([
-                                new builder.AnimationCard(session)
-                                    .media([
-                                        {url: gif}
-                                    ])
-                        ]);
-
-                        var time = session.userData.Time1
-
-                        var data = JSON.stringify([{Event:session.userData.id1,User:session.userData.idstring,Times:time.toString()}]);
-
-                        session.userData.post_options = {
-                            url: "http://217.182.206.5:8000/push/inscription",
-                            method: 'POST',
-                            form:data
-                        };
-
-                        var post_req = request(session.userData.post_options, function(error,response,body){
-                            if(error){
-                                console.log(error);
-                                session.send(";) 🐅");
-                                }else{}
-                        });
-
-                        session.endDialog(msg);
-                        break;
-                    }else{
-                        session.beginDialog('/catch',session.userData);
-                        break;
-                    }
-                case 2:
-                    if(session.userData.reslength != 2){
-                        var item = session.userData.title2;
-                        session.send("Bon choix " + session.userData.name + ", tu t'es pré-inscrit à " + item);
-                        session.send("Je t'enverrai un petit rappel 24h avant 😉");
-                        var gif = gifsArray[math.round(math.random()*(G+1))];
-                        var msg = new builder.Message(session)
-                            .attachments([
-                                new builder.AnimationCard(session)
-                                    .media([
-                                        {url: gif}
-                                    ])
-                        ]);
-
-                        var time = session.userData.Time2
-
-                        var data = JSON.stringify([{Event:session.userData.id2,User:session.userData.idstring,Times:time.toString()}]);
-
-                        session.userData.post_options = {
-                            url: "http://217.182.206.5:8000/push/inscription",
-                            method: 'POST',
-                            form:data
-                        };
-
-                        var post_req = request(session.userData.post_options, function(error,response,body){
-                            if(error){
-                                console.log(error);
-                                session.send(";) 🐅");
-                                }else{}
-                        });
-
-                        session.endDialog(msg);
-                        break;
-                    }else{
-                        session.beginDialog('/catch',session.userData);
-                        break;
-                    }
-                case 3:
-                    session.beginDialog('/query_bis',session.userData);
-                    break;
-                case 4:
-                    session.beginDialog('/catch',session.userData);
-                    break;
-            }
+            session.userData.index = results.response.index;
+            session.beginDialog("/confirm",session.userData);
         }
-    }    
+            
+            
+    }
+        
+
 ];

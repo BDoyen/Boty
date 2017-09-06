@@ -65,7 +65,7 @@ var week = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"]
 
 //Facebook
 var FB = require('fb');
-FB.setAccessToken("EAAFL0ok0ZCS0BAPjCnmZABVSBLDXvOyJPSFlXuyMWemyjPqapFqZCRqfX0srzsYQFVJveLHZATyKXoLpNIduekW0nbnKPyRpWKid4jk7l1RbGF6QEDiD7K3qC0D1EsuTsayrtsogMCjZA3zPMGMufjlA63RSoMwWXpd3l0WaZAMgZDZD");
+FB.setAccessToken("EAAFL0ok0ZCS0BAJbt8taLARWPEZAnYTBFGyZA5k5hCtWfZBPGFhOfgVnky8BXpgh6XPZAodJndVhZB494W6vxwqTM6VYvNmls9L7anXO1T7KbxxiPHv3dq2N59ABAtS8FZCuAZAKnkRZA2XaqV2SGXToL0HwMr64UaeuV4kMO3rZAmhAZDZD");
 
 
 //Recast.ai
@@ -154,8 +154,10 @@ bot.dialog("/run", require("./dialogs/run")).
     });
 
 
-
 bot.dialog("/which-run", require("./dialogs/which-run"));
+
+
+bot.dialog("/confirm", require("./dialogs/confirm"));
 
 
 

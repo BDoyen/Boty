@@ -37,6 +37,7 @@ var time = ["en matinée","dans l'après-midi","le soir venu"]
 var week = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"]
 
 
+
 //////////////////////functions//////////////////////
 
 
@@ -44,11 +45,10 @@ var week = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"]
 module.exports = [
 
     function(session){
-        session.send("Ok... À bientôt j'espère") ;
-        builder.Prompts.choice(session,":)","😍 👟",{maxRetries:0});
-    },
-    function(session,results){
-        session.beginDialog("/salut",session.userData);
+        session.send("Ok... À bientôt j'espère 😍 👟");
+        session.beginDialog("/",session.userData);
     }
     
 ];
+
+
