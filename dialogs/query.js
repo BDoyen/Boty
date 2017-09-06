@@ -265,10 +265,18 @@ module.exports = [
             switch (results.response.index){
                 case 0:
 
-                    
+                    session.send("Bon choix " + session.userData.name + ", tu t'es pré-inscrit à " + session.userData.title0);
+                    session.send("Je t'enverrai un petit rappel 24h avant 😉");
+                    var gif = gifsArray[math.round(math.random()*(G+1))];
+                    var msg = new builder.Message(session)
+                        .attachments([
+                            new builder.AnimationCard(session)
+                                .media([
+                                    {url: gif}
+                                ])
+                    ]);
 
                     var time = session.userData.Time0
-
                     var data = JSON.stringify([{Event:session.userData.id0,User:session.userData.idstring,Times:time.toString()}]);
 
                     session.userData.post_options = {
@@ -281,25 +289,7 @@ module.exports = [
                         if(error){
                             console.log(error);
                             session.send(";) 🐅");
-                            }else{
-
-
-
-
-
-
-
-                                session.send("Bon choix " + session.userData.name + ", tu t'es pré-inscrit à " + session.userData.title0;);
-                    session.send("Je t'enverrai un petit rappel 24h avant 😉");
-                    var gif = gifsArray[math.round(math.random()*(G+1))];
-                    var msg = new builder.Message(session)
-                        .attachments([
-                            new builder.AnimationCard(session)
-                                .media([
-                                    {url: gif}
-                                ])
-                    ]);
-                            }
+                            }else{}
                     });
 
 
