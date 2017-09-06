@@ -97,7 +97,7 @@ bot.dialog("/query_bis", require("./dialogs/query_bis"));
 
 bot.dialog("/botlesmoi", require("./dialogs/botlesmoi"))
     .triggerAction({ 
-        matches: /des astuces 💡/i 
+        matches: /Une astuce 💡/i 
     });
 
 
@@ -106,7 +106,7 @@ bot.dialog("/contact_phatique", require("./dialogs/contact_phatique"));
 
 bot.dialog("/jobrun", require("./dialogs/jobrun")).
     triggerAction({ 
-        matches: /Je recherche un stage,alternance... 🏃👔/i 
+        matches: /JobRun 🏃👔/i 
     });
 
 
@@ -131,7 +131,7 @@ bot.dialog("/contact_createur", require("./dialogs/contact_createur"));
 
 bot.dialog("/meet", require("./dialogs/meet"))
     .triggerAction({ 
-        matches: /Je recherche une communauté de runners... 🏃‍👥/i 
+        matches: /avec une communauté 👟/i 
     });
 
 
@@ -150,11 +150,12 @@ bot.dialog("/adresse_bis", require("./dialogs/adresse_bis"));
 
 bot.dialog("/run", require("./dialogs/run")).
     triggerAction({ 
-        matches: /Je recherche une course... 🏃/i 
+        matches: /une course 🎽/i 
     });
 
 
 bot.dialog("/which-run", require("./dialogs/which-run"));
+
 
 
 bot.dialog("/confirm", require("./dialogs/confirm"));

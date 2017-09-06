@@ -102,7 +102,7 @@ module.exports = [
                         ])
                         .buttons([
                             builder.CardAction
-                                .imBack(session,"Je recherche une course... 🏃")
+                                .imBack(session,"une course 🎽")
                                 .title("courir 🏃")
                         ]),
                     new builder.HeroCard(session)
@@ -113,7 +113,7 @@ module.exports = [
                         ])
                         .buttons([
                             builder.CardAction
-                                .imBack(session,"Je recherche une communauté de runners... 🏃‍👥")
+                                .imBack(session,"avec une communauté 👟")
                                 .title("communauté 👥")
                         ]),
                     new builder.HeroCard(session)
@@ -124,7 +124,7 @@ module.exports = [
                         ])
                         .buttons([
                             builder.CardAction
-                                .imBack(session,"Je recherche un stage,alternance... 🏃👔")
+                                .imBack(session,"JobRun 🏃👔")
                                 .title("JobRun 🏃👔")
                         ]),
                         new builder.HeroCard(session)
@@ -135,7 +135,7 @@ module.exports = [
                         ])
                         .buttons([
                             builder.CardAction
-                                .imBack(session,"Une astûce...💡")
+                                .imBack(session,"Une astuce 💡")
                                 .title("Une astuce 💡")
                         ])
                 ]);
