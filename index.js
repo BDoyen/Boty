@@ -241,6 +241,9 @@ bot.use(builder.Middleware.firstRun({ version: 1.0, dialogId: '*:/firstRun' }));
 bot.use(builder.Middleware.sendTyping());
 
 
+// Anytime the major version is incremented any existing conversations will be restarted.
+bot.use(builder.Middleware.dialogVersion({ version: 1.0, resetCommand: /^resetrungly/i }));
+
 
 
 
