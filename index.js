@@ -110,14 +110,16 @@ bot.dialog("/jobrun", require("./dialogs/jobrun")).
     });
 
 
-
 bot.dialog("/feedback", require("./dialogs/feedback"))
     .triggerAction({ 
         matches:/donner son avis 💌/i 
     });
 
 
-bot.dialog("/catch", require("./dialogs/catch"));
+bot.dialog("/catch", require("./dialogs/catch"))
+ .triggerAction({ 
+        matches:/🔄 recommencer/i 
+    });
 
 
 bot.dialog("/merci", require("./dialogs/merci"));
@@ -144,8 +146,10 @@ bot.dialog("/insult", require("./dialogs/insult"));
 bot.dialog("/adresse", require("./dialogs/adresse"));
 
 
-bot.dialog("/adresse_bis", require("./dialogs/adresse_bis"));
-
+bot.dialog("/adresse_bis", require("./dialogs/adresse_bis")).
+    triggerAction({ 
+        matches: /changer d'adresse 📍/i 
+    });
 
 
 bot.dialog("/run", require("./dialogs/run")).
@@ -155,7 +159,6 @@ bot.dialog("/run", require("./dialogs/run")).
 
 
 bot.dialog("/which-run", require("./dialogs/which-run"));
-
 
 
 bot.dialog("/confirm", require("./dialogs/confirm"));
@@ -238,8 +241,8 @@ bot.use(builder.Middleware.firstRun({ version: 1.0, dialogId: '*:/firstRun' }));
 bot.use(builder.Middleware.sendTyping());
 
 
-//goodbye command
-bot.endConversationAction('goodbye', "Au revoir 👋", { matches: /🔄 recommencer/i });
+
+
 
 
 
