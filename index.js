@@ -31,10 +31,7 @@ var bot = new builder.UniversalBot(connector);
 //server listening
 server.post('/api/messages', connector.listen());
 
-
-
 //resources from other scripts
-
 
 //Tips
 var getTip = require('./get/getTip');
@@ -117,8 +114,8 @@ bot.dialog("/feedback", require("./dialogs/feedback"))
 
 
 bot.dialog("/catch", require("./dialogs/catch"))
- .triggerAction({ 
-        matches:/🔄 recommencer/i 
+    .triggerAction({ 
+        matches:/recommencer 🔄/i 
     });
 
 
@@ -162,8 +159,6 @@ bot.dialog("/which-run", require("./dialogs/which-run"));
 
 
 bot.dialog("/confirm", require("./dialogs/confirm"));
-
-
 
 
 bot.dialog("/",
@@ -230,14 +225,13 @@ bot.dialog("/",
 });
 
 
-
 //general commands
 
 //first dialog redirection
 bot.use(builder.Middleware.firstRun({ version: 1.0, dialogId: '*:/firstRun' }));
 
 
-//piece of middleware for send Typing
+//piece of middleware for send Typing action
 bot.use(builder.Middleware.sendTyping());
 
 
