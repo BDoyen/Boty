@@ -253,7 +253,7 @@ module.exports = [
                     var data = JSON.stringify([{Event:session.userData.id0,User:session.userData.idstring,Times:session.userData.Time0}]);
 
                     session.userData.post_options = {
-                        url: "http://217.182.206.5:8000/push/inscription",
+                        url: "http://217.182.206.5:9320/push/inscription",
                         method: 'POST',
                         form:data
                     };
@@ -284,7 +284,7 @@ module.exports = [
                         var data = JSON.stringify([{Event:session.userData.id1,User:session.userData.idstring,Times:session.userData.Time1}]);
 
                         session.userData.post_options = {
-                            url: "http://217.182.206.5:8000/push/inscription",
+                            url: "http://217.182.206.5:9320/push/inscription",
                             method: 'POST',
                             form:data
                         };
@@ -319,7 +319,7 @@ module.exports = [
                         var data = JSON.stringify([{Event:session.userData.id2,User:session.userData.idstring,Times:session.userData.Time2}]);
 
                         session.userData.post_options = {
-                            url: "http://217.182.206.5:8000/push/inscription",
+                            url: "http://217.182.206.5:9320/push/inscription",
                             method: 'POST',
                             form:data
                         };
