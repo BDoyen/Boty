@@ -34,7 +34,7 @@ function(session){
                     var data = JSON.stringify([{Event:session.userData.id0,User:session.userData.idstring,Times:time.toString()}]);
 
                     session.userData.post_options = {
-                        url: "http://217.182.206.5:9320/push/inscription",
+                        url: "http://gopiko.cloudapp.net:8080/push/inscription",
                         method: 'POST',
                         form:data
                     };
@@ -66,7 +66,7 @@ function(session){
                         var data = JSON.stringify([{Event:session.userData.id1,User:session.userData.idstring,Times:time.toString()}]);
 
                         session.userData.post_options = {
-                            url: "http://217.182.206.5:9320/push/inscription",
+                            url: "http://gopiko.cloudapp.net:8080/push/inscription",
                             method: 'POST',
                             form:data
                         };
@@ -102,7 +102,7 @@ function(session){
                         var data = JSON.stringify([{Event:session.userData.id2,User:session.userData.idstring,Times:time.toString()}]);
 
                         session.userData.post_options = {
-                            url: "http://217.182.206.5:9320/push/inscription",
+                            url: "http://gopiko.cloudapp.net:8080/push/inscription",
                             method: 'POST',
                             form:data
                         };
