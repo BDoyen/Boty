@@ -1,0 +1,53 @@
+{"persistent_menu":[
+  {
+  "locale":"default",
+  "composer_input_disabled":false,
+  "call_to_actions":[
+    {
+      "title":"aller courir 🏃🐆 ",
+      "type":"nested",
+          "call_to_actions":[
+            {
+              "title":"une course 🎽",
+              "type":"postback",
+              "payload":"une course 🎽"
+            },
+            {
+              "title":"avec une communauté 👟",
+              "type":"postback",
+              "payload":"avec une communauté 👟"
+            }
+          ]
+    },
+    {
+      "title":"changer d'adresse 📍",
+      "type":"postback",
+      "payload":"changer d'adresse 📍"
+    },
+    {
+      "type":"postback",
+      "title":"options 🔧",
+      "type":"nested",
+        "call_to_actions":[
+          {
+            "title":"donner son avis 💌",
+            "type":"postback",
+            "payload":"💌 donner son avis 💌"
+          },
+          {
+            "title":"recommencer 🔄",
+            "type":"postback",
+            "payload":"recommencer 🔄"
+          }
+        ]
+    }
+  ]
+}
+]}
+
+
+
+
+
+
+
