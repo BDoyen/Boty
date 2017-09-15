@@ -23,6 +23,7 @@
     "fb": "^2.0.0",
     "http": "0.0.0",
     "mathjs": "^3.14.2",
+    "moment": "^2.18.1",
     "recastai": "^3.4.1",
     "request": "^2.81.0",
     "restify": "^5.0.1",
@@ -1726,10 +1727,6 @@
     "mkdirp": {
       "version": "https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.1.tgz",
       "integrity": "sha1-MAV0OOrGz3+MR2fzhkjWaX11yQM="
-    },
-    "moment": {
-      "version": "https://registry.npmjs.org/moment/-/moment-2.18.1.tgz",
-      "integrity": "sha1-w2GT3Tzhwu7SrbfIAtu8d6gbHA8="
     },
     "ms": {
       "version": "https://registry.npmjs.org/ms/-/ms-2.0.0.tgz",

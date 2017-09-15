@@ -3,38 +3,16 @@ var builder = require("botbuilder");
 var restify = require('restify'); // pour le serveur
 var sentiment = require('sentiment-multilang'); //sentiment analysis
 var math = require('mathjs'); //math module
-
 var request = require('request');
+var funcs_time = require('./funcs/funcs_time.js')
+
 
 //Recast.ai
 var recastai = require('recastai').default
 
 
-//resources from other scripts
-
-//Tips
-var getTip = require('../get/getTip');
-var tipsArray = getTip.tipsArray;
-var N = getTip.N;
-
-//Gifs
-var getGif = require('../get/getGif');
-var gifsArray = getGif.gifsArray;
-var G = getGif.G;
-
-
-//sentiment variables
-var positiveSentimentArray = new Array("😀","😁","😉","😊","😌","😄","😎","😃","😜","😛","🤗","🔥","😇","😺","👌","👍");
-var negativeSentimentArray = new Array("😑","😣","😶","😐","😕","😞","😦","😬");
-var l = positiveSentimentArray.length;
-var k = negativeSentimentArray.length;
-
-
-//time variables
-var days = new Array('lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche');
-var time = ["en matinée","dans l'après-midi","le soir venu"]
-var week = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"]
-
+//time functions 
+var f0_transforme_time = funcs_time.f0_transforme_time
 
 
 //////////////////////functions//////////////////////
@@ -54,9 +32,11 @@ module.exports = [
               method: 'POST',
         };
 
-        var dt = session.userData.timemin
+        var dt = f0_transforme_time(session.userData.timemin)
 
-        var data = JSON.stringify([{User:session.userData.idstring,Times:dt.toString(),Addr:session.userData.address,Cat:session.userData.category,Lvl:session.userData.level}]);
+        console.log(dt)
+
+        var data = JSON.stringify([{User:session.userData.idstring,Times:dt,Addr:session.userData.address,Cat:session.userData.category,Lvl:session.userData.level}]);
 
         session.userData.post_options.form = data;
 
@@ -90,7 +70,7 @@ module.exports = [
                                     ])
                                     .buttons([
                                         builder.CardAction.openUrl(session,res0.Url)
-                                            .title("S'inscrire en ligne 🎫"),
+                                            .title("Voir le site ℹ️"),
                                         builder.CardAction.imBack(session, "je me pré-inscris à "+ res0.Title)
                                             .title("Ça m'intéresse 😍")
                                     ]),
@@ -128,7 +108,7 @@ module.exports = [
                                     ])
                                     .buttons([
                                         builder.CardAction.openUrl(session,res0.Url)
-                                            .title("S'inscrire en ligne 🎫"),
+                                            .title("Voir le site ℹ️"),
                                         builder.CardAction.imBack(session, "je me pré-inscris à "+ res0.Title)
                                              .title("Ça m'intéresse 😍")
                                     ]),
@@ -140,7 +120,7 @@ module.exports = [
                                     ])
                                     .buttons([
                                         builder.CardAction.openUrl(session,res1.Url)
-                                            .title("S'inscrire en ligne 🎫"),
+                                            .title("Voir le site ℹ️"),
                                         builder.CardAction.imBack(session, "je me pré-inscris à "+ res1.Title)
                                             .title("Ça m'intéresse 😍")
                                     ]),
@@ -184,7 +164,7 @@ module.exports = [
                                             ])
                                             .buttons([
                                                 builder.CardAction.openUrl(session,res0.Url)
-                                                    .title("S'inscrire en ligne 🎫"),
+                                                    .title("Voir le site ℹ️"),
                                                 builder.CardAction.imBack(session, "je me pré-inscris à "+ res0.Title)
                                                     .title("Ça m'intéresse 😍")
                                             ]),        
@@ -196,7 +176,7 @@ module.exports = [
                                             ])
                                             .buttons([
                                                 builder.CardAction.openUrl(session,res1.Url)
-                                                    .title("S'inscrire en ligne 🎫"),
+                                                    .title("Voir le site ℹ️"),
                                                 builder.CardAction.imBack(session, "je me pré-inscris à "+ res1.Title)
                                                     .title("Ça m'intéresse 😍")
                                             ]),       
@@ -208,7 +188,7 @@ module.exports = [
                                             ])
                                             .buttons([
                                                 builder.CardAction.openUrl(session,res2.Url)
-                                                    .title("S'inscrire en ligne 🎫"),
+                                                    .title("Voir le site ℹ️"),
                                                 builder.CardAction.imBack(session, "je me pré-inscris à "+ res2.Title)
                                                     .title("Ça m'intéresse 😍")
                                             ]),
