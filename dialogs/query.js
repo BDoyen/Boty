@@ -29,7 +29,7 @@ module.exports = [
 
         //LeChaboté
         session.userData.post_options = {
-              url: "http://gopiko.cloudapp.net:8080/event/getevent",
+              url: "http://217.182.206.5:8080/event/getevent",
               method: 'POST',
         };
 

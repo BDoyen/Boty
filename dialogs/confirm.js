@@ -34,11 +34,12 @@ function(session){
                                 ])
                     ]);
 
-                    var time = f0_transforme_time(session.userData.Time0)
-                    var data = JSON.stringify([{Event:session.userData.id0,User:session.userData.idstring,Times:time.toString()}]);
+                    var time = session.userData.Time0
+                    var dt = f0_transforme_time(time.toString())
+                    var data = JSON.stringify([{Event:session.userData.id0,User:session.userData.idstring,Times:dt}]);
 
                     session.userData.post_options = {
-                        url: "http://gopiko.cloudapp.net:8080/push/inscription",
+                        url: "http://217.182.206.5:8080/push/inscription",
                         method: 'POST',
                         form:data
                     };
@@ -65,12 +66,13 @@ function(session){
                                     ])
                         ]);
 
-                        var time = f0_transforme_time(session.userData.Time1)
+                        var time = session.userData.Time0
+                        var dt = f0_transforme_time(time.toString())
 
-                        var data = JSON.stringify([{Event:session.userData.id1,User:session.userData.idstring,Times:time.toString()}]);
+                        var data = JSON.stringify([{Event:session.userData.id1,User:session.userData.idstring,Times:dt}]);
 
                         session.userData.post_options = {
-                            url: "http://gopiko.cloudapp.net:8080/push/inscription",
+                            url: "http://217.182.206.5:8080/push/inscription",
                             method: 'POST',
                             form:data
                         };
@@ -101,12 +103,13 @@ function(session){
                                     ])
                         ]);
 
-                        var time = f0_transforme_time(session.userData.Time2)
+                        var time = session.userData.Time0
+                        var dt = f0_transforme_time(time.toString())
 
-                        var data = JSON.stringify([{Event:session.userData.id2,User:session.userData.idstring,Times:time.toString()}]);
+                        var data = JSON.stringify([{Event:session.userData.id2,User:session.userData.idstring,Times:dt}]);
 
                         session.userData.post_options = {
-                            url: "http://gopiko.cloudapp.net:8080/push/inscription",
+                            url: "http://217.182.206.5:8080/push/inscription",
                             method: 'POST',
                             form:data
                         };

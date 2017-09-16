@@ -73,7 +73,7 @@ module.exports = [
 
       //LeChaboté API request
       session.userData.post_options = {
-              url: "http://gopiko.cloudapp.net:8080/user/setuser",
+              url: "http://217.182.206.5:8080/user/setuser",
               method: 'POST',
       };
       var data = JSON.stringify([{Id:session.userData.idstring,Adresse:session.userData.address}]);
