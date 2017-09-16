@@ -35,8 +35,6 @@ module.exports = [
 
         var dt = f0_transforme_time(session.userData.timemin)
 
-        console.log(dt)
-
         var data = JSON.stringify([{User:session.userData.idstring,Times:dt,Addr:session.userData.address,Cat:session.userData.category,Lvl:session.userData.level}]);
 
         session.userData.post_options.form = data;
