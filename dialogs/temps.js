@@ -57,8 +57,6 @@ module.exports = [
         session.userData.tokentime = 'fdf3c62ee815158983106d5f5189af81' //rungly-time
         var client = new recastai(session.userData.tokentime)
         var request = client.request
-
-        console.log(results.response);
         
         //no buttons
         if(!results.response){
@@ -85,7 +83,6 @@ module.exports = [
                     var accuracy = res.entities.datetime[0].accuracy;
                     var chronology = res.entities.datetime[0].chronology;
                     var iso = res.entities.datetime[0].iso;
-                    session.userData.giventemps = 1;
                     f1_time(session,chronology,accuracy,iso,slug)
                     session.beginDialog('/cross',session.userData);
                 }

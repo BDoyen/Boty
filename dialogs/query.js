@@ -25,6 +25,8 @@ module.exports = [
 
     function(session,results){
 
+        session.userData.giventemps = 0;
+
         //éléments pour requête 
 
         //LeChaboté
@@ -35,9 +37,12 @@ module.exports = [
 
         var dt = f0_transforme_time(session.userData.timemin)
 
+        console.log(dt)
+
         var data = JSON.stringify([{User:session.userData.idstring,Times:dt,Addr:session.userData.address,Cat:session.userData.category,Lvl:session.userData.level}]);
 
         session.userData.post_options.form = data;
+
 
         var post_req = request(session.userData.post_options, function(error,response,body){
 
@@ -209,7 +214,7 @@ module.exports = [
                                             ])    
                             ]);       
 
-                        session.userData.giventemps = 0;
+                        
                         builder.Prompts.choice(session,msg,["je me pré-inscris à "+ res0.Title,"je me pré-inscris à "+ res1.Title,"je me pré-inscris à "+ res2.Title,"plus d'évènements","C'est bon merci :)"],{maxRetries:0});       
                     }
                 }
