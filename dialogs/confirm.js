@@ -34,8 +34,11 @@ function(session){
                                 ])
                     ]);
 
-                    var time = session.userData.Time0
-                    var dt = f0_transforme_time(time.toString())
+                    var time = new Date(session.userData.Time0)
+                    var dt = f0_transforme_time(time)
+
+                    console.log(dt)
+                    
                     var data = JSON.stringify([{Event:session.userData.id0,User:session.userData.idstring,Times:dt}]);
 
                     session.userData.post_options = {
@@ -66,8 +69,8 @@ function(session){
                                     ])
                         ]);
 
-                        var time = session.userData.Time0
-                        var dt = f0_transforme_time(time.toString())
+                        var time = new Date(session.userData.Time1)
+                        var dt = f0_transforme_time(time)
 
                         var data = JSON.stringify([{Event:session.userData.id1,User:session.userData.idstring,Times:dt}]);
 
@@ -103,8 +106,8 @@ function(session){
                                     ])
                         ]);
 
-                        var time = session.userData.Time0
-                        var dt = f0_transforme_time(time.toString())
+                        var time = new Date(session.userData.Time2)
+                        var dt = f0_transforme_time(time)
 
                         var data = JSON.stringify([{Event:session.userData.id2,User:session.userData.idstring,Times:dt}]);
 
