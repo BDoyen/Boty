@@ -210,7 +210,7 @@ module.exports = [
                                             .buttons([
                                                 builder.CardAction.imBack(session, "plus d'évènements")
                                                     .title("plus ➕")
-                                            ]),       
+                                            ]) ,
                                 new builder.HeroCard(session)
                                             .images([
                                                 builder.CardImage.create(session, "https://image.ibb.co/iRYuKF/bye_bye_emoji.jpg")
@@ -218,11 +218,11 @@ module.exports = [
                                             .buttons([
                                                 builder.CardAction.imBack(session, "C'est bon merci 🙂")
                                                     .title("C'est bon merci 🙂")
-                                            ])    
+                                            ])
                             ]);       
 
                         post_req.end();
-                        builder.Prompts.choice(session,msg,["plus d'évènements","C'est bon merci 🙂"],{maxRetries:0});
+                        builder.Prompts.choice(session,msg,["C'est bon merci 🙂","plus d'évènements"],{maxRetries:0});
                             
                     }
                 }
@@ -231,7 +231,7 @@ module.exports = [
                 session.send("Je suis désolé " + session.userData.name + "... 😕");
                 session.send("j'ai un petit trou de mémoire, mais tu peux essayer avec une autre demande ;)");
                 post_req.end();
-                session.beginDialog('/menu',session.userData);
+                session.beginDialog('/',session.userData);
             } 
 
 		});
@@ -244,7 +244,7 @@ module.exports = [
         if(!results.response){
             session.beginDialog("/menu",session.userData);
         }else{
-            switch (session.userData.index){
+            switch (results.response.index){
                 case 0:
                     session.beginDialog("/catch",session.userData)
                     break;

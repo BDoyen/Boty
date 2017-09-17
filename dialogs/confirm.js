@@ -6,7 +6,6 @@ var request = require('request');
 var funcs_time = require('./funcs/funcs_time.js')
 
 
-
 //Gifs
 var getGif = require('../get/getGif');
 var gifsArray = getGif.gifsArray;

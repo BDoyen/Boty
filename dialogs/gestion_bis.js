@@ -4,18 +4,11 @@ var sentiment = require('sentiment-multilang'); //sentiment analysis
 var math = require('mathjs'); //math module
 var request = require('request');
 
-
 //Recast.ai
 var recastai = require('recastai').default
 
 
-//resources from other scripts
-
-
-
-
 //////////////////////functions//////////////////////
-
 
 
 module.exports = [
@@ -59,7 +52,6 @@ module.exports = [
                                                 .title("C'est bon merci 🙂")
                                         ])    
                             ]);
-                            
                         builder.Prompts.choice(session,msg,["C'est bon merci :)"],{maxRetries:0});
                     }else if(n == 2){
                         var res0 = res[0]
@@ -193,7 +185,7 @@ module.exports = [
                                                 builder.CardImage.create(session, "https://image.ibb.co/iPDBia/plus_events.jpg")
                                             ])
                                             .buttons([
-                                                builder.CardAction.imBack(session, "plus d'évènements")
+                                                builder.CardAction.imBack(session,"plus d'évènements")
                                                     .title("plus ➕")
                                             ]),
                                 new builder.HeroCard(session)
@@ -201,40 +193,27 @@ module.exports = [
                                                 builder.CardImage.create(session, "https://image.ibb.co/iRYuKF/bye_bye_emoji.jpg")
                                             ])
                                             .buttons([
-                                                builder.CardAction.imBack(session, "C'est bon merci 🙂")
+                                                builder.CardAction.imBack(session,"C'est bon merci 🙂")
                                                     .title("C'est bon merci 🙂")
                                             ])           
                             ]);       
-
-                        builder.Prompts.choice(session,msg,["plus d'évènements","C'est bon merci 🙂"],{maxRetries:0});       
+                        builder.Prompts.choice(session,msg,["C'est bon merci 🙂","plus d'évènements"],{maxRetries:0});       
                     }
-
 			}
-
 		},
 		function(session,results){
-             if(!results.response){
-            session.beginDialog("/menu",session.userData);
+            if(!results.response){
+                session.beginDialog("/",session.userData);
             }else{
-                switch (session.userData.index){
-                    case 0:
-                        session.beginDialog("/catch",session.userData)
-                        break;
-                    case 1:
-                        session.beginDialog('/gestion_bis',session.userData);
-                        break;
+                    switch (results.response.index){
+                        case 0:
+                            session.beginDialog("/catch",session.userData)
+                            break;
+                        case 1:
+                            session.beginDialog('/gestion_bis',session.userData);
+                            break;
+                    }
                 }
-            }
 			
         }
-        
-		
-
-
-
-
-
-
-
-
 ]
