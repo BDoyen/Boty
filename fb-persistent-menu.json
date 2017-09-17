@@ -30,9 +30,14 @@
       "type":"nested",
         "call_to_actions":[
           {
+            "title":"gestion de mes courses 📅",
+            "type":"postback",
+            "payload":"gestion de mes courses 📅"
+          },
+          {
             "title":"donner son avis 💌",
             "type":"postback",
-            "payload":"💌 donner son avis 💌"
+            "payload":"donner son avis 💌"
           },
           {
             "title":"recommencer 🔄",

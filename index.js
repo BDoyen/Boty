@@ -161,6 +161,16 @@ bot.dialog("/which-run", require("./dialogs/which-run"));
 bot.dialog("/confirm", require("./dialogs/confirm"));
 
 
+bot.dialog("/gestion", require("./dialogs/gestion")).
+    triggerAction({ 
+        matches: /gestion de mes courses 📅/i 
+    });
+
+bot.dialog("/gestion_bis", require("./dialogs/gestion_bis"));
+
+
+
+
 bot.dialog("/",
     function(session){
         session.userData.tokengen = '62603faf2cd89150edb9b831ee9bfc10'

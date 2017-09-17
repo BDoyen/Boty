@@ -36,22 +36,24 @@ function(session){
 
                     var time = new Date(session.userData.Time0)
                     var dt = f0_transforme_time(time)
-
-                    console.log(dt)
                     
                     var data = JSON.stringify([{Event:session.userData.id0,User:session.userData.idstring,Times:dt}]);
 
                     session.userData.post_options = {
                         url: "http://217.182.206.5:8080/push/inscription",
                         method: 'POST',
-                        form:data
+                        form:data,
+                        timeout:30000
                     };
 
                     var post_req = request(session.userData.post_options, function(error,response,body){
                         if(error){
                             console.log(error);
                             session.send(";) 🐅");
-                            }else{}
+                            post_req.end()
+                        }else{
+                            post_req.end()
+                        }
                     });
 
                     session.endDialog(msg);
@@ -77,14 +79,18 @@ function(session){
                         session.userData.post_options = {
                             url: "http://217.182.206.5:8080/push/inscription",
                             method: 'POST',
-                            form:data
+                            form:data,
+                            timeout:30000
                         };
 
                         var post_req = request(session.userData.post_options, function(error,response,body){
                             if(error){
                                 console.log(error);
                                 session.send(";) 🐅");
-                                }else{}
+                                post_req.end()
+                            }else{
+                                post_req.end()
+                            }
                         });
 
                         session.endDialog(msg);
@@ -114,14 +120,18 @@ function(session){
                         session.userData.post_options = {
                             url: "http://217.182.206.5:8080/push/inscription",
                             method: 'POST',
-                            form:data
+                            form:data,
+                            timeout:30000
                         };
 
                         var post_req = request(session.userData.post_options, function(error,response,body){
                             if(error){
                                 console.log(error);
                                 session.send(";) 🐅");
-                                }else{}
+                                post_req.end()
+                            }else{
+                                post_req.end()
+                            }
                         });
 
                         session.endDialog(msg);

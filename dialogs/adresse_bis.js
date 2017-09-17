@@ -72,18 +72,21 @@ module.exports = [
 
       //LeChaboté API request
       session.userData.post_options = {
-              url: "http://gopiko.cloudapp.net:8080/user/setuser",
+              url: "http://217.182.206.5:8080/user/setuser",
               method: 'POST',
+              timeout:30000
       };
       var data = JSON.stringify([{Id:session.userData.idstring,Adresse:session.userData.address}]);
       session.userData.post_options.form = data;
       var post_req = request(session.userData.post_options, function(error,response,body){
         if(!error){
           session.userData.givenadresse = 1;
-          session.send("reçu 5/5 " + session.userData.name + " 👌")
+          session.send("reçu 5/5 " + session.userData.name + " 👌");
+          post_req.end()
           session.beginDialog("/menu",session.userData);
         }else{
           session.send("aïe j'ai bugué là, mais pas d'inquiétude on peut recommencer...");
+          post_req.end()
           session.beginDialog("/menu",session.userData);
         }
       });

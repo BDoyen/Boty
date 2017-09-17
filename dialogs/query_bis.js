@@ -11,10 +11,6 @@ var recastai = require('recastai').default
 
 //resources from other scripts
 
-//Tips
-var getTip = require('../get/getTip');
-var tipsArray = getTip.tipsArray;
-var N = getTip.N;
 
 //Gifs
 var getGif = require('../get/getGif');
@@ -28,11 +24,6 @@ var negativeSentimentArray = new Array("😑","😣","😶","😐","😕","😞"
 var l = positiveSentimentArray.length;
 var k = negativeSentimentArray.length;
 
-
-//time variables
-var days = new Array('lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche');
-var time = ["en matinée","dans l'après-midi","le soir venu"]
-var week = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"]
 
 
 
@@ -141,9 +132,7 @@ module.exports = [
                         var res0 = res[0]
                         var res1 = res[1]
                         var res2 = res[2]
-                        console.log(res0)
                         session.userData.title0 = res0.Title
-                        console.log(session.userData.title0)
                         session.userData.title1 = res1.Title
                         session.userData.title2 = res2.Title
                         session.userData.id0 = res0.Id
@@ -235,7 +224,6 @@ module.exports = [
             });
             
         }else{
-            var item
             switch (results.response.index){
                 case 0:
                     var item = session.userData.title0;
@@ -253,7 +241,7 @@ module.exports = [
                     var data = JSON.stringify([{Event:session.userData.id0,User:session.userData.idstring,Times:session.userData.Time0}]);
 
                     session.userData.post_options = {
-                        url: "http://217.182.206.5:9320/push/inscription",
+                        url: "http://217.182.206.5:8080/push/inscription",
                         method: 'POST',
                         form:data
                     };
@@ -284,7 +272,7 @@ module.exports = [
                         var data = JSON.stringify([{Event:session.userData.id1,User:session.userData.idstring,Times:session.userData.Time1}]);
 
                         session.userData.post_options = {
-                            url: "http://217.182.206.5:9320/push/inscription",
+                            url: "http://217.182.206.5:8080/push/inscription",
                             method: 'POST',
                             form:data
                         };
@@ -319,7 +307,7 @@ module.exports = [
                         var data = JSON.stringify([{Event:session.userData.id2,User:session.userData.idstring,Times:session.userData.Time2}]);
 
                         session.userData.post_options = {
-                            url: "http://217.182.206.5:9320/push/inscription",
+                            url: "http://217.182.206.5:8080/push/inscription",
                             method: 'POST',
                             form:data
                         };

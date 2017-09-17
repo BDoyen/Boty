@@ -62,14 +62,21 @@ module.exports = [
     session.userData.post_options = {
               url: "http://217.182.206.5:8080/user",
               method: 'POST',
+              timeout:30000
     };
     var data = JSON.stringify([{Id:session.userData.idstring,Adresse:""}]);
     session.userData.post_options.form = data;
+    
     var post_req = request(session.userData.post_options, function(error,response,body){
         if(error){
             console.log(error);
-        }else{}
+            post_req.end()
+        }else{
+            post_req.end()
+        }
     });
+
+    
 
 
 
