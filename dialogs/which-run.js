@@ -49,25 +49,31 @@ module.exports = [
 	},
 
 	function(session,results){
-		console.log(results.response)
 		if(!results.response){
 			session.userData.tokengen = 'cac49b88e2afe148fe34bffeca605bdb'
 	        var client = new recastai(session.userData.tokengen)
 	        var request = client.request
 	        request.analyseText(session.message.text)
 	            .then(function(res){
-	            	var intent = res.intent();
-	                var slug = intent.slug;
-	                if(slug == "communaute"){
-	                	session.userData.level = 1;
-	                	session.userData.category = 2;
-		                session.beginDialog('/cross',session.userData);
-	                }else if(slug == "help"){
-	                	session.beginDialog('/botlesmoi',session.userData);
-	                }else{
-	                	session.userData.category = 1;
-	                	session.beginDialog('/run',session.userData);
-	                }
+	            	
+	            	if(!res.intent()){
+	            		session.send("🐅 👟");
+                    	session.beginDialog('/menu',session.userData);
+	            	}else{
+	            		var intent = res.intent();
+		                var slug = intent.slug;
+		                if(slug == "communaute"){
+		                	session.userData.level = 1;
+		                	session.userData.category = 2;
+			                session.beginDialog('/cross',session.userData);
+		                }else if(slug == "help"){
+		                	session.beginDialog('/botlesmoi',session.userData);
+		                }else{
+		                	session.userData.category = 1;
+		                	session.beginDialog('/run',session.userData);
+		                }
+	            	}
+	            	
 	            }).catch(function(err){
 	            console.log(err)
 	            session.send("aïe aïe aïe, j'ai pas tout compris là...");

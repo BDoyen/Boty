@@ -179,53 +179,56 @@ bot.dialog("/",
         request.analyseText(session.message.text)
             .then(function(res){
                 var intent = res.intent();
-                var slug = intent.slug;
-                var entities = res.entities;
-                console.log(entities)
-                var rungly = !entities.runglyrelax && !entities.runglyfun && !entities.runglysolidaire && !entities.runglyintermediaire && !entities.runglypro
-                console.log(rungly)       
-                if(slug == 'ask-courir'){
-                    if(!res.entities.datetime){
-                        if(rungly){
-                            session.beginDialog('/which-run',session.userData);
-                        }else{
-                            f_which_category(entities.runglyrelax,entities.runglysolidaire,entities.runglyfun,entities.runglyintermediaire,entities.runglypro,session)//go for tagging
-                            session.beginDialog('/cross',session.userData);
-                        }
-                    }else{
-                        var accuracy = res.entities.datetime[0].accuracy;
-                        var chronology = res.entities.datetime[0].chronology;
-                        var iso = res.entities.datetime[0].iso;
-                        session.userData.giventemps = 1;
-                        f1_time(session,chronology,accuracy,iso,slug)
-                        if(rungly){
-                            session.beginDialog('/which-run',session.userData);
-                        }else{
-                            f_which_category(entities.runglyrelax,entities.runglysolidaire,entities.runglyfun,entities.runglyintermediaire,entities.runglypro,session)//go for tagging
-                            session.beginDialog('/cross',session.userData);
-                        }
-                    }
-                }else if(slug == 'ask-jobrun'){
-                    session.beginDialog('/network',session.userData);
-                }else if(slug == 'greetings'){
-                    session.beginDialog('/salut',session.userData);
-                }else if(slug == 'goodbye' || slug == "reset"){
-                    session.beginDialog('/catch',session.userData);
-                }else if(slug == 'say-thanks'){
-                    session.beginDialog('/merci',session.userData);
-                }else if(slug == 'ask-feeling'){
-                    session.beginDialog('/contact_phatique',session.userData);
-                }else if(slug == 'who-is-your-creator'){
-                    session.beginDialog('/contact_createur',session.userData);
-                }else if(slug == 'insult'){
-                    session.beginDialog('/insult',session.userData);
-                }else if(slug == 'help'){
-                    session.beginDialog('/botlesmoi',session.userData);
-                }else if(slug == "change-address"){
-                    session.beginDialog("/adresse_bis",session.userData);
-                }else{
+                if(!res.intent()){
                     session.send("🐅 👟");
                     session.beginDialog('/menu',session.userData);
+                }else{
+                    var slug = intent.slug;
+                    var entities = res.entities;
+                    var rungly = !entities.runglyrelax && !entities.runglyfun && !entities.runglysolidaire && !entities.runglyintermediaire && !entities.runglypro     
+                    if(slug == 'ask-courir'){
+                        if(!res.entities.datetime){
+                            if(rungly){
+                                session.beginDialog('/which-run',session.userData);
+                            }else{
+                                f_which_category(entities.runglyrelax,entities.runglysolidaire,entities.runglyfun,entities.runglyintermediaire,entities.runglypro,session)//go for tagging
+                                session.beginDialog('/cross',session.userData);
+                            }
+                        }else{
+                            var accuracy = res.entities.datetime[0].accuracy;
+                            var chronology = res.entities.datetime[0].chronology;
+                            var iso = res.entities.datetime[0].iso;
+                            session.userData.giventemps = 1;
+                            f1_time(session,chronology,accuracy,iso,slug)
+                            if(rungly){
+                                session.beginDialog('/which-run',session.userData);
+                            }else{
+                                f_which_category(entities.runglyrelax,entities.runglysolidaire,entities.runglyfun,entities.runglyintermediaire,entities.runglypro,session)//go for tagging
+                                session.beginDialog('/cross',session.userData);
+                            }
+                        }
+                    }else if(slug == 'ask-jobrun'){
+                        session.beginDialog('/network',session.userData);
+                    }else if(slug == 'greetings'){
+                        session.beginDialog('/salut',session.userData);
+                    }else if(slug == 'goodbye' || slug == "reset"){
+                        session.beginDialog('/catch',session.userData);
+                    }else if(slug == 'say-thanks'){
+                        session.beginDialog('/merci',session.userData);
+                    }else if(slug == 'ask-feeling'){
+                        session.beginDialog('/contact_phatique',session.userData);
+                    }else if(slug == 'who-is-your-creator'){
+                        session.beginDialog('/contact_createur',session.userData);
+                    }else if(slug == 'insult'){
+                        session.beginDialog('/insult',session.userData);
+                    }else if(slug == 'help'){
+                        session.beginDialog('/botlesmoi',session.userData);
+                    }else if(slug == "change-address"){
+                        session.beginDialog("/adresse_bis",session.userData);
+                    }else{
+                        session.send("🐅 👟");
+                        session.beginDialog('/menu',session.userData);
+                    }
                 }
         }).catch(function(err){
             console.log(err)
@@ -233,6 +236,7 @@ bot.dialog("/",
             session.beginDialog('/menu',session.userData);     
     })    
 });
+
 
 
 //general commands
