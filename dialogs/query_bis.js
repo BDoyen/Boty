@@ -391,7 +391,11 @@ module.exports = [
                         break;
                     }
                 case 3:
-                    session.beginDialog('/query_bis',session.userData);
+                    if(session.userData.reslength != 3){
+                        session.beginDialog('/query_bis',session.userData);
+                    }else{
+                        session.beginDialog('/catch',session.userData);    
+                    }
                     break;
                 case 4:
                     session.beginDialog('/catch',session.userData);
