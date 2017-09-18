@@ -66,8 +66,8 @@ module.exports = [
       if(entity.length == 0){
         session.userData.address = results.response + " France";
       }else{
-        var lat = entity[0].geo.latitude
-        var lng = entity[0].geo.longitude
+        var lat = session.userData.lat = entity[0].geo.latitude
+        var lng = session.userData.lng = entity[0].geo.longitude
         session.userData.address = lat+","+lng
       }
 

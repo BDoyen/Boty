@@ -81,7 +81,9 @@ module.exports = [
                                         builder.CardAction.openUrl(session,res0.Url)
                                             .title("Voir le site ℹ️"),
                                         builder.CardAction.imBack(session, "je me pré-inscris à "+ res0.Title)
-                                            .title("Ça m'intéresse 😍")
+                                            .title("Ça m'intéresse 😍"),
+                                        builder.CardAction.openUrl(session,"http://maps.google.com/maps?z=5&q=loc:"+res0.Lat+"+"+res0.Lng)
+                                            .title("Lieu du départ 🏁")
                                     ]),
                                     new builder.HeroCard(session)
                                         .images([
@@ -122,7 +124,9 @@ module.exports = [
                                         builder.CardAction.openUrl(session,res0.Url)
                                             .title("Voir le site ℹ️"),
                                         builder.CardAction.imBack(session, "je me pré-inscris à "+ res0.Title)
-                                             .title("Ça m'intéresse 😍")
+                                             .title("Ça m'intéresse 😍"),
+                                        builder.CardAction.openUrl(session,"http://maps.google.com/maps?z=5&q=loc:"+res0.Lat+"+"+res0.Lng)
+                                            .title("Lieu du départ 🏁")
                                     ]),
                                 new builder.HeroCard(session)
                                     .title(res1.Title)
@@ -134,7 +138,9 @@ module.exports = [
                                         builder.CardAction.openUrl(session,res1.Url)
                                             .title("Voir le site ℹ️"),
                                         builder.CardAction.imBack(session, "je me pré-inscris à "+ res1.Title)
-                                            .title("Ça m'intéresse 😍")
+                                            .title("Ça m'intéresse 😍"),
+                                        builder.CardAction.openUrl(session,"http://maps.google.com/maps?z=5&q=loc:"+res1.Lat+"+"+res1.Lng)
+                                            .title("Lieu du départ 🏁")
                                     ]),
                                 new builder.HeroCard(session)
                                     .images([
@@ -177,7 +183,9 @@ module.exports = [
                                                 builder.CardAction.openUrl(session,res0.Url)
                                                     .title("Voir le site ℹ️"),
                                                 builder.CardAction.imBack(session, "je me pré-inscris à "+ res0.Title)
-                                                    .title("Ça m'intéresse 😍")
+                                                    .title("Ça m'intéresse 😍"),
+                                                builder.CardAction.openUrl(session,"http://maps.google.com/maps?z=5&q=loc:"+res0.Lat+"+"+res0.Lng)
+                                                    .title("Lieu du départ 🏁")
                                             ]),        
                                 new builder.HeroCard(session)
                                             .title(res1.Title)
@@ -189,7 +197,9 @@ module.exports = [
                                                 builder.CardAction.openUrl(session,res1.Url)
                                                     .title("Voir le site ℹ️"),
                                                 builder.CardAction.imBack(session, "je me pré-inscris à "+ res1.Title)
-                                                    .title("Ça m'intéresse 😍")
+                                                    .title("Ça m'intéresse 😍"),
+                                                builder.CardAction.openUrl(session,"http://maps.google.com/maps?z=5&q=loc:"+res1.Lat+"+"+res1.Lng)
+                                                    .title("Lieu du départ 🏁")
                                             ]),       
                                 new builder.HeroCard(session)
                                             .title(res2.Title)
@@ -201,7 +211,9 @@ module.exports = [
                                                 builder.CardAction.openUrl(session,res2.Url)
                                                     .title("Voir le site ℹ️"),
                                                 builder.CardAction.imBack(session, "je me pré-inscris à "+ res2.Title)
-                                                    .title("Ça m'intéresse 😍")
+                                                    .title("Ça m'intéresse 😍"),
+                                                builder.CardAction.openUrl(session,"http://maps.google.com/maps?z=5&q=loc:"+res2.Lat+"+"+res2.Lng)
+                                                    .title("Lieu du départ 🏁")
                                             ]),     
                                 new builder.HeroCard(session)
                                             .images([
@@ -245,7 +257,9 @@ module.exports = [
                                                 builder.CardAction.openUrl(session,res0.Url)
                                                     .title("Voir le site ℹ️"),
                                                 builder.CardAction.imBack(session, "je me pré-inscris à "+ res0.Title)
-                                                    .title("Ça m'intéresse 😍")
+                                                    .title("Ça m'intéresse 😍"),
+                                                builder.CardAction.openUrl(session,"http://maps.google.com/maps?z=5&q=loc:"+res0.Lat+"+"+res0.Lng)
+                                                    .title("Lieu du départ 🏁")
                                             ]),        
                                 new builder.HeroCard(session)
                                             .title(res1.Title)
@@ -257,7 +271,9 @@ module.exports = [
                                                 builder.CardAction.openUrl(session,res1.Url)
                                                     .title("Voir le site ℹ️"),
                                                 builder.CardAction.imBack(session, "je me pré-inscris à "+ res1.Title)
-                                                    .title("Ça m'intéresse 😍")
+                                                    .title("Ça m'intéresse 😍"),
+                                                builder.CardAction.openUrl(session,"http://maps.google.com/maps?z=5&q=loc:"+res1.Lat+"+"+res1.Lng)
+                                                    .title("Lieu du départ 🏁")
                                             ]),       
                                 new builder.HeroCard(session)
                                             .title(res2.Title)
@@ -269,7 +285,9 @@ module.exports = [
                                                 builder.CardAction.openUrl(session,res2.Url)
                                                     .title("Voir le site ℹ️"),
                                                 builder.CardAction.imBack(session, "je me pré-inscris à "+ res2.Title)
-                                                    .title("Ça m'intéresse 😍")
+                                                    .title("Ça m'intéresse 😍"),
+                                                builder.CardAction.openUrl(session,"http://maps.google.com/maps?z=5&q=loc:"+res2.Lat+"+"+res2.Lng)
+                                                    .title("Lieu du départ 🏁")
                                             ]),
                                 new builder.HeroCard(session)
                                             .images([
