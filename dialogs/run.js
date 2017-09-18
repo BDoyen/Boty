@@ -79,6 +79,10 @@ module.exports = [
                     session.send("(y)");
                     session.userData.level = 3;
                     session.beginDialog('/cross',session.userData);
+                }else if(slug == 'help'){
+                    session.send("Pas de souci :) Disons une course relax alors 😎");
+                    session.userData.level = 1;
+                    session.beginDialog('/cross',session.userData);
                 }else{
                     session.send("aïe aïe aïe, j'ai pas tout compris là...");
                     session.beginDialog('/menu',session.userData);
