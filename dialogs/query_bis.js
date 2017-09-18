@@ -128,7 +128,72 @@ module.exports = [
 
                         session.userData.giventemps = 0;
                         builder.Prompts.choice(session,msg,["je me pré-inscris à "+ res0.Title,"je me pré-inscris à "+ res1.Title,"C'est bon merci :)"],{maxRetries:0});
-                    }else if(n>=3){
+                    }else if(n==3){
+                        var res0 = res[0]
+                        var res1 = res[1]
+                        var res2 = res[2]
+                        session.userData.title0 = res0.Title
+                        session.userData.title1 = res1.Title
+                        session.userData.title2 = res2.Title
+                        session.userData.id0 = res0.Id
+                        session.userData.id1 = res1.Id
+                        session.userData.id2 = res2.Id
+                        session.userData.Time0 = res0.Time
+                        session.userData.Time1 = res1.Time
+                        session.userData.Time2 = res2.Time
+
+                        var msg = new builder.Message(session)
+                            .attachmentLayout(builder.AttachmentLayout.carousel)
+                            .attachments([
+                                new builder.HeroCard(session)
+                                    .title(res0.Title)
+                                            .subtitle(res0.St)
+                                            .images([
+                                                builder.CardImage.create(session,res0.Image)
+                                            ])
+                                            .buttons([
+                                                builder.CardAction.openUrl(session,res0.Url)
+                                                    .title("S'inscrire en ligne 🎫"),
+                                                builder.CardAction.imBack(session, "je me pré-inscris à "+ res0.Title)
+                                                    .title("Ça m'intéresse 😍")
+                                            ]),        
+                                new builder.HeroCard(session)
+                                            .title(res1.Title)
+                                            .subtitle(res1.St)
+                                            .images([
+                                                builder.CardImage.create(session,res1.Image)
+                                            ])
+                                            .buttons([
+                                                builder.CardAction.openUrl(session,res1.Url)
+                                                    .title("S'inscrire en ligne 🎫"),
+                                                builder.CardAction.imBack(session, "je me pré-inscris à "+ res1.Title)
+                                                    .title("Ça m'intéresse 😍")
+                                            ]),       
+                                new builder.HeroCard(session)
+                                            .title(res2.Title)
+                                            .subtitle(res2.St)
+                                            .images([
+                                                builder.CardImage.create(session,res2.Image)
+                                            ])
+                                            .buttons([
+                                                builder.CardAction.openUrl(session,res2.Url)
+                                                    .title("S'inscrire en ligne 🎫"),
+                                                builder.CardAction.imBack(session, "je me pré-inscris à "+ res2.Title)
+                                                    .title("Ça m'intéresse 😍")
+                                            ]),      
+                                new builder.HeroCard(session)
+                                            .images([
+                                                builder.CardImage.create(session, "https://image.ibb.co/iRYuKF/bye_bye_emoji.jpg")
+                                            ])
+                                            .buttons([
+                                                builder.CardAction.imBack(session, "C'est bon merci :)")
+                                                    .title("C'est bon merci 🙂")
+                                            ])    
+                            ]);       
+
+                        session.userData.giventemps = 0;
+                        builder.Prompts.choice(session,msg,["je me pré-inscris à l'évènement "+ res0.Title,"je me pré-inscris à l'évènement "+ res1.Title,"je me pré-inscris à l'évènement "+ res2.Title,"C'est bon merci :)"],{maxRetries:0});       
+                    }else if(n>3){
                         var res0 = res[0]
                         var res1 = res[1]
                         var res2 = res[2]
