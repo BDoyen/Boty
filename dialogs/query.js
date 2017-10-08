@@ -36,7 +36,9 @@ module.exports = [
               timeout:30000
         };
 
-        var dt = f0_transforme_time(session.userData.timemin)
+        var timemin = new Date(session.userData.timemin)
+
+        var dt = f0_transforme_time(timemin)
 
         console.log(dt)
 

@@ -295,18 +295,13 @@ module.exports = [
 		function(session,results){
 
 			if(!results.response){
-            var sent = sentiment(session.message.text,'fr');
-            var valence = sent.score;
-            if(valence < 0){
-                session.send("Si un des évènements t'intéresse, tu peux cliquer sur 'Ça m'intéresse' pour te pré-inscrire")
-            }else if(valence >= 0){
-                session.send("Ok ! si un des évènements t'intéresse, cliquer sur 'Ça m'intéresse' pour te pré-inscrire ;)")
-            }else{}
-            session.endDialogWithResult({
-            response: null,
-            resumed: builder.ResumeReason.completed
-            });
-            
+                var sent = sentiment(session.message.text,'fr');
+                var valence = sent.score;
+                if(valence < 0){
+                    session.send("Si un des évènements t'intéresse, tu peux cliquer sur 'Ça m'intéresse' pour te pré-inscrire")
+                }else if(valence >= 0){
+                    session.send("Ok ! si un des évènements t'intéresse, cliquer sur 'Ça m'intéresse' pour te pré-inscrire ;)")
+                }
         }else{
             switch (results.response.index){
                 case 0:

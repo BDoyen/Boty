@@ -169,6 +169,12 @@ bot.dialog("/gestion", require("./dialogs/gestion")).
 bot.dialog("/gestion_bis", require("./dialogs/gestion_bis"));
 
 
+bot.dialog("/dialog_quizz", require("./dialogs/dialog_quizz")).
+    triggerAction({ 
+        matches: /#quizzDeLaSemaine/i 
+    });
+
+
 
 
 bot.dialog("/",

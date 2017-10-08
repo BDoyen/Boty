@@ -57,8 +57,7 @@ module.exports = [
     
     },
     function(session,results){
-        console.log(results.response)
-        if(!results.response){
+        if(!results.response || results.response.score < 1){
             var sent = sentiment(session.message.text,'fr');
             var valence = sent.score;
             if(valence == 0){

@@ -46,7 +46,6 @@ module.exports = [
     function(session,results){
         
         if(session.userData.givenadresse*session.userData.giventemps == 1){
-            console.log(session.userData.givenadresse*session.userData.giventemps)
             session.beginDialog("/query",session.userData);
         }else if(session.userData.givenadresse == 1){
             session.beginDialog("/temps",session.userData);
