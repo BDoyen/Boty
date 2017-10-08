@@ -65,7 +65,7 @@ module.exports = [
                                             builder.CardImage.create(session, "https://image.ibb.co/cVvGiw/no_notif_emoji.jpg")
                                         ])
                                         .buttons([
-                                            builder.CardAction.imBack(session, "Stop toute notif' 🔕")
+                                            builder.CardAction.imBack(session, "Plus de notif' 🔕")
                                                 .title("Stop toute notif' 🔕")
                                     ]),  
                                     new builder.HeroCard(session)
@@ -123,7 +123,7 @@ module.exports = [
                                             builder.CardImage.create(session, "https://image.ibb.co/cVvGiw/no_notif_emoji.jpg")
                                         ])
                                         .buttons([
-                                            builder.CardAction.imBack(session, "Stop toute notif' 🔕")
+                                            builder.CardAction.imBack(session, "Plus de notif' 🔕")
                                                 .title("Stop toute notif' 🔕")
                                     ]), 
                                 new builder.HeroCard(session)
@@ -196,7 +196,7 @@ module.exports = [
 	                                            builder.CardImage.create(session, "https://image.ibb.co/cVvGiw/no_notif_emoji.jpg")
 	                                        ])
 	                                        .buttons([
-	                                            builder.CardAction.imBack(session, "Stop toute notif' 🔕")
+	                                            builder.CardAction.imBack(session, "Plus de notif' 🔕")
 	                                                .title("Stop toute notif' 🔕")
 	                                    	]),   
                                 new builder.HeroCard(session)
@@ -277,7 +277,7 @@ module.exports = [
 	                                            builder.CardImage.create(session, "https://image.ibb.co/cVvGiw/no_notif_emoji.jpg")
 	                                        ])
 	                                        .buttons([
-	                                            builder.CardAction.imBack(session, "Stop toute notif' 🔕")
+	                                            builder.CardAction.imBack(session, "Plus de notif' 🔕")
 	                                                .title("Stop toute notif' 🔕")
 	                                    	]), 
                                 new builder.HeroCard(session)
