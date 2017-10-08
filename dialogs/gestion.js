@@ -66,7 +66,7 @@ module.exports = [
                                         ])
                                         .buttons([
                                             builder.CardAction.imBack(session, "Plus de notif' 🔕")
-                                                .title("Stop toute notif' 🔕")
+                                                .title("Plus de notif' 🔕")
                                     ]),  
                                     new builder.HeroCard(session)
                                         .images([
@@ -80,7 +80,7 @@ module.exports = [
                             
                         post_req.end();
 
-                        builder.Prompts.choice(session,msg,["Stop notif' 🔕","Stop toute notif' 🔕","C'est bon merci 🙂"],{maxRetries:0});
+                        builder.Prompts.choice(session,msg,["Stop notif' 🔕","Plus de notif' 🔕","C'est bon merci 🙂"],{maxRetries:0});
                         
 
                     }else if(n == 2){
@@ -124,7 +124,7 @@ module.exports = [
                                         ])
                                         .buttons([
                                             builder.CardAction.imBack(session, "Plus de notif' 🔕")
-                                                .title("Stop toute notif' 🔕")
+                                                .title("Plus de notif' 🔕")
                                     ]), 
                                 new builder.HeroCard(session)
                                     .images([
@@ -137,7 +137,7 @@ module.exports = [
                             ]);
 
                         post_req.end();
-                        builder.Prompts.choice(session,msg,["Stop notif' 🔕","Stop notif' 🔕","Stop toute notif' 🔕","C'est bon merci 🙂"],{maxRetries:0});
+                        builder.Prompts.choice(session,msg,["Stop notif' 🔕","Stop notif' 🔕","Plus de notif' 🔕","C'est bon merci 🙂"],{maxRetries:0});
                         
 
                     }else if(n==3){
@@ -197,7 +197,7 @@ module.exports = [
 	                                        ])
 	                                        .buttons([
 	                                            builder.CardAction.imBack(session, "Plus de notif' 🔕")
-	                                                .title("Stop toute notif' 🔕")
+	                                                .title("Plus de notif' 🔕")
 	                                    	]),   
                                 new builder.HeroCard(session)
                                             .images([
@@ -210,7 +210,7 @@ module.exports = [
                             ]);       
 
                             post_req.end();
-                            builder.Prompts.choice(session,msg,["Stop notif' 🔕","Stop notif' 🔕","Stop notif' 🔕","Stop toute notif' 🔕","C'est bon merci 🙂"],{maxRetries:0});
+                            builder.Prompts.choice(session,msg,["Stop notif' 🔕","Stop notif' 🔕","Stop notif' 🔕","Plus de notif' 🔕","C'est bon merci 🙂"],{maxRetries:0});
                             
 
                     }else if(n>3){
@@ -278,7 +278,7 @@ module.exports = [
 	                                        ])
 	                                        .buttons([
 	                                            builder.CardAction.imBack(session, "Plus de notif' 🔕")
-	                                                .title("Stop toute notif' 🔕")
+	                                                .title("Plus de notif' 🔕")
 	                                    	]), 
                                 new builder.HeroCard(session)
                                             .images([
@@ -291,7 +291,7 @@ module.exports = [
                             ]);       
 
                         post_req.end();
-                        builder.Prompts.choice(session,msg,["Stop notif' 🔕","Stop notif' 🔕","Stop notif' 🔕","Stop toute notif' 🔕","plus d'évènements","C'est bon merci 🙂"],{maxRetries:0});
+                        builder.Prompts.choice(session,msg,["Stop notif' 🔕","Stop notif' 🔕","Stop notif' 🔕","Plus de notif' 🔕","plus d'évènements","C'est bon merci 🙂"],{maxRetries:0});
                             
                     }
                 }
@@ -326,8 +326,6 @@ module.exports = [
                         timeout:30000
                     };
 
-                    console.log(session.userData.idstring)
-                    console.log(session.userData.deleteid0)
                     var post_req = request(session.userData.post_options, function(error,response,body){
                         if(error){
                             console.log(error);
