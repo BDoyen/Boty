@@ -114,6 +114,7 @@ function f1_time(session,chronology,accuracy,iso,slug){
                             min.setHours(2);
                             session.userData.timemin = min;
                             session.userData.giventemps = 1;
+                            console.log(5)
                             console.log(session.userData.timemin)
                         }else if(accuracy == 'month'){
                             var min = new Date();

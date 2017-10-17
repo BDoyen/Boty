@@ -57,75 +57,62 @@ module.exports = [
         session.userData.tokentime = 'fdf3c62ee815158983106d5f5189af81' //rungly-time
         var client = new recastai(session.userData.tokentime)
         var request = client.request
-        
-        //no buttons
-        if(!results.response){
 
-            request.analyseText(session.message.text)
+        if(!results.response){
+            session.userData.text_time = session.message.text
+        }else{
+            session.userData.text_time = results.response.entity
+        }
+
+        request.analyseText(session.userData.text_time)
             .then(function(res){
 
-                var intent = res.intent();
-                var slug = intent.slug;
-
-                if(!res.entities.datetime){
-                    if(slug == 'jamais'){
-                        session.send(":(");
-                        session.beginDialog("/menu",session.userData);
-                    }else if(slug == 'greetings'){
-                        session.send("coucou :)");
-                        session.beginDialog("/menu",session.userData);
-                    }else if(slug == 'goodbye'){
-                        session.beginDialog("/catch",session.userData);
+                if(!res.intent()){
+                    if(!res.entities.datetime){
+                        session.send("🐅 👟");
+                        session.beginDialog('/menu',session.userData);
                     }else{
-                        session.beginDialog("/menu",session.userData); 
+                        var accuracy = res.entities.datetime[0].accuracy;
+                        var chronology = res.entities.datetime[0].chronology;
+                        var iso = res.entities.datetime[0].iso;
+                        session.userData.giventemps = 1;
+                        f2_time(session,chronology,accuracy,iso,slug)
+                        session.beginDialog('/cross',session.userData);
                     }
                 }else{
-                    var accuracy = res.entities.datetime[0].accuracy;
-                    var chronology = res.entities.datetime[0].chronology;
-                    var iso = res.entities.datetime[0].iso;
-                    f1_time(session,chronology,accuracy,iso,slug)
-                    session.beginDialog('/cross',session.userData);
-                }
+                        var intent = res.intent();
+                        var slug = intent.slug;
+
+                        if(!res.entities.datetime){
+                            if(slug == 'jamais'){
+                                session.send(":(");
+                                session.endDialog();
+                            }else if(slug == 'greetings'){
+                                session.send("coucou :)");
+                                session.endDialog();
+                            }else if(slug == 'goodbye'){
+                                session.send("À bientôt j'espère :)");
+                                session.endDialog();
+                            }else{
+                                session.send("aïe aïe aïe, j'ai pas tout compris là 🐯...");
+                                session.endDialog(); 
+                            }
+                        }else{
+                            var accuracy = res.entities.datetime[0].accuracy;
+                            var chronology = res.entities.datetime[0].chronology;
+                            var iso = res.entities.datetime[0].iso;
+                            session.userData.giventemps = 1;
+                            f2_time(session,chronology,accuracy,iso,slug)
+                            session.beginDialog('/cross',session.userData);
+                        }
+                    }
 
             }).catch(function(err){
                 console.log(err);
                 session.endDialog();   
             });
         //with buttons
-        }else{
-            request.analyseText(results.response.entity)
-                .then(function(res){
-
-                var intent = res.intent();
-                var slug = intent.slug;
-
-                if(!res.entities.datetime){
-                    if(slug == 'jamais'){
-                        session.send(":(");
-                        session.endDialog();
-                    }else if(slug == 'greetings'){
-                        session.send("coucou :)");
-                        session.endDialog();
-                    }else if(slug == 'goodbye'){
-                        session.send("À bientôt j'espère :)");
-                        session.endDialog();
-                    }else{
-                        session.send("aïe aïe aïe, j'ai pas tout compris là 🐯...");
-                        session.endDialog(); 
-                    }
-                }else{
-                    var accuracy = res.entities.datetime[0].accuracy;
-                    var chronology = res.entities.datetime[0].chronology;
-                    var iso = res.entities.datetime[0].iso;
-                    session.userData.giventemps = 1;
-                    f2_time(session,chronology,accuracy,iso,slug)
-                    session.beginDialog('/cross',session.userData);
-                }
-
-            }).catch(function(err){
-                console.log(err)
-                session.endDialog();     
-            }) 
-        }
+ 
+        
     }
 ];
