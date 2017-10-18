@@ -172,12 +172,15 @@ module.exports = [
 								session.send("Je te remercie "+session.userData.name +", pour ta participation au quizz de la semaine. J'espère que cela t'a plus 😉");
 								session.send("Info ℹ️   ton score actuel est de " + note.toString() +" et la moyenne des autres participants est à "+ moyenne.toString());
 
-								if(note >= moyenne){
+								if(note > moyenne){
 										session.send("Félicitations ! 🎉 Tu as plus de miles que la moyenne des autres participants ;) ");
-										session.endDialog()
-									}else{
+										session.beginDialog('/menu',session.userData)
+								}else if(note == moyenne){
+										session.send("Félicitations ! 🎉 Tu as autant de miles que la moyenne des autres participants ;) ");
+										session.beginDialog('/menu',session.userData)
+								}else{
 										session.send("Tu as moins de miles que la moyenne des autres participants... Mais c'est pas grave, tu es sur la bonne voie ;) ");
-										session.endDialog()
+										session.beginDialog('/menu',session.userData)
 								}
 
                             }
@@ -208,12 +211,15 @@ module.exports = [
 									session.send("Je te remercie "+session.userData.name +", pour ta participation au quizz de la semaine. J'espère que cela t'a plus 😉");
 									session.send("Info ℹ️   ton score actuel est de " + note.toString() +" et la moyenne des autres participants est à "+ moyenne.toString());
 
-									if(note >= moyenne){
+									if(note > moyenne){
 										session.send("Félicitations ! 🎉 Tu as plus de miles que la moyenne des autres participants ;) ");
-										session.endDialog();
+										session.beginDialog('/menu',session.userData)
+									}else if(note == moyenne){
+										session.send("Félicitations ! 🎉 Tu as autant de miles que la moyenne des autres participants ;) ");
+										session.beginDialog('/menu',session.userData)
 									}else{
 										session.send("Tu as moins de miles que la moyenne des autres participants... Mais c'est pas grave, tu es sur la bonne voie ;) ");
-										session.endDialog();
+										session.beginDialog('/menu',session.userData)
 									}
 									
 	                            }
