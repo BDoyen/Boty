@@ -53,7 +53,7 @@ module.exports = [
         }
         var moment = time[session.userData.moment];
         var day = week[num_day];
-        builder.Prompts.choice(session,day+moment+", je peux t'aider à trouver des...",["courses 🏃","communautés 👥","astuces💡","bons plans ✌️"],{maxRetries:0}); 
+        builder.Prompts.choice(session,day+moment+", je peux t'aider à trouver des...",["courses 🏃","communautés 👥","astuces💡","promos ✌️"],{maxRetries:0}); 
     
     },
     function(session,results){
@@ -85,7 +85,7 @@ module.exports = [
             case 2:
                 session.beginDialog('/botlesmoi',session.userData);
             case 3:
-                session.beginDialog('/bonplan',session.userData);
+                session.beginDialog('/promo',session.userData);
             }
         }
     }

@@ -101,8 +101,8 @@ bot.dialog("/botlesmoi", require("./dialogs/botlesmoi"))
 bot.dialog("/contact_phatique", require("./dialogs/contact_phatique"));
 
 
-bot.dialog("/jobrun", require("./dialogs/jobrun")).
-    triggerAction({ 
+bot.dialog("/jobrun", require("./dialogs/jobrun"))
+    .triggerAction({ 
         matches: /JobRun 🏃👔/i 
     });
 
@@ -143,14 +143,14 @@ bot.dialog("/insult", require("./dialogs/insult"));
 bot.dialog("/adresse", require("./dialogs/adresse"));
 
 
-bot.dialog("/adresse_bis", require("./dialogs/adresse_bis")).
-    triggerAction({ 
+bot.dialog("/adresse_bis", require("./dialogs/adresse_bis"))
+    .triggerAction({ 
         matches: /changer d'adresse 📍/i 
     });
 
 
-bot.dialog("/run", require("./dialogs/run")).
-    triggerAction({ 
+bot.dialog("/run", require("./dialogs/run"))
+    .triggerAction({ 
         matches: /une course 🎽/i 
     });
 
@@ -161,19 +161,23 @@ bot.dialog("/which-run", require("./dialogs/which-run"));
 bot.dialog("/confirm", require("./dialogs/confirm"));
 
 
-bot.dialog("/gestion", require("./dialogs/gestion")).
-    triggerAction({ 
+bot.dialog("/gestion", require("./dialogs/gestion"))
+    .triggerAction({ 
         matches: /gestion de mes courses 📅/i 
     });
 
 bot.dialog("/gestion_bis", require("./dialogs/gestion_bis"));
 
 
-bot.dialog("/dialog_quizz", require("./dialogs/dialog_quizz")).
-    triggerAction({ 
+bot.dialog("/dialog_quizz", require("./dialogs/dialog_quizz"))
+    .triggerAction({ 
         matches: /#quizzDeLaSemaine/i 
     });
 
+bot.dialog("/promo", require("./dialogs/promo"))
+    .triggerAction({ 
+        matches: /promo/i 
+    });
 
 
 

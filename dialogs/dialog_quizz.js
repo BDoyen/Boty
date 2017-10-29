@@ -83,12 +83,12 @@ module.exports = [
 					session.userData.grade = 1;
 					session.send("Bien joué ! C'est la bonne réponse 👍");
 					session.send(goodq1text);
-					builder.Prompts.choice(session,"Deuxième question : " + q2,[ans1q2,ans2q2,ans3q1],{maxRetries:1,retryPrompt:"Je ne suis pas sûr d'avoir tout saisi mais tu peux essayer avec un des boutons " + positiveSentimentArray[math.round(math.random()*(l+1))]} );
+					builder.Prompts.choice(session,"Deuxième question : " + q2,[ans1q2,ans2q2,ans3q2],{maxRetries:1,retryPrompt:"Je ne suis pas sûr d'avoir tout saisi mais tu peux essayer avec un des boutons " + positiveSentimentArray[math.round(math.random()*(l+1))]} );
 				}else{
 					session.send("c'est pas ça désolé...");
 					var numero = goodq1 +1;
 					session.send(goodq1text);
-					builder.Prompts.choice(session,"Deuxième question : " + q2,[ans1q2,ans2q2,ans3q1],{maxRetries:1,retryPrompt:"Je ne suis pas sûr d'avoir tout saisi mais tu peux essayer avec un des boutons " + positiveSentimentArray[math.round(math.random()*(l+1))]} );
+					builder.Prompts.choice(session,"Deuxième question : " + q2,[ans1q2,ans2q2,ans3q2],{maxRetries:1,retryPrompt:"Je ne suis pas sûr d'avoir tout saisi mais tu peux essayer avec un des boutons " + positiveSentimentArray[math.round(math.random()*(l+1))]} );
 				}
 				
 			}
@@ -144,7 +144,7 @@ module.exports = [
 			}else{
 				if(goodq4 == results.response.index){
 					session.userData.grade = session.userData.grade + 1;
-					session.send("CORRECT ! ");
+					session.send("CORRECT !");
 					session.send(goodq4text);
 					builder.Prompts.choice(session,"Cinquième question : " + q5,[ans1q5,ans2q5,ans3q5],{maxRetries:1,retryPrompt:"Je ne suis pas sûr d'avoir tout saisi mais tu peux essayer avec un des boutons " + positiveSentimentArray[math.round(math.random()*(l+1))]});
 				}else{
@@ -185,7 +185,7 @@ module.exports = [
                             	var note = res.Note
                             	session.send("Super 😉 👍 ");
                             	session.send(goodq5text);
-								session.send("Je te remercie "+session.userData.name +" pour ta participation au quizz de la semaine. J'espère que cela t'a plu 😉");
+								session.send("Je te remercie "+session.userData.name +" pour ta participation au quizz de la semaine. J'espère que cela t'a plu 🎉");
 								session.send("Info ℹ️   ton score actuel total est de " + note.toString() +" et la moyenne des autres participants est à "+ moyenne.toString());
 								if(note > moyenne){
 										session.send("Félicitations ! 🎉 Tu as plus de miles que la moyenne des autres participants ;) À toi le cadeau surprise bientôt !");
@@ -224,7 +224,7 @@ module.exports = [
                             		var note = res.Note
 	                            	session.send("ah c'est pas grave...");
 	                            	session.send(goodq5text);
-									session.send("Je te remercie "+session.userData.name +", pour ta participation au quizz de la semaine. J'espère que cela t'a plu 😉");
+									session.send("Je te remercie "+session.userData.name +", pour ta participation au quizz de la semaine. J'espère que cela t'a plu 🎉");
 									session.send("Info ℹ️   ton score actuel est de " + note.toString() +" et la moyenne des autres participants est à "+ moyenne.toString());
 
 									if(note > moyenne){
