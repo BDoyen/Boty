@@ -22,7 +22,6 @@ module.exports =[
                             title:"15% DE RÉDUCTION POUR LES ÉTUDIANTS chez New Balance",
                             subtitle:"Inscris-toi avec le mail de ton école et reçoit ta réduction 💚",
                             image_url:"http://jorgbadura.com//wp-content/uploads/2013/02/Jorg-Badura-03-New-Balance-Running.jpg ",
-                            item_url: "https://www.studentbeans.com/student-discount/fr/new-balance",
                             buttons:[
                             {
                                 type:"web_url",
@@ -30,15 +29,13 @@ module.exports =[
                                 title:"J'en profite! 😍"
                             },
                             {
-                                type:"element_share",
-                                title:"Partager"
+                                type:"element_share"
                             }]
                         },
                         {
                             title:"20% DE RÉDUCTION POUR LES ÉTUDIANTS chez Aasics",
                             subtitle:"Inscris-toi avec le mail de ton école et reçoit ta réduction 💚",
                             image_url:"https://wl3-cdn.landsec.com/sites/default/files/styles/whats_on_scaled_combo/public/images/whatson/thumbnails/asics_running.jpg",
-                            item_url: "https://www.studentbeans.com/student-discount/fr/asics/code-20-de-reduction-pour-les-etudiants-588829eb-e8f6-414b-bb65-494ca1bddd59?redeem_online=true",
                             buttons:[
                             {
                                 type:"web_url",
@@ -46,15 +43,13 @@ module.exports =[
                                 title:"J'en profite! 😍"
                             },
                             {
-                                type:"element_share",
-                                title:"Partager"
+                                type:"element_share"
                             }]
                         },
                         {
                             title:"-70% chez i-Run en ce moment 🤑",
                             subtitle:"Du 25/10 au 14/11, sur de nombreux modèles de chaussures et vêtements. Livraison offerte pour tout achat de plus de 90euros",
                             image_url:"http://www.u-run.fr/wp-content/uploads/2015/10/facebook-1200x12001.png",
-                            item_url: "http://www.i-run.fr/?utm_source=affiliation&utm_medium=rw-nov_2017#ectrans=1",
                             buttons:[
                             {
                                 type:"web_url",
@@ -62,15 +57,13 @@ module.exports =[
                                 title:"J'en profite! 😍"
                             },
                             {
-                                type:"element_share",
-                                title:"Partager"
+                                type:"element_share"
                             }]
                         },
                         {
                             title:"Trippsport : 10 € de réduction avec le code TRIPP17 👌",
                             subtitle:"À partir de 100€ d’achats",
                             image_url:"https://s3-media4.fl.yelpcdn.com/bphoto/xeC2aDmF6QnBL8KDJI407Q/l.jpg",
-                            item_url: "http://www.trippsport.fr/",
                             buttons:[
                             {
                                 type:"web_url",
@@ -78,15 +71,13 @@ module.exports =[
                                 title:"J'en profite! 😍"
                             },
                             {
-                                type:"element_share",
-                                title:"Partager"
+                                type:"element_share"
                             }]
                         },
                         {
                             title:"LEPAPE : 25% sur les nouveautés ;)",
                             subtitle:"Du 18/10 au 1/11",
                             image_url:"http://www.boutique2mode.com/photo/art/grande/14442669-20308667.jpg",
-                            item_url: "https://www.lepape.com/",
                             buttons:[
                             {
                                 type:"web_url",
@@ -94,8 +85,7 @@ module.exports =[
                                 title:"J'en profite! 😍"
                             },
                             {
-                                type:"element_share",
-                                title:"Partager"
+                                type:"element_share"
                             }]
                         }
 
