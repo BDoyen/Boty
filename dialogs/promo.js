@@ -5,7 +5,6 @@ var math = require('mathjs'); //math module
 var request = require('request');
 
 
-
 module.exports =[
 
 	function(session){

@@ -180,6 +180,12 @@ bot.dialog("/promo", require("./dialogs/promo"))
     });
 
 
+bot.dialog("/resultsquizz", require("./dialogs/resultsquizz"))
+    .triggerAction({ 
+        matches: /#resultatsSemaineAvant/i 
+    });
+
+
 
 bot.dialog("/",
     function(session){
