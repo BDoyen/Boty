@@ -2,37 +2,37 @@
 ///// Parameters of the QUIZZ //////
 
 
-var title = "Les petits problèmes typiques liés à la course et comment les éviter 🏃🏋️";
-var q1 = "à quoi sont dues les courbatures qui surviennent après une course ?";
-var ans1q1 = "Grosseur des muscles"; 
-var ans2q1 = "Microdéchirures";
-var ans3q1 = "Aux tendons";
+var title = "Pluie, neige, froid : des conseils pour courir par tous les temps ❄️ ⛅";
+var q1 = "Quel est l'équipement le plus important pour une course par temps froid ?";
+var ans1q1 = "un polaire"; 
+var ans2q1 = "les chaussures";
+var ans3q1 = "des gants";
 var goodq1 = 1;
-var goodq1text = "Les courbatures sont en général dues à de microdéchirures des muscles qui surviennent pendant l'effort";
-var q2 = "quelle vitamine peut m'aider le plus à récupérer ?";
-var ans1q2 = "Vitamine E";
-var ans2q2 = "Vitamine D";
-var ans3q2 = "Vitamine B";
+var goodq1text = "Le plus important est que vos chaussures soient équipées d’une semelle qui offre une bonne adhérence sur sol mouillé. N’oubliez pas non plus de les imprégner avec un spray spécial pour les imperméabiliser et garder vos pieds bien au sec";
+var q2 = "Si le vent souffle dehors, vaut-il mieux commencer par courir face à lui ou bien avoir le vent de dos ?";
+var ans1q2 = "en face";
+var ans2q2 = "de dos";
+var ans3q2 = "je ne sais pas";
 var goodq2 = 0;
-var goodq2text = "C'est la Vitamine E qui aide le plus à récupérer. On en trouve dans les huiles végétales de qualité comme l’huile de germe de blé, l’huile de tournesol, dans les noisettes ou encore le germe de blé.";
-var q3 = "à quoi peut être dû un mal de tête pendant une course ?";
-var ans1q3 = "Sur-oxygénation";
-var ans2q3 = "Sur-chauffe";
-var ans3q3 = "Manque sels minéraux";
-var goodq3 = 2;
-var goodq3text = "Les maux de tête viennent en général d'un manque de sels minéraux, d'où l'intérêt d'une bonne hydratation aussi ;)";
-var q4 = "quelle est généralement la partie du corps qui la plus mise à l'épreuve pendant un run ?";
-var ans1q4 = "les genoux";
-var ans2q4 = "les chevilles";
-var ans3q4 = "les tibias";
-var goodq4 = 0;
-var goodq4text = "Ce sont les genoux qui amortissent la plupart des chocs. Un conseil un peu original : améliorer sa coordination en allant courir sur des terrains moins lisses et un peu plus accidentés (forêt et chemins par exemple)";
-var q5 = "Comment éviter l'overstriding ? (réception avec un contact au sol plus en avant par rapport à son centre de gravité)";
-var ans1q5 = "courir vite";
-var ans2q5 = "se tenir droit";
-var ans3q5 = "plus de foulées";
-var goodq5 = 1;
-var goodq5text = "L'overstriding peut être évité en adoptant une posture de course un peu plus droite et relevée";
+var goodq2text = "Comment affronter le vent ? Si le vent souffle fort dehors, commencez par courir face au vent puis terminez votre session avec le vent dans le dos. Vous éviterez ainsi les coups de froid en fin de parcours (où vous transpirez le plus)";
+var q3 = "Pour courir quand il fait très froid, inspirer d'abord par le nez puis expirer par la bouche peut être utile ?";
+var ans1q3 = "Oui !";
+var ans2q3 = "Non, au contraire";
+var ans3q3 = "Sans importance";
+var goodq3 = 0;
+var goodq3text = "Lorsqu’il fait un froid glacial dehors, une bonne technique respiratoire est essentielle : respirez par le nez afin de réchauffer l’air avant qu’il n’arrive dans vos poumons et expirez par la bouche";
+var q4 = "Combien de temps devrait durer un échauffement ? (encore plus utile par temps froid...)";
+var ans1q4 = "30 secondes";
+var ans2q4 = "2 à 5 minutes";
+var ans3q4 = "5 à 10 minutes";
+var goodq4 = 2;
+var goodq4text = "Cinq à dix minutes d’échauffement suffisent pour éviter un démarrage à froid, ainsi que d’éventuelles blessures";
+var q5 = "Quel est le meilleur type d'entraînement du point de vue tempo en automne/hiver ?";
+var ans1q5 = "Lent";
+var ans2q5 = "Moyen";
+var ans3q5 = "Rapide";
+var goodq5 = 0;
+var goodq5text = "L’hiver est la saison idéale pour travailler votre endurance. Choisissez donc un entraînement constant et à faible intensité. En hiver, votre corps travaille à plein régime : il doit gérer vos muscles, mais également réguler la température de vos mains, pieds et de votre tête. Il a donc deux fois plus de travail ! ";
 
 
 /// exports

@@ -10,8 +10,8 @@ module.exports = [
 	function(session){
 		session.send("Voici un petit condensé des réponses du quizz de lundi dernier.")
 		session.send("Le thème était...");
-		session.send("hydratation : tous les chiffres indispensables au running et plus généralement à ton bien-être 🏃‍🚰 📊");
-		session.send("Notre corps est composé à plus de 50% d'eau (près de 60% exactement). Le plus impressionant concerne notre cerveau : plus de 70% d'eau dans nos têtes 😅 Pour alimenter son corps en eau, 1,5 à 2 Litres quotidien sont recommandés. Pendant un effort telle une sortie running, ce niveau augmente : 0,5 Litre par heure 💪 Enfin, la température idéale d'assimilation de l'eau se trouve entre 15°C et 20°C 🌡️");
+		session.send("Les petits problèmes typiques liés à la course et comment les éviter 🏃🏋️");
+		session.send("Un des plus classiques : les courbatures (les fameuses...) ! Elles sont en général dues à de microdéchirures des muscles qui surviennent pendant l'effort 🙄 Une bonne alimentation, notamment riche en Vitamine E aide aussi à mieux récupérer 🥕 Pendant l'effort, les maux de tête viennent en général d'un manque de sels minéraux, d'où l'intérêt d'une bonne hydratation aussi 🚰 Enfin, ce sont les genoux qui amortissent la plupart des chocs. D'où ce conseil un peu original : améliorer sa coordination en allant courir sur des terrains moins lisses et un peu plus accidentés (forêt et chemins par exemple)");
 		session.beginDialog('/menu',session.userData);
 	}
 
