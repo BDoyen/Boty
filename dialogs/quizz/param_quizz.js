@@ -2,40 +2,40 @@
 ///// Parameters of the QUIZZ //////
 
 
-var title = "Pluie, neige, froid : des conseils pour courir par tous les temps ❄️ ⛅";
-var q1 = "Quel est l'équipement le plus important pour une course par temps froid ?";
-var ans1q1 = "un polaire"; 
-var ans2q1 = "les chaussures";
-var ans3q1 = "des gants";
+var title = "Petit focus sur la Vitamine D ☀️ 😎";
+var q1 = "Qu'est-ce qui bénéficie le plus dans le corps de l'apport en Vitamine D ?";
+var ans1q1 = "la peau"; 
+var ans2q1 = "système immunitaire";
+var ans3q1 = "système nerveux";
 var goodq1 = 1;
-var goodq1text = "Le plus important est que vos chaussures soient équipées d’une semelle qui offre une bonne adhérence sur sol mouillé. N’oubliez pas non plus de les imprégner avec un spray spécial pour les imperméabiliser et garder vos pieds bien au sec";
-var q2 = "Si le vent souffle dehors, vaut-il mieux commencer par courir face à lui ou bien avoir le vent de dos ?";
-var ans1q2 = "en face";
-var ans2q2 = "de dos";
-var ans3q2 = "je ne sais pas";
-var goodq2 = 0;
-var goodq2text = "Comment affronter le vent ? Si le vent souffle fort dehors, commencez par courir face au vent puis terminez votre session avec le vent dans le dos. Vous éviterez ainsi les coups de froid en fin de parcours (où vous transpirez le plus)";
-var q3 = "Pour courir quand il fait très froid, inspirer d'abord par le nez puis expirer par la bouche peut être utile ?";
-var ans1q3 = "Oui !";
-var ans2q3 = "Non, au contraire";
-var ans3q3 = "Sans importance";
-var goodq3 = 0;
-var goodq3text = "Lorsqu’il fait un froid glacial dehors, une bonne technique respiratoire est essentielle : respirez par le nez afin de réchauffer l’air avant qu’il n’arrive dans vos poumons et expirez par la bouche";
-var q4 = "Combien de temps devrait durer un échauffement ? (encore plus utile par temps froid...)";
-var ans1q4 = "30 secondes";
-var ans2q4 = "2 à 5 minutes";
-var ans3q4 = "5 à 10 minutes";
-var goodq4 = 2;
-var goodq4text = "Cinq à dix minutes d’échauffement suffisent pour éviter un démarrage à froid, ainsi que d’éventuelles blessures";
-var q5 = "Quel est le meilleur type d'entraînement du point de vue tempo en automne/hiver ?";
-var ans1q5 = "Lent";
-var ans2q5 = "Moyen";
-var ans3q5 = "Rapide";
-var goodq5 = 0;
-var goodq5text = "L’hiver est la saison idéale pour travailler votre endurance. Choisissez donc un entraînement constant et à faible intensité. En hiver, votre corps travaille à plein régime : il doit gérer vos muscles, mais également réguler la température de vos mains, pieds et de votre tête. Il a donc deux fois plus de travail ! ";
+var goodq1text = "😎 La vitamine D est indispensable pour activer le système immunitaire de l’organisme. Une carence est donc bien souvent associé à un système immunitaire déficient et une auto-immunité accrue.";
+var q2 = "Pourquoi il est important de consommer Vitamine D et aliments gras ?";
+var ans1q2 = "c'est faux";
+var ans2q2 = "lipophobie";
+var ans3q2 = "liposolubilté";
+var goodq2 = 2;
+var goodq2text = "😎 Le corps a besoin de graisses pour dissoudre et absorber la vitamine D. Il est ainsi recommandé de toujours consommer des aliments riches en vitamines liposolubles avec des aliments gras (noix, avocats, huiles végétales de haute qualité).";
+var q3 = "Combien de temps est-il conseillé de s'exposer au soleil pour fixer la vitamine D ?";
+var ans1q3 = "15 min par jour";
+var ans2q3 = "30 min par jour";
+var ans3q3 = "1h par jour";
+var goodq3 = 1;
+var goodq3text = "😎 En automne/hiver, il est conseillé de s’exposer 30 minutes par jour ☀️";
+var q4 = "Quel aliment est riche en vitamine D ?";
+var ans1q4 = "champignons de Paris";
+var ans2q4 = "brocoli";
+var ans3q4 = "poivron";
+var goodq4 = 0;
+var goodq4text = "😎 La vitamine D se trouve également dans les champignons ! Particulièrement les champignons de Paris 😲";
+var q5 = "Enfin, quel est un des principaux impacts de la vitamine D sur le runner ?";
+var ans1q5 = "mental";
+var ans2q5 = "musculaire";
+var ans3q5 = "coordination";
+var goodq5 = 1;
+var goodq5text = "😎 Des chercheurs ont démontré la corrélation entre un apport régulier en vitamine D et le gain de force musculaire pour des athlètes de compétition";
 
 
-/// exports
+/// exports parameters of the QUIZZ
 
 module.exports = {
 	title: title,

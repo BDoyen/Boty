@@ -10,8 +10,8 @@ module.exports = [
 	function(session){
 		session.send("Voici un petit condensé des réponses du quizz de lundi dernier.")
 		session.send("Le thème était...");
-		session.send("Les petits problèmes typiques liés à la course et comment les éviter 🏃🏋️");
-		session.send("Un des plus classiques : les courbatures (les fameuses...) ! Elles sont en général dues à de microdéchirures des muscles qui surviennent pendant l'effort 🙄 Une bonne alimentation, notamment riche en Vitamine E aide aussi à mieux récupérer 🥕 Pendant l'effort, les maux de tête viennent en général d'un manque de sels minéraux, d'où l'intérêt d'une bonne hydratation aussi 🚰 Enfin, ce sont les genoux qui amortissent la plupart des chocs. D'où ce conseil un peu original : améliorer sa coordination en allant courir sur des terrains moins lisses et un peu plus accidentés (forêt et chemins par exemple)");
+		session.send("Pluie, neige, froid : des conseils pour courir par tous les temps ❄️ ⛅");
+		session.send("En termes d'équipement, le plus important est que vos chaussures soient équipées d’une semelle qui offre une bonne adhérence sur sol mouillé 👟 Comment affronter le vent ? Si le vent souffle fort dehors, commencez par courir face au vent puis terminez votre session avec le vent dans le dos 💨 Lorsqu’il fait un froid glacial dehors, une bonne technique respiratoire est essentielle : respirez par le nez afin de réchauffer l’air avant qu’il n’arrive dans vos poumons et expirez par la bouche 😉 Cinq à dix minutes d’échauffement suffisent pour éviter un démarrage à froid. Et enfin, l’automne/hiver est la saison idéale pour travailler votre endurance. Choisissez donc un entraînement constant et à faible intensité pendant cette période 🏃");
 		session.beginDialog('/menu',session.userData);
 	}
 
