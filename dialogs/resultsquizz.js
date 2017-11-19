@@ -10,8 +10,8 @@ module.exports = [
 	function(session){
 		session.send("Voici un petit condensé des réponses du quizz de lundi dernier.")
 		session.send("Le thème était...");
-		session.send("Pluie, neige, froid : des conseils pour courir par tous les temps ❄️ ⛅");
-		session.send("En termes d'équipement, le plus important est que vos chaussures soient équipées d’une semelle qui offre une bonne adhérence sur sol mouillé 👟 Comment affronter le vent ? Si le vent souffle fort dehors, commencez par courir face au vent puis terminez votre session avec le vent dans le dos 💨 Lorsqu’il fait un froid glacial dehors, une bonne technique respiratoire est essentielle : respirez par le nez afin de réchauffer l’air avant qu’il n’arrive dans vos poumons et expirez par la bouche 😉 Cinq à dix minutes d’échauffement suffisent pour éviter un démarrage à froid. Et enfin, l’automne/hiver est la saison idéale pour travailler votre endurance. Choisissez donc un entraînement constant et à faible intensité pendant cette période 🏃");
+		session.send("Petit focus sur la Vitamine D ☀️ 😎");
+		session.send("La vitamine D est indispensable pour activer le système immunitaire de l’organisme. 🍲 Le corps a besoin de graisses pour dissoudre et absorber la vitamine D. Il est ainsi recommandé de toujours consommer vitamine D + aliments gras de qualité (noix, avocats, huiles végétales de haute qualité). ☀️ En automne/hiver, il est conseillé de s’exposer 30 minutes par jour. 🍄 La vitamine D se trouve également dans les champignons ! Particulièrement les champignons de Paris. 💪 Des chercheurs ont démontré la corrélation entre un apport régulier en vitamine D et le gain de force musculaire pour des athlètes de compétition");
 		session.beginDialog('/menu',session.userData);
 	}
 

@@ -2,37 +2,37 @@
 ///// Parameters of the QUIZZ //////
 
 
-var title = "Petit focus sur la Vitamine D ☀️ 😎";
-var q1 = "Qu'est-ce qui bénéficie le plus dans le corps de l'apport en Vitamine D ?";
-var ans1q1 = "la peau"; 
-var ans2q1 = "système immunitaire";
-var ans3q1 = "système nerveux";
+var title = "🏃🤔 Les meilleurs conseils pour bien débuter dans le running";
+var q1 = "🏃 Faut-il se fixer des objectifs précis pendant les premières sessions ?";
+var ans1q1 = "Oui bien sûr !"; 
+var ans2q1 = "Non";
+var ans3q1 = "Sans importance";
 var goodq1 = 1;
-var goodq1text = "😎 La vitamine D est indispensable pour activer le système immunitaire de l’organisme. Une carence est donc bien souvent associé à un système immunitaire déficient et une auto-immunité accrue.";
-var q2 = "Pourquoi il est important de consommer Vitamine D et aliments gras ?";
-var ans1q2 = "c'est faux";
-var ans2q2 = "lipophobie";
-var ans3q2 = "liposolubilté";
-var goodq2 = 2;
-var goodq2text = "😎 Le corps a besoin de graisses pour dissoudre et absorber la vitamine D. Il est ainsi recommandé de toujours consommer des aliments riches en vitamines liposolubles avec des aliments gras (noix, avocats, huiles végétales de haute qualité).";
-var q3 = "Combien de temps est-il conseillé de s'exposer au soleil pour fixer la vitamine D ?";
-var ans1q3 = "15 min par jour";
-var ans2q3 = "30 min par jour";
-var ans3q3 = "1h par jour";
-var goodq3 = 1;
-var goodq3text = "😎 En automne/hiver, il est conseillé de s’exposer 30 minutes par jour ☀️";
-var q4 = "Quel aliment est riche en vitamine D ?";
-var ans1q4 = "champignons de Paris";
-var ans2q4 = "brocoli";
-var ans3q4 = "poivron";
-var goodq4 = 0;
-var goodq4text = "😎 La vitamine D se trouve également dans les champignons ! Particulièrement les champignons de Paris 😲";
-var q5 = "Enfin, quel est un des principaux impacts de la vitamine D sur le runner ?";
-var ans1q5 = "mental";
-var ans2q5 = "musculaire";
-var ans3q5 = "coordination";
-var goodq5 = 1;
-var goodq5text = "😎 Des chercheurs ont démontré la corrélation entre un apport régulier en vitamine D et le gain de force musculaire pour des athlètes de compétition";
+var goodq1text = "Lors des premières sessions, cours de manière naturelle et sans te fixer un quelconque objectif au risque de perdre en motivation. Le flow est ce qui importe le plus !";
+var q2 = "🏃 Qu'est-ce qui est aussi le plus important au début ?";
+var ans1q2 = "rythme constant";
+var ans2q2 = "foulées déroulées";
+var ans3q2 = "accélérations";
+var goodq2 = 0;
+var goodq2text = "Clairement il va s'agir d'adopter un rythme constant. Garder un rythme constant permet en effet à ton corps de s'habituer à la nouvelle charge pour ensuite mieux progresser. Step by step 😉";
+var q3 = "🏃 Quelle est selon toi la durée minimale de temps de repos entre deux runs pour bien récupérer ?";
+var ans1q3 = "6h";
+var ans2q3 = "12h";
+var ans3q3 = "24h";
+var goodq3 = 2;
+var goodq3text = "Accorde-toi tout de même un jour de repos avant ton prochain run : le corps a besoin de se reposer et de récupérer. Il doit en effet adapter le système cardiovasculaire à ces nouvelles demandes...";
+var q4 = "🏃 Petit pas ou foulées libérées ??";
+var ans1q4 = "les foulées !";
+var ans2q4 = "les petits pas !";
+var ans3q4 = "entre les deux";
+var goodq4 = 1;
+var goodq4text = "Essaie de courir de la manière la plus détendue possible et sans trop d’effort. De petites pas sont plus efficaces que de longues foulées qui vont te freiner à chaque appui au sol.";
+var q5 = "🏃 Quelle partie du corps doit être la plus musclée pour courir au mieux ?";
+var ans1q5 = "les cuisses";
+var ans2q5 = "les jambes";
+var ans3q5 = "le tronc";
+var goodq5 = 2;
+var goodq5text = "Le tronc est le centre de contrôle de tes mouvements. À travers lui, le balancement des bras va déterminer les mouvements de la partie inférieure du corps. Les muscles du tronc doivent donc être bien développés pour assurer une bonne stabilité";
 
 
 /// exports parameters of the QUIZZ
