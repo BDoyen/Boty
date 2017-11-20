@@ -49,12 +49,14 @@ module.exports = [
                                        
                             ]);
 
-            builder.Prompts.choice(session,msg,["s'inscrire aux quizz","stop notif quizz","s'inscrire aux notifs events","stop notif events","C'est bon merci 🙂"],{maxRetries:0});
+            builder.Prompts.choice(session,msg,["s'inscrire aux quizz ✅","stop quizz ❌","s'inscrire aux notifs events ✅","stop notif events ❌","C'est bon merci 🙂"],{maxRetries:0});
 
 	},
 
 	function(session,results){
 
+		session.send('Ok!');
+		
 		var options = {
               url: "http://217.182.206.5:8080/inscription",
               method: 'POST',
@@ -62,77 +64,80 @@ module.exports = [
         };
 
 		switch (results.response.index){
+			
 			case 0:
 				var bool = new Boolean("true");
 				var data = JSON.stringify({Id:session.userData.idstring,Type:'quizz',Bool:bool});
-				options.form = data
+				options.form = data;
 
 				var post_req = request(options, function(error,response,body){
 	                        if(error){
 	                            console.log(error);
 	                            session.send(";) 🐅");
 	                            post_req.end();
-                                session.beginDialog('/menu',session.userData);
+	                            session.beginDialog('/menu',session.userData);
 	                        }else{
-	                            post_req.end();
+	                        	post_req.end();
 	                            session.send("C'est tout bon 🎉 Tu es inscrit aux quizz !");
-                                session.beginDialog('/menu',session.userData);
+	                            session.beginDialog('/menu',session.userData);
 	                        }
 	            });
+	            break;
 
 			case 1:
 				var bool = new Boolean("false");
 				var data = JSON.stringify({Id:session.userData.idstring,Type:'quizz',Bool:bool});
-				options.form = data
+				options.form = data;
 
 				var post_req = request(options, function(error,response,body){
 	                        if(error){
 	                            console.log(error);
 	                            session.send(";) 🐅");
 	                            post_req.end();
-                                session.beginDialog('/menu',session.userData);
 	                        }else{
 	                            post_req.end();
 	                            session.send("C'est tout bon 🙂 Tu es désinscrit des quizz");
-                                session.beginDialog('/menu',session.userData);
+	                            session.beginDialog('/menu',session.userData);
 	                        }
 	            });
+	            break;
 
 			case 2:
 				var bool = new Boolean("true");
 				var data = JSON.stringify({Id:session.userData.idstring,Type:'event',Bool:bool});
-				options.form = data
+				options.form = data;
 
 				var post_req = request(options, function(error,response,body){
 	                        if(error){
 	                            console.log(error);
 	                            session.send(";) 🐅");
 	                            post_req.end();
-                                session.beginDialog('/menu',session.userData);
 	                        }else{
 	                            post_req.end();
 	                            session.send("C'est tout bon 🎉 Tu es inscrit aux events !");
-                                session.beginDialog('/menu',session.userData);
+	                            session.beginDialog('/menu',session.userData);
 	                        }
 	            });
+	            break;
 
 			case 3:
 				var bool = new Boolean("false");
 				var data = JSON.stringify({Id:session.userData.idstring,Type:'event',Bool:bool});
-				options.form = data
+				options.form = data;
 
 				var post_req = request(options, function(error,response,body){
 	                        if(error){
 	                            console.log(error);
 	                            session.send(";) 🐅");
 	                            post_req.end();
-                                session.beginDialog('/menu',session.userData);
 	                        }else{
 	                            post_req.end();
 	                            session.send("C'est tout bon 🙂 Tu es désinscrit des events");
-                                session.beginDialog('/menu',session.userData);
+	                            session.beginDialog('/menu',session.userData);
+
 	                        }
 	            });
+	            break;
 
 			case 4:
 				session.beginDialog("/catch",session.userData);

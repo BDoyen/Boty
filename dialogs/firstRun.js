@@ -160,7 +160,7 @@ module.exports = [
                 session.send("Voilà un aperçu de ce que je peux faire pour toi");
                 session.endDialog(msg);
             }else{
-                session.beginDialog("/catch");
+                session.beginDialog("/catch",session.userData);
             }
         }else{
             switch (results.response.index) {
