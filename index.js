@@ -186,6 +186,13 @@ bot.dialog("/resultsquizz", require("./dialogs/resultsquizz"))
     });
 
 
+bot.dialog("/gestion_push", require("./dialogs/gestion_push"))
+    .triggerAction({ 
+        matches: /#menuGestionNotif/i 
+    });
+
+
+
 
 bot.dialog("/",
     function(session){

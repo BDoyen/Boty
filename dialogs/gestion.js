@@ -317,7 +317,8 @@ module.exports = [
                 case 0:
 
                 	session.send("C'est bon "+session.userData.name+", ta désinscription de ce push a bien été prise en compte 🔕 😉")
-                	var data = JSON.stringify({User:session.userData.idstring,Event:session.userData.deleteid0});
+                	
+                    var data = JSON.stringify({User:session.userData.idstring,Event:session.userData.deleteid0});
 
                     session.userData.post_options = {
                         url: "http://217.182.206.5:8080/push/deleteevent",
@@ -487,8 +488,7 @@ module.exports = [
 
                 case 5:
                 	session.beginDialog("/catch",session.userData);
-                	break
-
+                	break;
 
             }
         }
