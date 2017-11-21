@@ -56,9 +56,9 @@ module.exports = [
 	function(session,results){
 
 		session.send('Ok!');
-		
+
 		var options = {
-              url: "http://217.182.206.5:8080/inscription",
+              url: "http://217.182.206.5:8080/inscription/",
               method: 'POST',
               timeout:30000
         };
@@ -66,8 +66,7 @@ module.exports = [
 		switch (results.response.index){
 			
 			case 0:
-				var bool = new Boolean("true");
-				var data = JSON.stringify({Id:session.userData.idstring,Type:'quizz',Bool:bool});
+				var data = JSON.stringify({Id:session.userData.idstring,Type:'quizz',Bool:true});
 				options.form = data;
 
 				var post_req = request(options, function(error,response,body){
@@ -85,8 +84,7 @@ module.exports = [
 	            break;
 
 			case 1:
-				var bool = new Boolean("false");
-				var data = JSON.stringify({Id:session.userData.idstring,Type:'quizz',Bool:bool});
+				var data = JSON.stringify({Id:session.userData.idstring,Type:'quizz',Bool:false});
 				options.form = data;
 
 				var post_req = request(options, function(error,response,body){
@@ -103,8 +101,7 @@ module.exports = [
 	            break;
 
 			case 2:
-				var bool = new Boolean("true");
-				var data = JSON.stringify({Id:session.userData.idstring,Type:'event',Bool:bool});
+				var data = JSON.stringify({Id:session.userData.idstring,Type:'event',Bool:true});
 				options.form = data;
 
 				var post_req = request(options, function(error,response,body){
@@ -121,8 +118,7 @@ module.exports = [
 	            break;
 
 			case 3:
-				var bool = new Boolean("false");
-				var data = JSON.stringify({Id:session.userData.idstring,Type:'event',Bool:bool});
+				var data = JSON.stringify({Id:session.userData.idstring,Type:'event',Bool:false});
 				options.form = data;
 
 				var post_req = request(options, function(error,response,body){
