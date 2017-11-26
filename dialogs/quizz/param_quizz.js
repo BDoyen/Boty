@@ -2,37 +2,37 @@
 ///// Parameters of the QUIZZ //////
 
 
-var title = "🏃🤔 Les meilleurs conseils pour bien débuter dans le running";
-var q1 = "🏃 Faut-il se fixer des objectifs précis pendant les premières sessions ?";
-var ans1q1 = "Oui bien sûr !"; 
-var ans2q1 = "Non";
-var ans3q1 = "Sans importance";
+var title = "🍲 😋 Les meilleurs aliments pour ne plus avoir faim (enfin...)";
+var q1 = "😋 Que faut-il privilégier pour éviter les fringales ?";
+var ans1q1 = "le sucre"; 
+var ans2q1 = "les fibres";
+var ans3q1 = "le gras";
 var goodq1 = 1;
-var goodq1text = "Lors des premières sessions, cours de manière naturelle et sans te fixer un quelconque objectif au risque de perdre en motivation. Le flow est ce qui importe le plus !";
-var q2 = "🏃 Qu'est-ce qui est aussi le plus important au début ?";
-var ans1q2 = "rythme constant";
-var ans2q2 = "foulées déroulées";
-var ans3q2 = "accélérations";
+var goodq1text = "Les fibres sont faciles à digérer, n’augmentent pas ton niveau de glycémie, t'apporte de l’énergie et enfin t'aide à garder des habitudes alimentaires saines";
+var q2 = "😋 Qu'est-ce qui est riche en protéines et graisses saines ?";
+var ans1q2 = "les noix";
+var ans2q2 = "le poulet";
+var ans3q2 = "le poisson";
 var goodq2 = 0;
-var goodq2text = "Clairement il va s'agir d'adopter un rythme constant. Garder un rythme constant permet en effet à ton corps de s'habituer à la nouvelle charge pour ensuite mieux progresser. Step by step 😉";
-var q3 = "🏃 Quelle est selon toi la durée minimale de temps de repos entre deux runs pour bien récupérer ?";
-var ans1q3 = "6h";
-var ans2q3 = "12h";
-var ans3q3 = "24h";
-var goodq3 = 2;
-var goodq3text = "Accorde-toi tout de même un jour de repos avant ton prochain run : le corps a besoin de se reposer et de récupérer. Il doit en effet adapter le système cardiovasculaire à ces nouvelles demandes...";
-var q4 = "🏃 Petit pas ou foulées libérées ??";
-var ans1q4 = "les foulées !";
-var ans2q4 = "les petits pas !";
-var ans3q4 = "entre les deux";
-var goodq4 = 1;
-var goodq4text = "Essaie de courir de la manière la plus détendue possible et sans trop d’effort. De petites pas sont plus efficaces que de longues foulées qui vont te freiner à chaque appui au sol.";
-var q5 = "🏃 Quelle partie du corps doit être la plus musclée pour courir au mieux ?";
-var ans1q5 = "les cuisses";
-var ans2q5 = "les jambes";
-var ans3q5 = "le tronc";
-var goodq5 = 2;
-var goodq5text = "Le tronc est le centre de contrôle de tes mouvements. À travers lui, le balancement des bras va déterminer les mouvements de la partie inférieure du corps. Les muscles du tronc doivent donc être bien développés pour assurer une bonne stabilité";
+var goodq2text = "Les noix sont bourrées de graisses saines et de protéines. Les noix natures bien sûr, c’est à dire non-salées ou enrobées de sucres. Des exemples : amandes, noix de cajou, noisettes, pistaches ou noix du Brésil";
+var q3 = "😋 Qu'est-ce que le Quinoa ?";
+var ans1q3 = "une graine";
+var ans2q3 = "une céréale";
+var ans3q3 = "autre chose";
+var goodq3 = 0;
+var goodq3text = "Le quinoa n’est en fait pas une céréale mais une graine ! Elle est sans gluten, bourrée de protéines et bien sûr de fibres";
+var q4 = "😋 Quelle est la céréale la plus riche en fibres ?";
+var ans1q4 = "le blé";
+var ans2q4 = "le seigle";
+var ans3q4 = "l'orge";
+var goodq4 = 2;
+var goodq4text = "L’orge est la céréale la plus riche en fibres ! Une tasse (seulement !) d’orge mondé contient 16 g de fibres, c'est beaucoup 😉";
+var q5 = "😋 Qu'est-ce que le Chia ?";
+var ans1q5 = "une graîne";
+var ans2q5 = "une céréale";
+var ans3q5 = "autre chose";
+var goodq5 = 0;
+var goodq5text = "Les graines de Chia sont un super-aliment ! Très répandus chez les aztèques, elles sont super riches en fibres, 40% de leur masse environ !! ";
 
 
 /// exports parameters of the QUIZZ
