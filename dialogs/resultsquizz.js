@@ -12,8 +12,9 @@ module.exports = [
 		var msg_video = new builder.VideoCard(session)
 	        .title('5 meilleurs conseils')
 	        .subtitle('🏃‍ pour bien débuter le running')
+	        .image(builder.CardImage.create(session, 'https://s3-us-west-2.amazonaws.com/converterpoint-2/thumbnails/463676004e26798dcf6123ed25809a99.jpg'))
 	        .media([
-	            { url: 'https://vimeo.com/user75183681/videorungly1' }
+	            { url: 'https://s3-us-west-2.amazonaws.com/converterpoint-2/encodings/4b188aeac9a9ccb69a34471c31675718.mp4' }
 	        ])
 	    session.send(msg_video);
 	    builder.Prompts.choice(session,"ça t'a plu ?",["Oui ! ",'Un peu...',"Non"],{maxRetries:0});
