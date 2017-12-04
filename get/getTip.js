@@ -1,5 +1,3 @@
-rcpsbppr
-
 
 var tipsArray = [];
 
