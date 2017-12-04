@@ -2,7 +2,7 @@
 ///// Parameters of the QUIZZ //////
 
 
-var title = "😯💺 Les dangers de rester assis toute la journée : autant de bonnes raisons d'aller courir ! ";
+var title = "😯💺 Les dangers de rester assis toute la journée : autant de bonnes raisons d'aller courir";
 var q1 = "💺 Le bas du dos doit-il être soutenu par le dossier de ta chaise ?";
 var ans1q1 = "Oui !"; 
 var ans2q1 = "Sans importance";
@@ -20,7 +20,7 @@ var ans1q3 = "à peine 10%";
 var ans2q3 = "au moins la moitié";
 var ans3q3 = "plus de trois quart";
 var goodq3 = 2;
-var goodq3text = "Une étude du centre médical de l’University of Texas a révélé qu’une position assise prolongée peut réduire à néant tous les bienfaits de tes entraînements. Par exemple : si tu vas courir pendant une heure le matin avant d’aller au travail/école et que tu passez les 10 heures qui suivent assis sur une chaise, tu vas perdre 80 % des bienfaits de ton entraînement. Quel gâchis !";
+var goodq3text = "Une étude du centre médical de l’University of Texas a révélé qu’une position assise prolongée peut réduire à néant tous les bienfaits de tes entraînements. Par exemple : si tu vas courir pendant une heure le matin avant d’aller au travail/école et que tu passes les 10 heures qui suivent assis sur une chaise, tu vas perdre 80 % des bienfaits de ton entraînement. Quel gâchis !";
 var q4 = "🛋️  Combien de calories sont brûlées en moins en position assise ?";
 var ans1q4 = "15%";
 var ans2q4 = "30%";

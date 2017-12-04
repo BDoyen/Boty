@@ -53,7 +53,7 @@ module.exports = [
         }
         var moment = time[session.userData.moment];
         var day = week[num_day];
-        builder.Prompts.choice(session,day+moment+", je peux t'aider à trouver des...",["courses 🏃","communautés 👥","astuces💡","promos 🤑","vidéos ▶️"],{maxRetries:0}); 
+        builder.Prompts.choice(session,day+moment+", je peux t'aider à trouver des...",["courses 🏃","communautés 👥","astuces💡","promos 🤑"],{maxRetries:0}); 
     
     },
     function(session,results){
@@ -87,9 +87,6 @@ module.exports = [
                     break;
                 case 3:
                     session.beginDialog('/promo',session.userData);
-                    break;
-                case 4:
-                    session.beginDialog('/resultsquizz',session.userData);
                     break;
             }
         }
