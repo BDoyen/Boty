@@ -78,8 +78,6 @@ module.exports = [
 
     
 
-
-
     //Facebook API request
     FB.api('/'+session.userData.idstring+'?fields=first_name', function(response) {
         session.userData.name = response.first_name;
@@ -88,19 +86,29 @@ module.exports = [
         }else{
             session.send("Salut " + session.userData.name + " !"); 
         }
-        session.send("Moi c'est Rungly " + "🐆" + " et je suis là pour t'aider à trouver les meilleures sorties et bons plans running autour de toi 🌴🏢");
+        session.send("Moi c'est Rungly " + "🐆" + " et comme tu le sais peut-être, je suis là pour t'aider à t'informer sur le running, trouver des courses et entraînements ainsi que les meilleures promos du moment 🏃🌴");
         builder.Prompts.choice(session,"On est partis ?",["Oui !","Pas encore..."],{maxRetries:0});
         session.userData.givenadresse = 0;
         session.userData.giventemps = 0; 
     });
     
 
-
     },
     function (session, results) {
         var msg = new builder.Message(session)
                 .attachmentLayout(builder.AttachmentLayout.carousel)
                 .attachments([
+                    new builder.HeroCard(session)
+                        .title("Quizz de la semaine")
+                        .subtitle("Pour tout savoir sur le running")
+                        .images([
+                            builder.CardImage.create(session, "https://image.ibb.co/c6Uijb/Capture_d_e_cran_2017_12_04_a_03_59_00.png")
+                        ])
+                        .buttons([
+                            builder.CardAction
+                                .imBack(session,"#quizzDeLaSemaine")
+                                .title("Commencer 🚀")
+                        ]),
                     new builder.HeroCard(session)
                         .title("Trouver une course")
                         .subtitle("Et profiter des meilleures sorties du moment")
