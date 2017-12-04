@@ -16,8 +16,10 @@
   "dependencies": {
     "@google/maps": "^0.4.2",
     "asn1": "^0.2.3",
+    "azure": "^2.2.1-preview",
     "body-parser": "^1.17.2",
     "botbuilder": "^3.12.0",
+    "botbuilder-azure": "^3.0.4",
     "date-and-time": "^0.5.0",
     "dotenv": "^4.0.0",
     "fb": "^2.0.0",

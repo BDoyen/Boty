@@ -53,7 +53,7 @@ module.exports = [
         }
         var moment = time[session.userData.moment];
         var day = week[num_day];
-        builder.Prompts.choice(session,day+moment+", je peux t'aider à trouver des...",["courses 🏃","communautés 👥","astuces💡"],{maxRetries:0}); 
+        builder.Prompts.choice(session,day+moment+", je peux t'aider à trouver des...",["courses 🏃","communautés 👥","astuces💡","promos 🤑","vidéos ▶️"],{maxRetries:0}); 
     
     },
     function(session,results){
@@ -73,17 +73,24 @@ module.exports = [
             }
         }else{
             switch(results.response.index){
-            case 0:
-                session.userData.category = 1;
-                session.beginDialog('/run',session.userData);
-                break;
-            case 1:
-                session.userData.level = 1;
-                session.userData.category = 2;
-                session.beginDialog('/cross',session.userData);
-                break;
-            case 2:
-                session.beginDialog('/botlesmoi',session.userData);
+                case 0:
+                    session.userData.category = 1;
+                    session.beginDialog('/run',session.userData);
+                    break;
+                case 1:
+                    session.userData.level = 1;
+                    session.userData.category = 2;
+                    session.beginDialog('/cross',session.userData);
+                    break;
+                case 2:
+                    session.beginDialog('/botlesmoi',session.userData);
+                    break;
+                case 3:
+                    session.beginDialog('/promo',session.userData);
+                    break;
+                case 4:
+                    session.beginDialog('/resultsquizz',session.userData);
+                    break;
             }
         }
     }

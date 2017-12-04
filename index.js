@@ -4,6 +4,7 @@ var builder = require("botbuilder");
 var restify = require('restify'); // pour le serveur
 var sentiment = require('sentiment-multilang'); //sentiment analysis
 var math = require('mathjs'); //math module
+var azure = require('botbuilder-azure'); 
 var funcs_time = require('./dialogs/funcs/funcs_time.js');
 var func_which_category = require('./dialogs/funcs/func_which_category.js');
 
@@ -24,8 +25,20 @@ var connector = new builder.ChatConnector({
 });
 
 
+//state data storage
+var documentDbOptions = {
+    host: 'https://runglyuserdata.documents.azure.com:443/', 
+    masterKey: '4qp31QGzb5XR7Q9NxPrlrEEGEEivNpumLOFB5qkgCPTBhEQirLmYAYenTlRK6JntEY6sCOJzPjO4JlO4b7Tvrg==', 
+    database: 'botdocs',   
+    collection: 'botdata'
+};
+var docDbClient = new azure.DocumentDbClient(documentDbOptions);
+var cosmosStorage = new azure.AzureBotStorage({ gzipData: false }, docDbClient);
+
+
 //bot object
-var bot = new builder.UniversalBot(connector);
+var bot = new builder.UniversalBot(connector)
+    .set('storage', cosmosStorage);
 
 
 //server listening

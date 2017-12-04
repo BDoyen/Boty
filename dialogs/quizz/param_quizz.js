@@ -2,37 +2,37 @@
 ///// Parameters of the QUIZZ //////
 
 
-var title = "🍲 😋 Les meilleurs aliments pour ne plus avoir faim (enfin...)";
-var q1 = "😋 Que faut-il privilégier pour éviter les fringales ?";
-var ans1q1 = "le sucre"; 
-var ans2q1 = "les fibres";
-var ans3q1 = "le gras";
-var goodq1 = 1;
-var goodq1text = "Les fibres sont faciles à digérer, n’augmentent pas ton niveau de glycémie, t'apporte de l’énergie et enfin t'aide à garder des habitudes alimentaires saines";
-var q2 = "😋 Qu'est-ce qui est riche en protéines et graisses saines ?";
-var ans1q2 = "les noix";
-var ans2q2 = "le poulet";
-var ans3q2 = "le poisson";
-var goodq2 = 0;
-var goodq2text = "Les noix sont bourrées de graisses saines et de protéines. Les noix natures bien sûr, c’est à dire non-salées ou enrobées de sucres. Des exemples : amandes, noix de cajou, noisettes, pistaches ou noix du Brésil";
-var q3 = "😋 Qu'est-ce que le Quinoa ?";
-var ans1q3 = "une graine";
-var ans2q3 = "une céréale";
-var ans3q3 = "autre chose";
-var goodq3 = 0;
-var goodq3text = "Le quinoa n’est en fait pas une céréale mais une graine ! Elle est sans gluten, bourrée de protéines et bien sûr de fibres";
-var q4 = "😋 Quelle est la céréale la plus riche en fibres ?";
-var ans1q4 = "le blé";
-var ans2q4 = "le seigle";
-var ans3q4 = "l'orge";
-var goodq4 = 2;
-var goodq4text = "L’orge est la céréale la plus riche en fibres ! Une tasse (seulement !) d’orge mondé contient 16 g de fibres, c'est beaucoup 😉";
-var q5 = "😋 Qu'est-ce que le Chia ?";
-var ans1q5 = "une graîne";
-var ans2q5 = "une céréale";
-var ans3q5 = "autre chose";
-var goodq5 = 0;
-var goodq5text = "Les graines de Chia sont un super-aliment ! Très répandus chez les aztèques, elles sont super riches en fibres, 40% de leur masse environ !! ";
+var title = "😯💺 Les dangers de rester assis toute la journée : autant de bonnes raisons d'aller courir ! ";
+var q1 = "💺 Le bas du dos doit-il être soutenu par le dossier de ta chaise ?";
+var ans1q1 = "Oui !"; 
+var ans2q1 = "Sans importance";
+var ans3q1 = "Non, au contraire !";
+var goodq1 = 0;
+var goodq1text = "Fais attention à garder le dos bien droit et à ce que le dossier de ta chaise soutienne efficacement la courbe du bas de ton dos";
+var q2 = "🛋️  À quelle partie du corps correspond les muscles glutéaux ?";
+var ans1q2 = "les hanches";
+var ans2q2 = "le fessier";
+var ans3q2 = "les mollets";
+var goodq2 = 1;
+var goodq2text = "Le fessier ! En quoi est-ce important ? Rester assis toute la journée va désactiver nos muscles glutéaux en fait. Ces muscles sont importants pour réduire le risque de blessure et améliorer ses performaces running.";
+var q3 = "💺 De combien sont réduits les bénéfices d'un entraînement d'une heure de course pour 10h de position assise ?";
+var ans1q3 = "à peine 10%";
+var ans2q3 = "au moins la moitié";
+var ans3q3 = "plus de trois quart";
+var goodq3 = 2;
+var goodq3text = "Une étude du centre médical de l’University of Texas a révélé qu’une position assise prolongée peut réduire à néant tous les bienfaits de tes entraînements. Par exemple : si tu vas courir pendant une heure le matin avant d’aller au travail/école et que tu passez les 10 heures qui suivent assis sur une chaise, tu vas perdre 80 % des bienfaits de ton entraînement. Quel gâchis !";
+var q4 = "🛋️  Combien de calories sont brûlées en moins en position assise ?";
+var ans1q4 = "15%";
+var ans2q4 = "30%";
+var ans3q4 = "60%";
+var goodq4 = 1;
+var goodq4text = "On brûle en moyenne 30 % de calories en moins lorsque l'on reste assis";
+var q5 = "💺 Tous les combien (au moins) est-il recommandé de se lever ?";
+var ans1q5 = "30 min";
+var ans2q5 = "1h";
+var ans3q5 = "2h";
+var goodq5 = 1;
+var goodq5text = "Lève-toi au moins une fois par heure pour ne pas rester trop engourdi 😉";
 
 
 /// exports parameters of the QUIZZ
