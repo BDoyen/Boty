@@ -27,7 +27,7 @@
     "mathjs": "^3.14.2",
     "recastai": "^3.4.1",
     "request": "^2.81.0",
-    "restify": "^5.0.1",
+    "restify": "^5.2.1",
     "sentiment": "^4.0.0",
     "sentiment-multilang": "0.0.2"
   },
