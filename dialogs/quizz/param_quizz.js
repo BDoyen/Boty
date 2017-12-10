@@ -2,37 +2,37 @@
 ///// Parameters of the QUIZZ //////
 
 
-var title = "😯💺 Les dangers de rester assis toute la journée : autant de bonnes raisons d'aller courir";
-var q1 = "💺 Le bas du dos doit-il être soutenu par le dossier de ta chaise ?";
-var ans1q1 = "Oui !"; 
-var ans2q1 = "Sans importance";
+var title = "5 conseils pour mieux courir sur tapis de course 🏃";
+var q1 = "👟 Selon toi, les runners pro utilisent-ils les tapis de course ?";
+var ans1q1 = "Oui, bien sûr!"; 
+var ans2q1 = "Peut-être ??";
 var ans3q1 = "Non, au contraire !";
 var goodq1 = 0;
-var goodq1text = "Fais attention à garder le dos bien droit et à ce que le dossier de ta chaise soutienne efficacement la courbe du bas de ton dos";
-var q2 = "🛋️  À quelle partie du corps correspond les muscles glutéaux ?";
-var ans1q2 = "les hanches";
-var ans2q2 = "le fessier";
-var ans3q2 = "les mollets";
+var goodq1text = "De nombreux runners professionnels l’utilise pour créer de nouveaux stimulus d’entraînement : le tapis leur permet de varier à l'infini les conditions de course 🤓";
+var q2 = "🏃 Qu'est-ce qui est réduit sur un tapis de course ?";
+var ans1q2 = "les frottements au sol";
+var ans2q2 = "la résistance au vent";
+var ans3q2 = "";
 var goodq2 = 1;
-var goodq2text = "Le fessier ! En quoi est-ce important ? Rester assis toute la journée va désactiver nos muscles glutéaux en fait. Ces muscles sont importants pour réduire le risque de blessure et améliorer ses performaces running.";
-var q3 = "💺 De combien sont réduits les bénéfices d'un entraînement d'une heure de course pour 10h de position assise ?";
-var ans1q3 = "à peine 10%";
-var ans2q3 = "au moins la moitié";
-var ans3q3 = "plus de trois quart";
-var goodq3 = 2;
-var goodq3text = "Une étude du centre médical de l’University of Texas a révélé qu’une position assise prolongée peut réduire à néant tous les bienfaits de tes entraînements. Par exemple : si tu vas courir pendant une heure le matin avant d’aller au travail/école et que tu passes les 10 heures qui suivent assis sur une chaise, tu vas perdre 80 % des bienfaits de ton entraînement. Quel gâchis !";
-var q4 = "🛋️  Combien de calories sont brûlées en moins en position assise ?";
-var ans1q4 = "15%";
-var ans2q4 = "30%";
-var ans3q4 = "60%";
-var goodq4 = 1;
-var goodq4text = "On brûle en moyenne 30 % de calories en moins lorsque l'on reste assis";
-var q5 = "💺 Tous les combien (au moins) est-il recommandé de se lever ?";
-var ans1q5 = "30 min";
-var ans2q5 = "1h";
-var ans3q5 = "2h";
-var goodq5 = 1;
-var goodq5text = "Lève-toi au moins une fois par heure pour ne pas rester trop engourdi 😉";
+var goodq2text = "Courir sur un tapis de course paraît souvent plus facile qu’à l’extérieur. La raison pour cela est toute simple : le manque de résistance au vent";
+var q3 = "👟 De combien faut-il augementer l'inclinaison pour simuler des conditions d'effort réelles ?";
+var ans1q3 = "entre 1% et 2%";
+var ans2q3 = "autour de 5%";
+var ans3q3 = "10%";
+var goodq3 = 0;
+var goodq3text = "Afin de compenser le manque de résistance au vent, pense à augmenter le degré d’inclinaison de 1 à 2 %";
+var q4 = "🏃 Quel type de chaussure pour courir sur tapis ?";
+var ans1q4 = "super amorties";
+var ans2q4 = "amorties";
+var ans3q4 = "légères";
+var goodq4 = 2;
+var goodq4text = "Comme c’est le tapis roulant qui amène la foulée, la phase de propulsion est amoindrie et c’est la raison pour laquelle tu n'auras pas besoin de chaussures de course épaisses avec un bon amorti 😉";
+var q5 = "👟 Est-il important de bien regarder devant soi sur tapis ?";
+var ans1q5 = "Oui, bien sûr!";
+var ans2q5 = "Peut-être ??";
+var ans3q5 = "Non, au contraire !";
+var goodq5 = 0;
+var goodq5text = "On peut prendre la mauvaise habitude de trop contrôler la position des pieds sur le tapis. Avec le temps, cela peut entraîner une mauvaise posture de course. Du coup, pense à regarder droit devant toi et à courir de manière détendue";
 
 
 /// exports parameters of the QUIZZ
