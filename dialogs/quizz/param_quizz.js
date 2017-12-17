@@ -2,7 +2,7 @@
 ///// Parameters of the QUIZZ //////
 
 
-var title = "😲 5 infos utiles et insolites sur le sommeil";
+var title = "😲 5 infos utiles et insolites sur le sommeil 💤";
 var q1 = "D'après toi, combien de temps passe-t-on en moyenne à dormir dans sa vie ?";
 var ans1q1 = "15 ans"; 
 var ans2q1 = "30 ans";
