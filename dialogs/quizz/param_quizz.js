@@ -2,37 +2,37 @@
 ///// Parameters of the QUIZZ //////
 
 
-var title = "5 conseils pour mieux courir sur tapis de course 🏃";
-var q1 = "👟 Selon toi, les runners pro utilisent-ils les tapis de course ?";
-var ans1q1 = "Oui, bien sûr!"; 
-var ans2q1 = "Peut-être ??";
-var ans3q1 = "Non, au contraire !";
-var goodq1 = 0;
-var goodq1text = "De nombreux runners professionnels l’utilise pour créer de nouveaux stimulus d’entraînement : le tapis leur permet de varier à l'infini les conditions de course 🤓";
-var q2 = "🏃 Qu'est-ce qui est réduit sur un tapis de course ?";
-var ans1q2 = "frottements au sol";
-var ans2q2 = "résistance au vent";
-var ans3q2 = "amorti du sol";
-var goodq2 = 1;
-var goodq2text = "Courir sur un tapis de course paraît souvent plus facile qu’à l’extérieur. La raison pour cela est toute simple : le manque de résistance au vent";
-var q3 = "👟 De combien faut-il augementer l'inclinaison pour simuler des conditions d'effort réelles ?";
-var ans1q3 = "entre 1% et 2%";
-var ans2q3 = "autour de 5%";
-var ans3q3 = "10%";
+var title = "😲 5 infos utiles et insolites sur le sommeil";
+var q1 = "D'après toi, combien de temps passe-t-on en moyenne à dormir dans sa vie ?";
+var ans1q1 = "15 ans"; 
+var ans2q1 = "30 ans";
+var ans3q1 = "60 ans";
+var goodq1 = 1;
+var goodq1text = "👴 Nous passons en moyenne 32 ans de notre vie à dormir (pour une vie de 90 ans). Incroyable n’est-ce pas ?";
+var q2 = "Facebook et Instagram augementent de combien les troubles du sommeil ?";
+var ans1q2 = "aucun effet";
+var ans2q2 = "deux fois";
+var ans3q2 = "trois fois";
+var goodq2 = 2;
+var goodq2text = "📱 Les personnes les plus actives sur Facebook et Instagram ont 3 fois plus de difficultés à s’endormir et à dormir que ceux qui ne les utilisent pas";
+var q3 = "Quelle est la température idéale pour passer une bonne nuit ?";
+var ans1q3 = "entre 16°C et 18°C";
+var ans2q3 = "entre 20°C et 22°C";
+var ans3q3 = "entre 24°C et 26°C";
 var goodq3 = 0;
-var goodq3text = "Afin de compenser le manque de résistance au vent, pense à augmenter le degré d’inclinaison de 1 à 2 %";
-var q4 = "🏃 Quel type de chaussure pour courir sur tapis ?";
-var ans1q4 = "super amorties";
-var ans2q4 = "amorties";
-var ans3q4 = "légères";
-var goodq4 = 2;
-var goodq4text = "Comme c’est le tapis roulant qui amène la foulée, la phase de propulsion est amoindrie et c’est la raison pour laquelle tu n'auras pas besoin de chaussures de course épaisses avec un bon amorti 😉";
-var q5 = "👟 Est-il important de bien regarder devant soi sur tapis ?";
-var ans1q5 = "Oui, bien sûr!";
-var ans2q5 = "Peut-être ??";
-var ans3q5 = "Non, au contraire !";
-var goodq5 = 0;
-var goodq5text = "On peut prendre la mauvaise habitude de trop contrôler la position des pieds sur le tapis. Avec le temps, cela peut entraîner une mauvaise posture de course. Du coup, pense à regarder droit devant toi et à courir de manière détendue";
+var goodq3text = "🌡 Des études ont montré que la meilleure température d'une chambre devrait être entre 16°C et 18°C. À cette température ton corps aura plus tendance à rester à température neutre";
+var q4 = "Quelle est la meilleure période d'une nuit de sommeil pour bien récupérer ?";
+var ans1q4 = "toutes pareilles";
+var ans2q4 = "début de nuit";
+var ans3q4 = "fin de nuit";
+var goodq4 = 1;
+var goodq4text = "😴 🏃 La récupération est meilleure en début de nuit avec un sommeil profond plus long au cours des premiers cycles. En comparaison avec les cycles du matin, plus riches en sommeil paradoxal, moins réparateur";
+var q5 = "Est-il bon de courir le soir ?";
+var ans1q5 = "oui!";
+var ans2q5 = "non, pas trop";
+var ans3q5 = "sans importance";
+var goodq5 = 1;
+var goodq5text = "😰 Un entrainement en fin de journée provoque une sécrétion tardive d'adrénaline, de cortisol et de neurotransmetteurs excitants qui retardent l’endormissement";
 
 
 /// exports parameters of the QUIZZ
