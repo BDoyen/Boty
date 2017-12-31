@@ -99,6 +99,17 @@ module.exports = [
                 .attachmentLayout(builder.AttachmentLayout.carousel)
                 .attachments([
                     new builder.HeroCard(session)
+                        .title("Coaching - questionnaire")
+                        .subtitle("J'ai besoin de toi en 2018 !")
+                        .images([
+                            builder.CardImage.create(session, "https://image.ibb.co/mxOyZw/Capture_d_e_cran_2017_12_30_a_14_44_30.png")
+                        ])
+                        .buttons([
+                            builder.CardAction
+                                .imBack(session,"#coachingByRungly")
+                                .title("C'est parti ! 💪")
+                        ]),
+                    new builder.HeroCard(session)
                         .title("Quizz de la semaine")
                         .subtitle("Pour tout savoir sur le running")
                         .images([

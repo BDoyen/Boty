@@ -1,4 +1,3 @@
-
 require('dotenv').config()
 var builder = require("botbuilder");
 var restify = require('restify'); // pour le serveur
@@ -198,13 +197,17 @@ bot.dialog("/resultsquizz", require("./dialogs/resultsquizz"))
         matches: /#resultatsSemaineAvant/i 
     });
 
-
 bot.dialog("/gestion_push", require("./dialogs/gestion_push"))
     .triggerAction({ 
         matches: /#menuGestionNotif/i 
     });
 
+bot.dialog("/rungly_coach", require("./dialogs/rungly_coach"))
+    .triggerAction({ 
+        matches: /#coachingByRungly/i 
+    });
 
+bot.dialog("/rungly_coach_questionnaire", require("./dialogs/rungly_coach_questionnaire"));
 
 
 bot.dialog("/",
@@ -272,6 +275,7 @@ bot.dialog("/",
             session.beginDialog('/menu',session.userData);     
     })    
 });
+
 
 
 

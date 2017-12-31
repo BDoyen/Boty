@@ -2,37 +2,37 @@
 ///// Parameters of the QUIZZ //////
 
 
-var title = "😲 5 infos utiles et insolites sur le sommeil 💤";
-var q1 = "D'après toi, combien de temps passe-t-on en moyenne à dormir dans sa vie ?";
-var ans1q1 = "15 ans"; 
-var ans2q1 = "30 ans";
-var ans3q1 = "60 ans";
+var title = "🙌 5 astuces pour programmer son esprit au succès en 2018";
+var q1 = "💆‍ La préparation mentale ? Mythe ou réalité ?";
+var ans1q1 = "un mythe..."; 
+var ans2q1 = "J'y crois !";
+var ans3q1 = "sans avis";
 var goodq1 = 1;
-var goodq1text = "👴 Nous passons en moyenne 32 ans de notre vie à dormir (pour une vie de 90 ans). Incroyable n’est-ce pas ?";
-var q2 = "Facebook et Instagram augementent de combien les troubles du sommeil ?";
-var ans1q2 = "aucun effet";
-var ans2q2 = "deux fois";
-var ans3q2 = "trois fois";
+var goodq1text = "La préparation mentale aide à réveiller sa force intérieure. Ça fonctionne aussi un peu comme un muscle, plus tu l'entraînes, plus c'est efficace";
+var q2 = "🗣 Que doit-on apprendre à mieux maîtriser en préparation mentale ?";
+var ans1q2 = "concentration";
+var ans2q2 = "respiration";
+var ans3q2 = "voix intérieures";
 var goodq2 = 2;
-var goodq2text = "📱 Les personnes les plus actives sur Facebook et Instagram ont 3 fois plus de difficultés à s’endormir et à dormir que ceux qui ne les utilisent pas";
-var q3 = "Quelle est la température idéale pour passer une bonne nuit ?";
-var ans1q3 = "entre 16°C et 18°C";
-var ans2q3 = "entre 20°C et 22°C";
-var ans3q3 = "entre 24°C et 26°C";
+var goodq2text = "Les monologues intérieurs influencent qui tu es, de manière positive ou négative parfois";
+var q3 = "🤐 Qui est généralement responsable de te trouver de bonnes excuses pour ne pas aller courir ?";
+var ans1q3 = "mon inconscient";
+var ans2q3 = "mes pieds";
+var ans3q3 = "le froid";
 var goodq3 = 0;
-var goodq3text = "🌡 Des études ont montré que la meilleure température d'une chambre devrait être entre 16°C et 18°C. À cette température ton corps aura plus tendance à rester à température neutre";
-var q4 = "Quelle est la meilleure période d'une nuit de sommeil pour bien récupérer ?";
-var ans1q4 = "toutes pareilles";
-var ans2q4 = "début de nuit";
-var ans3q4 = "fin de nuit";
+var goodq3text = "C'est généralement notre inconscient qui nous joue de vilains tours. Apprendre à le dompter peut beaucoup aider au quotidien.";
+var q4 = "🎛 Est-il vraiment utile de formuler ses objectifs et résolutions ?";
+var ans1q4 = "non, pas trop";
+var ans2q4 = "oui !";
+var ans3q4 = "sans avis";
 var goodq4 = 1;
-var goodq4text = "😴 🏃 La récupération est meilleure en début de nuit avec un sommeil profond plus long au cours des premiers cycles. En comparaison avec les cycles du matin, plus riches en sommeil paradoxal, moins réparateur";
-var q5 = "Est-il bon de courir le soir ?";
-var ans1q5 = "oui!";
-var ans2q5 = "non, pas trop";
-var ans3q5 = "sans importance";
+var goodq4text = "C'est essentiel même ! Petite astuce : les formuler de manière positive et éviter les négations ou verbes d’obligation";
+var q5 = "🙉 Connais-tu ton canal sensoriel préféré ?";
+var ans1q5 = "😰 c'est quoi ?";
+var ans2q5 = "bien sûr!";
+var ans3q5 = "...";
 var goodq5 = 1;
-var goodq5text = "😰 Un entrainement en fin de journée provoque une sécrétion tardive d'adrénaline, de cortisol et de neurotransmetteurs excitants qui retardent l’endormissement";
+var goodq5text = "Demandes à un ami de te lire une liste de mots et de noter la catégorie des réponses : auditif, visuel, odorat, émotions, goût. La catégorie qui regroupe le plus de réponses est ton canal sensoriel préféré. Tu peux ensuite l'utiliser pour formuler autrement tes objectifs";
 
 
 /// exports parameters of the QUIZZ

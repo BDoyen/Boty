@@ -43,6 +43,11 @@
             "title":"recommencer 🔄",
             "type":"postback",
             "payload":"recommencer 🔄"
+          },
+          {
+            "title":"Stop notif' ❌",
+            "type":"postback",
+            "payload":"#menuGestionNotif"
           }
         ]
     }
