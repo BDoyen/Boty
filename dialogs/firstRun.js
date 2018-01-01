@@ -102,7 +102,7 @@ module.exports = [
                         .title("Coaching - questionnaire")
                         .subtitle("J'ai besoin de toi en 2018 !")
                         .images([
-                            builder.CardImage.create(session, "https://image.ibb.co/mxOyZw/Capture_d_e_cran_2017_12_30_a_14_44_30.png")
+                            builder.CardImage.create(session, "https://image.ibb.co/hEbhUw/nordwood_themes_467442.jpg")
                         ])
                         .buttons([
                             builder.CardAction
