@@ -47,8 +47,6 @@ module.exports = [
 
                 var res = JSON.parse(body)
 
-                console.log(res)
-
                 if(res == null){
                     
                     session.send("Je suis désolé " + session.userData.name);
@@ -83,7 +81,7 @@ module.exports = [
                                             {
                                                type:"postback",
                                                title:"Plus d'infos ℹ️",
-                                               payload:"je voudrais plus d'infos sur " + res0.Title 
+                                               payload:"plus d'infos sur " + res0.Title 
                                             },
                                             {
                                                 type:"web_url",
@@ -142,7 +140,7 @@ module.exports = [
                                             {
                                                type:"postback",
                                                title:"Plus d'infos ℹ️",
-                                               payload:"je voudrais plus d'infos sur " + res0.Title 
+                                               payload:"plus d'infos sur " + res0.Title 
                                             },
                                             {
                                                 type:"web_url",
@@ -161,7 +159,7 @@ module.exports = [
                                             {
                                                type:"postback",
                                                title:"Plus d'infos ℹ️",
-                                               payload:"je voudrais plus d'infos sur " + res1.Title 
+                                               payload:"plus d'infos sur " + res1.Title 
                                             },
                                             {
                                                 type:"web_url",
@@ -226,7 +224,7 @@ module.exports = [
                                             {
                                                type:"postback",
                                                title:"Plus d'infos ℹ️",
-                                               payload:"je voudrais plus d'infos sur " + res0.Title 
+                                               payload:"plus d'infos sur " + res0.Title 
                                             },
                                             {
                                                 type:"web_url",
@@ -245,7 +243,7 @@ module.exports = [
                                             {
                                                type:"postback",
                                                title:"Plus d'infos ℹ️",
-                                               payload:"je voudrais plus d'infos sur " + res1.Title 
+                                               payload:"plus d'infos sur " + res1.Title 
                                             },
                                             {
                                                 type:"web_url",
@@ -264,7 +262,7 @@ module.exports = [
                                             {
                                                type:"postback",
                                                title:"Plus d'infos ℹ️",
-                                               payload:"je voudrais plus d'infos sur " + res2.Title 
+                                               payload:"plus d'infos sur " + res2.Title 
                                             },
                                             {
                                                 type:"web_url",
@@ -301,12 +299,31 @@ module.exports = [
                         session.userData.title0 = res0.Title
                         session.userData.title1 = res1.Title
                         session.userData.title2 = res2.Title
+
+                        session.userData.st0 = res0.St
+                        session.userData.st1 = res1.St
+                        session.userData.st2 = res2.St
+
+                        session.userData.lat0 = res0.Lat
+                        session.userData.lat1 = res1.Lat
+                        session.userData.lat2 = res2.Lat
+
+                        session.userData.lng0 = res0.Lng
+                        session.userData.lng1 = res1.Lng
+                        session.userData.lng2 = res2.Lng
+
+                        session.userData.image0 = res0.Image
+                        session.userData.image1 = res1.Image
+                        session.userData.image2 = res2.Image
+                        
                         session.userData.id0 = res0.Id
                         session.userData.id1 = res1.Id
                         session.userData.id2 = res2.Id
+
                         session.userData.Time0 = res0.Time
                         session.userData.Time1 = res1.Time
                         session.userData.Time2 = res2.Time
+
                         session.userData.url0 = res0.Url
                         session.userData.url1 = res1.Url
                         session.userData.url2 = res2.Url
@@ -322,18 +339,18 @@ module.exports = [
                                         template_type:"generic",
                                         elements:
                                         [{
-                                            title:res0.Title,
-                                            subtitle:res0.St,
-                                            image_url:res0.Image,
+                                            title:session.userData.title0,
+                                            subtitle:session.userData.st0,
+                                            image_url:session.userData.image0,
                                             buttons:[
                                             {
                                                type:"postback",
                                                title:"Plus d'infos ℹ️",
-                                               payload:"je voudrais plus d'infos sur " + res0.Title 
+                                               payload:"plus d'infos sur " + session.userData.title0 
                                             },
                                             {
                                                 type:"web_url",
-                                                url:"http://maps.google.com/maps?z=5&q=loc:"+res0.Lat+"+"+res0.Lng,
+                                                url:"http://maps.google.com/maps?z=5&q=loc:"+session.userData.lat0+"+"+session.userData.lng0,
                                                 title:"Le lieu du départ 🏁"
                                             },
                                             {
@@ -341,18 +358,18 @@ module.exports = [
                                             }]
                                         },
                                         {
-                                            title:res1.Title,
-                                            subtitle:res1.St,
-                                            image_url:res1.Image,
+                                            title:session.userData.title1,
+                                            subtitle:session.userData.st1,
+                                            image_url:session.userData.image1,
                                             buttons:[
                                             {
                                                type:"postback",
                                                title:"Plus d'infos ℹ️",
-                                               payload:"je voudrais plus d'infos sur " + res1.Title 
+                                               payload:"plus d'infos sur " + session.userData.title1 
                                             },
                                             {
                                                 type:"web_url",
-                                                url:"http://maps.google.com/maps?z=5&q=loc:"+res1.Lat+"+"+res1.Lng,
+                                                url:"http://maps.google.com/maps?z=5&q=loc:"+session.userData.lat1+"+"+session.userData.lng1,
                                                 title:"Le lieu du départ 🏁"
                                             },
                                             {
@@ -360,18 +377,18 @@ module.exports = [
                                             }]
                                         },
                                         {
-                                            title:res2.Title,
-                                            subtitle:res2.St,
-                                            image_url:res2.Image,
+                                            title:session.userData.title2,
+                                            subtitle:session.userData.st2,
+                                            image_url:session.userData.image2,
                                             buttons:[
                                             {
                                                type:"postback",
                                                title:"Plus d'infos ℹ️",
-                                               payload:"je voudrais plus d'infos sur " + res2.Title 
+                                               payload:"plus d'infos sur " + session.userData.title2 
                                             },
                                             {
                                                 type:"web_url",
-                                                url:"http://maps.google.com/maps?z=5&q=loc:"+res2.Lat+"+"+res2.Lng,
+                                                url:"http://maps.google.com/maps?z=5&q=loc:"+session.userData.lat2+"+"+session.userData.lng2,
                                                 title:"Le lieu du départ 🏁"
                                             },
                                             {
