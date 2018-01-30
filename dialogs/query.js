@@ -330,11 +330,7 @@ module.exports = [
 
                         session.userData.rest = res.slice(3,n)
 
-                        msg = new builder.Message(session);
-                           msg.sourceEvent({
-                                facebook: {
-                                    attachment:{
-                                      type:"template",
+                        var ans = {type:"template",
                                       payload:{
                                         template_type:"generic",
                                         elements:
@@ -408,6 +404,11 @@ module.exports = [
                                         ]
                                         }
                                     }
+
+                        msg = new builder.Message(session);
+                           msg.sourceEvent({
+                                facebook: {
+                                    attachment: ans
                                 }
                             });      
                         post_req.end();
