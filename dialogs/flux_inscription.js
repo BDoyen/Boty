@@ -17,7 +17,7 @@ module.exports = [
 
 	function(session){
         session.send("Tu recevras chaque semaine une sélection des derniers articles" + session.userData.current_category);
-		builder.Prompts.choice(session,"Je valide ton inscription au flux de ce blog ?",["Oui 😃","Ça ira merci"];
+		builder.Prompts.choice(session,"Je valide ton inscription au flux de ce blog ?",["Oui 😃","Ça ira merci"]);
 	},
 	function(session,results){
 		if(!results.response){

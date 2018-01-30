@@ -11,7 +11,7 @@ module.exports = [
 
 	function(session){
 		session.send("Tu recevras chaque semaine une sélection des derniers articles de blog running")
-        builder.Prompts.choice(session,"Je valide ton inscription à ce flux ?",["Oui 😃","Ça ira merci"]
+        builder.Prompts.choice(session,"Je valide ton inscription à ce flux ?",["Oui 😃","Ça ira merci"]);
 	},
 	function(session,results){
 		
@@ -39,7 +39,7 @@ module.exports = [
                         session.send("J'ai eu un petit souci avec ton inscription mais ne t'inquiète pas, je vais règler ça 😉");
                     }
                 });
-            
+            }
         }else{
         	switch(results.response.index){
 

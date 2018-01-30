@@ -31,5 +31,6 @@ function(session){
 		session.send("😊")
         session.beginDialog("/menu",session.userData)
 	}
+}
 
 ]

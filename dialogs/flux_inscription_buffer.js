@@ -12,7 +12,7 @@ var request = require('request');
 module.exports = [
 
 	function(session){
-		builder.Prompts.choice(session,"Ça t'a plu ?",["Oui 😍","Bof bof..."];
+		builder.Prompts.choice(session,"Ça t'a plu ?",["Oui 😍","Bof bof..."]);
 	},
 	function(session,results){
 		if(!results.response){
