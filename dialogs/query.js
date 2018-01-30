@@ -65,11 +65,7 @@ module.exports = [
                         session.userData.Time0 = res0.Time
                         session.userData.url0 = res0.Url
 
-                        msg = new builder.Message(session);
-                           msg.sourceEvent({
-                                facebook: {
-                                    attachment:{
-                                      type:"template",
+                        var ans = {type:"template",
                                       payload:{
                                         template_type:"generic",
                                         elements:
@@ -105,12 +101,17 @@ module.exports = [
                                         ]
                                         }
                                     }
+
+                        var msg = new builder.Message(session);
+                           msg.sourceEvent({
+                                facebook: {
+                                    attachment: ans
                                 }
                             });
 
                         post_req.end();
-
-                        builder.Prompts.choice(session,msg,["plus d'infos sur " + res0.Title ,"C'est bon merci 🙂"],{maxRetries:0});
+                        session.send(msg)
+                        builder.Prompts.choice(session,"",["plus d'infos sur " + res0.Title ,"C'est bon merci 🙂"],{maxRetries:0});
                         
                     }else if(n == 2){
                         var res0 = res[0]
@@ -124,11 +125,7 @@ module.exports = [
                         session.userData.url0 = res0.Url
                         session.userData.url1 = res1.Url
 
-                        msg = new builder.Message(session);
-                           msg.sourceEvent({
-                                facebook: {
-                                    attachment:{
-                                      type:"template",
+                        var ans = {type:"template",
                                       payload:{
                                         template_type:"generic",
                                         elements:
@@ -183,9 +180,15 @@ module.exports = [
                                         ]
                                         }
                                     }
+
+                        var msg = new builder.Message(session);
+                           msg.sourceEvent({
+                                facebook: {
+                                    attachment: ans
                                 }
                             });
 
+                        session.send(msg);
                         post_req.end();
                         builder.Prompts.choice(session,msg,["plus d'infos sur " + res0.Title,"plus d'infos sur " + res1.Title ,"C'est bon merci 🙂"],{maxRetries:0});
                         
@@ -206,13 +209,8 @@ module.exports = [
                         session.userData.url0 = res0.Url
                         session.userData.url1 = res1.Url
                         session.userData.url2 = res2.Url
-                        
 
-                        msg = new builder.Message(session);
-                           msg.sourceEvent({
-                                facebook: {
-                                    attachment:{
-                                      type:"template",
+                        var ans = {type:"template",
                                       payload:{
                                         template_type:"generic",
                                         elements:
@@ -286,9 +284,16 @@ module.exports = [
                                         ]
                                         }
                                     }
+                        
+
+                        var msg = new builder.Message(session);
+                           msg.sourceEvent({
+                                facebook: {
+                                    attachment: ans
                                 }
                             });
 
+                        session.send(msg);
                         post_req.end();
                         builder.Prompts.choice(session,msg,["plus d'infos sur " + res0.Title,"plus d'infos sur " + res1.Title,"plus d'infos sur " + res2.Title,"plus d'évènements","C'est bon merci 🙂"],{maxRetries:0});       
                         
@@ -405,7 +410,7 @@ module.exports = [
                                         }
                                     }
 
-                        msg = new builder.Message(session);
+                        var msg = new builder.Message(session);
                            msg.sourceEvent({
                                 facebook: {
                                     attachment: ans
