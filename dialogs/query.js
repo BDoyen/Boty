@@ -420,7 +420,7 @@ module.exports = [
                 session.send("j'ai un petit trou de mémoire, mais tu peux essayer avec une autre demande ;)");
                 post_req.end();
                 session.beginDialog('/menu',session.userData);
-            }       
+            }
         });
     },
 
