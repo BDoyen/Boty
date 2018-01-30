@@ -4,29 +4,18 @@
   "composer_input_disabled":false,
   "call_to_actions":[
     {
-      "title":"aller courir 🏃🐆 ",
-      "type":"nested",
-          "call_to_actions":[
-            {
-              "title":"une course 🎽",
-              "type":"postback",
-              "payload":"une course 🎽"
-            },
-            {
-              "title":"avec une communauté 👟",
-              "type":"postback",
-              "payload":"avec une communauté 👟"
-            }
-          ]
+      "title":"👟🏁 OBJECTIF 10km 🏁👟",
+      "type":"postback",
+      "payload":"#coachingByRungly"
     },
     {
-      "title":"changer d'adresse 📍",
+      "title":"Voir les blogs 💻👟",
       "type":"postback",
-      "payload":"changer d'adresse 📍"
+      "payload":""
     },
     {
       "type":"postback",
-      "title":"options 🔧",
+      "title":"Options 🔧",
       "type":"nested",
         "call_to_actions":[
           {

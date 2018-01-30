@@ -36,7 +36,6 @@ function messengerProfileAPI(jsonFile, cmd){
 }
 
 
-
 function facebookThreadAPI(jsonFile, cmd){
     // Start the request
     request({

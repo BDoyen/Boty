@@ -20,6 +20,7 @@
     "body-parser": "^1.17.2",
     "botbuilder": "^3.13.0",
     "botbuilder-azure": "^3.0.4",
+    "cheerio": "^1.0.0-rc.2",
     "date-and-time": "^0.5.0",
     "dotenv": "^4.0.0",
     "fb": "^2.0.0",
@@ -28,6 +29,8 @@
     "recastai": "^3.4.1",
     "request": "^2.81.0",
     "restify": "^5.0.1",
+    "rss-parser": "^3.0.1",
+    "rssparser": "0.0.11",
     "sentiment": "^4.0.0",
     "sentiment-multilang": "0.0.2"
   },

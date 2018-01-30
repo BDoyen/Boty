@@ -6,7 +6,6 @@ var sentiment = require('sentiment-multilang'); //sentiment analysis
 var math = require('mathjs'); //math module
 var request = require('request');
 
-
 //APIs//
 
 //Facebook
@@ -44,10 +43,7 @@ var time = ["en matinée","dans l'après-midi","le soir venu"]
 var week = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"]
 
 
-
 //////////////////////functions//////////////////////
-
-
 
 //entrance dialog
 module.exports = [
@@ -56,7 +52,8 @@ module.exports = [
 
     var name = session.message.address.user.id;
     session.userData.idstring = name.toString();
-
+    session.userData.givenadresse = 0;
+    session.userData.giventemps = 0;
 
     //LeChaboté API request
     session.userData.post_options = {
@@ -76,8 +73,6 @@ module.exports = [
         }
     });
 
-    
-
     //Facebook API request
     FB.api('/'+session.userData.idstring+'?fields=first_name', function(response) {
         session.userData.name = response.first_name;
@@ -86,23 +81,19 @@ module.exports = [
         }else{
             session.send("Salut " + session.userData.name + " !"); 
         }
-        session.send("Moi c'est Rungly " + "🐆" + " et comme tu le sais peut-être, je suis là pour t'aider à t'informer sur le running, trouver des courses et entraînements ainsi que les meilleures promos du moment 🏃🌴");
-        builder.Prompts.choice(session,"On est partis ?",["Oui !","Pas encore..."],{maxRetries:0});
-        session.userData.givenadresse = 0;
-        session.userData.giventemps = 0; 
-    });
-    
+        session.send("Moi c'est Rungly, ton assistant running sur Messenger 🏃🐅");
+        session.send("⚠ 🆕 En ce moment j'ai une nouveauté pour toi : des séances de coaching personnalisées avec un vrai coach. Si ça t'intéresse, clique en bas 👇👇👇");
+        
+        session.sendTyping();
 
-    },
-    function (session, results) {
         var msg = new builder.Message(session)
                 .attachmentLayout(builder.AttachmentLayout.carousel)
                 .attachments([
                     new builder.HeroCard(session)
-                        .title("Coaching - questionnaire")
-                        .subtitle("J'ai besoin de toi en 2018 !")
+                        .title("👟🏁 OBJECTIF 10km 🏁👟")
+                        .subtitle("Réaliser ses objectifs running n'a jamais été aussi simple...")
                         .images([
-                            builder.CardImage.create(session, "https://image.ibb.co/hEbhUw/nordwood_themes_467442.jpg")
+                            builder.CardImage.create(session,"https://image.ibb.co/frNHyb/Rungly_coach_first_Run.png")
                         ])
                         .buttons([
                             builder.CardAction
@@ -110,10 +101,10 @@ module.exports = [
                                 .title("C'est parti ! 💪")
                         ]),
                     new builder.HeroCard(session)
-                        .title("Quizz de la semaine")
-                        .subtitle("Pour tout savoir sur le running")
+                        .title("Le Quizz de la semaine")
+                        .subtitle("Pour être incollable sur le running")
                         .images([
-                            builder.CardImage.create(session, "https://image.ibb.co/c6Uijb/Capture_d_e_cran_2017_12_04_a_03_59_00.png")
+                            builder.CardImage.create(session,"https://image.ibb.co/hqVRrw/Capture_d_e_cran_2018_01_24_a_23_34_21.png")
                         ])
                         .buttons([
                             builder.CardAction
@@ -121,43 +112,32 @@ module.exports = [
                                 .title("Commencer 🚀")
                         ]),
                     new builder.HeroCard(session)
-                        .title("Trouver une course")
-                        .subtitle("Et profiter des meilleures sorties du moment")
+                        .title("Tous les articles de blog")
+                        .subtitle("Pour être au courant des dernières actualités running")
                         .images([
-                            builder.CardImage.create(session, "https://image.ibb.co/deV8W5/Capture_d_e_cran_2017_09_15_a_21_55_04.png")
+                            builder.CardImage.create(session,"https://image.ibb.co/cPx0Jb/Capture_d_e_cran_2018_01_25_a_10_11_17.png")
+                        ])
+                        .buttons([
+                            builder.CardAction
+                                .imBack(session,"#articlesdeblog")
+                                .title("Lire les articles 🗞")
+                        ]),
+                    new builder.HeroCard(session)
+                        .title("Trouver une course")
+                        .subtitle("Profiter des meilleures sorties running du moment")
+                        .images([
+                            builder.CardImage.create(session,"https://image.ibb.co/jpiUBw/Capture_d_e_cran_2018_01_24_a_23_36_02.png")
                         ])
                         .buttons([
                             builder.CardAction
                                 .imBack(session,"une course 🎽")
-                                .title("courir 🏃")
+                                .title("une course 🏃")
                         ]),
                     new builder.HeroCard(session)
-                        .title("Trouver une communauté")
-                        .subtitle("Pour rencontrer de nouveaux runners ")
-                        .images([
-                            builder.CardImage.create(session, "https://image.ibb.co/nxghr5/Capture_d_e_cran_2017_09_15_a_21_56_30.png")
-                        ])
-                        .buttons([
-                            builder.CardAction
-                                .imBack(session,"avec une communauté 👟")
-                                .title("communauté 👥")
-                        ]),
-                    new builder.HeroCard(session)
-                        .title("Trouver un stage/alternance")
-                        .subtitle("Viens passer un entretien en running")
-                        .images([
-                            builder.CardImage.create(session,"https://image.ibb.co/i4QWjQ/Capture_d_e_cran_2017_09_15_a_21_56_17.png")
-                        ])
-                        .buttons([
-                            builder.CardAction
-                                .imBack(session,"JobRun 🏃👔")
-                                .title("JobRun 🏃👔")
-                        ]),
-                        new builder.HeroCard(session)
                         .title("Astuces running")
-                        .subtitle("Pour courir comme les pros ;)")
+                        .subtitle("Pour courir comme les pros 😉")
                         .images([
-                            builder.CardImage.create(session, "https://image.ibb.co/eb6Pev/Capture_d_e_cran_2017_08_12_a_17_25_07.png")
+                            builder.CardImage.create(session, "https://image.ibb.co/hLJwrw/Capture_d_e_cran_2018_01_24_a_23_36_44.png")
                         ])
                         .buttons([
                             builder.CardAction
@@ -165,34 +145,11 @@ module.exports = [
                                 .title("Une astuce 💡")
                         ])
                 ]);
-        if(!results.response){
-            var sent = sentiment(session.message.text,'fr');
-            var valence = sent.score;
-            if(valence == 0){
-                session.send("Ok, attends moi 2s, j'enfile mes runnings...👟🐯");
-                session.sendTyping();
-                session.send("Voilà un aperçu de ce que je peux faire pour toi");
-                session.endDialog(msg);
-            }else if(valence > 0){
-                session.send("Ok! attends moi 2s, j'enfile mes runnings...👟🐯");
-                session.sendTyping();
-                session.send("Voilà un aperçu de ce que je peux faire pour toi");
-                session.endDialog(msg);
-            }else{
-                session.beginDialog("/catch",session.userData);
-            }
-        }else{
-            switch (results.response.index) {
-            case 0:
-                session.send(':)');
-                session.send("Voilà un aperçu de ce que je peux faire pour toi");
-                session.endDialog(msg);
-                break;
-            case 1:
-                session.beginDialog('/catch',session.userData);
-                break;
-            }
-        }
+
+        session.endDialog(msg);   
+            
+    });
+
     },
     function (session, results) {
         // Always say goodbye

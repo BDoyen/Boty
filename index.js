@@ -207,7 +207,27 @@ bot.dialog("/rungly_coach", require("./dialogs/rungly_coach"))
         matches: /#coachingByRungly/i 
     });
 
-bot.dialog("/rungly_coach_questionnaire", require("./dialogs/rungly_coach_questionnaire"));
+
+bot.dialog("/rungly_coach_10km", require("./dialogs/rungly_coach_10km"))
+    .triggerAction({ 
+        matches: /S'inscrire ✅/i 
+    });
+
+
+bot.dialog("/articles_blog", require("./dialogs/articles_blog"))
+    .triggerAction({ 
+        matches: /#articlesdeblog/i 
+    });
+
+bot.dialog("/flux_inscription", require("./dialogs/flux_inscription"));
+
+bot.dialog("/flux_inscription_buffer", require("./dialogs/flux_inscription_buffer"));
+
+bot.dialog("/flux_inscription_all", require("./dialogs/flux_inscription_all"));
+
+bot.dialog("/scroll", require("./dialogs/scroll"));
+
+bot.dialog("/scroll_next", require("./dialogs/scroll_next"));
 
 
 bot.dialog("/",
