@@ -410,9 +410,10 @@ module.exports = [
                                 facebook: {
                                     attachment: ans
                                 }
-                            });      
+                            });
+                        session.send(msg);
                         post_req.end();
-                        builder.Prompts.choice(session,msg,["plus d'infos sur " + res0.Title,"plus d'infos sur " + res1.Title,"plus d'infos sur " + res2.Title,"plus d'évènements","C'est bon merci 🙂"],{maxRetries:0});       
+                        builder.Prompts.choice(session,"",["plus d'infos sur " + res0.Title,"plus d'infos sur " + res1.Title,"plus d'infos sur " + res2.Title,"plus d'évènements","C'est bon merci 🙂"],{maxRetries:0});       
                     }
                 }
             }else{
