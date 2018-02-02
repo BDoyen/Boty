@@ -61,63 +61,46 @@ module.exports = [
                     if(n == 1){
                         var res0 = res[0]
                         session.userData.title0 = res0.Title
+                        session.userData.st0 = res0.St
                         session.userData.id0 = res0.Id
                         session.userData.Time0 = res0.Time
                         session.userData.url0 = res0.Url
 
-                        var ans = {type:"template",
-                                      payload:{
-                                        template_type:"generic",
-                                        elements:
-                                        [{
-                                            title:res0.Title,
-                                            subtitle:res0.St,
-                                            image_url:res0.Image,
-                                            buttons:[
-                                            {
-                                               type:"postback",
-                                               title:"Plus d'infos ℹ️",
-                                               payload:"plus d'infos sur " + res0.Title 
-                                            },
-                                            {
-                                                type:"web_url",
-                                                url:"http://maps.google.com/maps?z=5&q=loc:"+res0.Lat+"+"+res0.Lng,
-                                                title:"Le lieu du départ 🏁"
-                                            },
-                                            {
-                                                type:"element_share"
-                                            }]
-                                        },
-                                        {
-                                            image_url:"https://image.ibb.co/iRYuKF/bye_bye_emoji.jpg",
-                                            buttons:[
-                                            {
-                                                type:"postback",
-                                                title:"C'est bon merci 🙂",
-                                                payload:"C'est bon merci 🙂"
-                                            }
-                                            ]
-                                        }
-                                        ]
-                                        }
-                                    }
-
-                        var msg = new builder.Message(session);
-                           msg.sourceEvent({
-                                facebook: {
-                                    attachment: ans
-                                }
-                            });
+                        var msg = new builder.Message(session)
+                            .attachmentLayout(builder.AttachmentLayout.carousel)
+                            .attachments([
+                                new builder.HeroCard(session)
+                                    .title(res0.Title)
+                                    .subtitle(res0.St)
+                                    .images([
+                                        builder.CardImage.create(session,res0.Image)
+                                    ])
+                                    .buttons([
+                                        builder.CardAction.imBack(session,"plus d'infos sur " + res0.Title)
+                                            .title("Plus d'infos ℹ️"),
+                                        builder.CardAction.openUrl(session,"http://maps.google.com/maps?z=5&q=loc:"+res0.Lat+"+"+res0.Lng)
+                                            .title("Lieu du départ 🏁")
+                                    ]),
+                                    new builder.HeroCard(session)
+                                        .images([
+                                            builder.CardImage.create(session, "https://image.ibb.co/iRYuKF/bye_bye_emoji.jpg")
+                                        ])
+                                        .buttons([
+                                            builder.CardAction.imBack(session, "C'est bon merci 🙂")
+                                                .title("C'est bon merci 🙂")
+                                        ])    
+                            ]);
 
                         post_req.end();
-                        session.send(msg)
-                        builder.Prompts.choice(session,"",["plus d'infos sur " + res0.Title ,"C'est bon merci 🙂"],{maxRetries:0});
+                        builder.Prompts.choice(session,msg,["plus d'infos sur " + res0.Title,"plus d'infos sur " + res1.Title,"plus d'infos sur " + res2.Title,"plus d'évènements","C'est bon merci 🙂"],{maxRetries:0}); 
                         
                     }else if(n == 2){
                         var res0 = res[0]
                         var res1 = res[1]
                         session.userData.title0 = res0.Title
                         session.userData.title1 = res1.Title
+                        session.userData.st0 = res0.St
+                        session.userData.st1 = res1.St
                         session.userData.id0 = res0.Id
                         session.userData.id1 = res1.Id
                         session.userData.Time0 = res0.Time
@@ -125,72 +108,45 @@ module.exports = [
                         session.userData.url0 = res0.Url
                         session.userData.url1 = res1.Url
 
-                        var ans = {type:"template",
-                                      payload:{
-                                        template_type:"generic",
-                                        elements:
-                                        [{
-                                            title:res0.Title,
-                                            subtitle:res0.St,
-                                            image_url:res0.Image,
-                                            buttons:[
-                                            {
-                                               type:"postback",
-                                               title:"Plus d'infos ℹ️",
-                                               payload:"plus d'infos sur " + res0.Title 
-                                            },
-                                            {
-                                                type:"web_url",
-                                                url:"http://maps.google.com/maps?z=5&q=loc:"+res0.Lat+"+"+res0.Lng,
-                                                title:"Le lieu du départ 🏁"
-                                            },
-                                            {
-                                                type:"element_share"
-                                            }]
-                                        },
-                                        {
-                                            title:res1.Title,
-                                            subtitle:res1.St,
-                                            image_url:res1.Image,
-                                            buttons:[
-                                            {
-                                               type:"postback",
-                                               title:"Plus d'infos ℹ️",
-                                               payload:"plus d'infos sur " + res1.Title 
-                                            },
-                                            {
-                                                type:"web_url",
-                                                url:"http://maps.google.com/maps?z=5&q=loc:"+res1.Lat+"+"+res1.Lng,
-                                                title:"Le lieu du départ 🏁"
-                                            },
-                                            {
-                                                type:"element_share"
-                                            }]
-                                        },
-                                        {
-                                            image_url:"https://image.ibb.co/iRYuKF/bye_bye_emoji.jpg",
-                                            buttons:[
-                                            {
-                                                type:"postback",
-                                                title:"C'est bon merci 🙂",
-                                                payload:"C'est bon merci 🙂"
-                                            }
-                                            ]
-                                        }
-                                        ]
-                                        }
-                                    }
+                        var msg = new builder.Message(session)
+                            .attachmentLayout(builder.AttachmentLayout.carousel)
+                            .attachments([
+                                new builder.HeroCard(session)
+                                    .title(res0.Title)
+                                    .subtitle(res0.St)
+                                    .images([
+                                        builder.CardImage.create(session,res0.Image)
+                                    ])
+                                    .buttons([
+                                        builder.CardAction.imBack(session,"plus d'infos sur " + res0.Title)
+                                            .title("Plus d'infos ℹ️"),
+                                        builder.CardAction.openUrl(session,"http://maps.google.com/maps?z=5&q=loc:"+res0.Lat+"+"+res0.Lng)
+                                            .title("Lieu du départ 🏁")
+                                    ]),
+                                new builder.HeroCard(session)
+                                    .title(res0.Title)
+                                    .subtitle(res0.St)
+                                    .images([
+                                        builder.CardImage.create(session,res1.Image)
+                                    ])
+                                    .buttons([
+                                        builder.CardAction.imBack(session,"plus d'infos sur " + res1.Title)
+                                            .title("Plus d'infos ℹ️"),
+                                        builder.CardAction.openUrl(session,"http://maps.google.com/maps?z=5&q=loc:"+res1.Lat+"+"+res1.Lng)
+                                            .title("Lieu du départ 🏁")
+                                    ]),
+                                    new builder.HeroCard(session)
+                                        .images([
+                                            builder.CardImage.create(session, "https://image.ibb.co/iRYuKF/bye_bye_emoji.jpg")
+                                        ])
+                                        .buttons([
+                                            builder.CardAction.imBack(session, "C'est bon merci 🙂")
+                                                .title("C'est bon merci 🙂")
+                                        ])    
+                            ]);
 
-                        var msg = new builder.Message(session);
-                           msg.sourceEvent({
-                                facebook: {
-                                    attachment: ans
-                                }
-                            });
-
-                        session.send(msg);
                         post_req.end();
-                        builder.Prompts.choice(session,msg,["plus d'infos sur " + res0.Title,"plus d'infos sur " + res1.Title ,"C'est bon merci 🙂"],{maxRetries:0});
+                        builder.Prompts.choice(session,msg,["plus d'infos sur " + res0.Title,"plus d'infos sur " + res1.Title,"plus d'infos sur " + res2.Title,"plus d'évènements","C'est bon merci 🙂"],{maxRetries:0}); 
                         
 
                     }else if(n==3){
@@ -200,6 +156,9 @@ module.exports = [
                         session.userData.title0 = res0.Title
                         session.userData.title1 = res1.Title
                         session.userData.title2 = res2.Title
+                        session.userData.st0 = res0.St
+                        session.userData.st1 = res1.St
+                        session.userData.st2 = res2.St
                         session.userData.id0 = res0.Id
                         session.userData.id1 = res1.Id
                         session.userData.id2 = res2.Id
@@ -210,92 +169,57 @@ module.exports = [
                         session.userData.url1 = res1.Url
                         session.userData.url2 = res2.Url
 
-                        var ans = {type:"template",
-                                      payload:{
-                                        template_type:"generic",
-                                        elements:
-                                        [{
-                                            title:res0.Title,
-                                            subtitle:res0.St,
-                                            image_url:res0.Image,
-                                            buttons:[
-                                            {
-                                               type:"postback",
-                                               title:"Plus d'infos ℹ️",
-                                               payload:"plus d'infos sur " + res0.Title 
-                                            },
-                                            {
-                                                type:"web_url",
-                                                url:"http://maps.google.com/maps?z=5&q=loc:"+res0.Lat+"+"+res0.Lng,
-                                                title:"Le lieu du départ 🏁"
-                                            },
-                                            {
-                                                type:"element_share"
-                                            }]
-                                        },
-                                        {
-                                            title:res1.Title,
-                                            subtitle:res1.St,
-                                            image_url:res1.Image,
-                                            buttons:[
-                                            {
-                                               type:"postback",
-                                               title:"Plus d'infos ℹ️",
-                                               payload:"plus d'infos sur " + res1.Title 
-                                            },
-                                            {
-                                                type:"web_url",
-                                                url:"http://maps.google.com/maps?z=5&q=loc:"+res1.Lat+"+"+res1.Lng,
-                                                title:"Le lieu du départ 🏁"
-                                            },
-                                            {
-                                                type:"element_share"
-                                            }]
-                                        },
-                                        {
-                                            title:res2.Title,
-                                            subtitle:res2.St,
-                                            image_url:res2.Image,
-                                            buttons:[
-                                            {
-                                               type:"postback",
-                                               title:"Plus d'infos ℹ️",
-                                               payload:"plus d'infos sur " + res2.Title 
-                                            },
-                                            {
-                                                type:"web_url",
-                                                url:"http://maps.google.com/maps?z=5&q=loc:"+res2.Lat+"+"+res2.Lng,
-                                                title:"Le lieu du départ 🏁"
-                                            },
-                                            {
-                                                type:"element_share"
-                                            }]
-                                        },
-                                        {
-                                            image_url:"https://image.ibb.co/iRYuKF/bye_bye_emoji.jpg",
-                                            buttons:[
-                                            {
-                                                type:"postback",
-                                                title:"C'est bon merci 🙂",
-                                                payload:"C'est bon merci 🙂"
-                                            }
-                                            ]
-                                        }
-                                        ]
-                                        }
-                                    }
-                        
+                        var msg = new builder.Message(session)
+                            .attachmentLayout(builder.AttachmentLayout.carousel)
+                            .attachments([
+                                new builder.HeroCard(session)
+                                    .title(res0.Title)
+                                    .subtitle(res0.St)
+                                    .images([
+                                        builder.CardImage.create(session,res0.Image)
+                                    ])
+                                    .buttons([
+                                        builder.CardAction.imBack(session,"plus d'infos sur " + res0.Title)
+                                            .title("Plus d'infos ℹ️"),
+                                        builder.CardAction.openUrl(session,"http://maps.google.com/maps?z=5&q=loc:"+res0.Lat+"+"+res0.Lng)
+                                            .title("Lieu du départ 🏁")
+                                    ]),
+                                new builder.HeroCard(session)
+                                    .title(res0.Title)
+                                    .subtitle(res0.St)
+                                    .images([
+                                        builder.CardImage.create(session,res1.Image)
+                                    ])
+                                    .buttons([
+                                        builder.CardAction.imBack(session,"plus d'infos sur " + res1.Title)
+                                            .title("Plus d'infos ℹ️"),
+                                        builder.CardAction.openUrl(session,"http://maps.google.com/maps?z=5&q=loc:"+res1.Lat+"+"+res1.Lng)
+                                            .title("Lieu du départ 🏁")
+                                    ]),
+                                new builder.HeroCard(session)
+                                    .title(res0.Title)
+                                    .subtitle(res0.St)
+                                    .images([
+                                        builder.CardImage.create(session,res2.Image)
+                                    ])
+                                    .buttons([
+                                        builder.CardAction.imBack(session,"plus d'infos sur " + res2.Title)
+                                            .title("Plus d'infos ℹ️"),
+                                        builder.CardAction.openUrl(session,"http://maps.google.com/maps?z=5&q=loc:"+res2.Lat+"+"+res2.Lng)
+                                            .title("Lieu du départ 🏁")
+                                    ]),
+                                new builder.HeroCard(session)
+                                        .images([
+                                            builder.CardImage.create(session, "https://image.ibb.co/iRYuKF/bye_bye_emoji.jpg")
+                                        ])
+                                        .buttons([
+                                            builder.CardAction.imBack(session, "C'est bon merci 🙂")
+                                                .title("C'est bon merci 🙂")
+                                        ])    
+                            ]);
 
-                        var msg = new builder.Message(session);
-                           msg.sourceEvent({
-                                facebook: {
-                                    attachment: ans
-                                }
-                            });
-
-                        session.send(msg);
                         post_req.end();
-                        builder.Prompts.choice(session,msg,["plus d'infos sur " + res0.Title,"plus d'infos sur " + res1.Title,"plus d'infos sur " + res2.Title,"plus d'évènements","C'est bon merci 🙂"],{maxRetries:0});       
+                        builder.Prompts.choice(session,msg,["plus d'infos sur " + res0.Title,"plus d'infos sur " + res1.Title,"plus d'infos sur " + res2.Title,"plus d'évènements","C'est bon merci 🙂"],{maxRetries:0});        
                         
                     }else if(n>3){
                         var res0 = res[0]
@@ -304,121 +228,80 @@ module.exports = [
                         session.userData.title0 = res0.Title
                         session.userData.title1 = res1.Title
                         session.userData.title2 = res2.Title
-
                         session.userData.st0 = res0.St
                         session.userData.st1 = res1.St
                         session.userData.st2 = res2.St
-
-                        session.userData.lat0 = res0.Lat
-                        session.userData.lat1 = res1.Lat
-                        session.userData.lat2 = res2.Lat
-
-                        session.userData.lng0 = res0.Lng
-                        session.userData.lng1 = res1.Lng
-                        session.userData.lng2 = res2.Lng
-
-                        session.userData.image0 = res0.Image
-                        session.userData.image1 = res1.Image
-                        session.userData.image2 = res2.Image
-                        
                         session.userData.id0 = res0.Id
                         session.userData.id1 = res1.Id
                         session.userData.id2 = res2.Id
-
                         session.userData.Time0 = res0.Time
                         session.userData.Time1 = res1.Time
                         session.userData.Time2 = res2.Time
-
                         session.userData.url0 = res0.Url
                         session.userData.url1 = res1.Url
                         session.userData.url2 = res2.Url
 
                         session.userData.rest = res.slice(3,n)
 
-                        var ans = {type:"template",
-                                      payload:{
-                                        template_type:"generic",
-                                        elements:
-                                        [{
-                                            title:session.userData.title0,
-                                            subtitle:session.userData.st0,
-                                            image_url:session.userData.image0,
-                                            buttons:[
-                                            {
-                                               type:"postback",
-                                               title:"Plus d'infos ℹ️",
-                                               payload:"plus d'infos sur " + session.userData.title0 
-                                            },
-                                            {
-                                                type:"web_url",
-                                                url:"http://maps.google.com/maps?z=5&q=loc:"+session.userData.lat0+"+"+session.userData.lng0,
-                                                title:"Le lieu du départ 🏁"
-                                            },
-                                            {
-                                                type:"element_share"
-                                            }]
-                                        },
-                                        {
-                                            title:session.userData.title1,
-                                            subtitle:session.userData.st1,
-                                            image_url:session.userData.image1,
-                                            buttons:[
-                                            {
-                                               type:"postback",
-                                               title:"Plus d'infos ℹ️",
-                                               payload:"plus d'infos sur " + session.userData.title1 
-                                            },
-                                            {
-                                                type:"web_url",
-                                                url:"http://maps.google.com/maps?z=5&q=loc:"+session.userData.lat1+"+"+session.userData.lng1,
-                                                title:"Le lieu du départ 🏁"
-                                            },
-                                            {
-                                                type:"element_share"
-                                            }]
-                                        },
-                                        {
-                                            title:session.userData.title2,
-                                            subtitle:session.userData.st2,
-                                            image_url:session.userData.image2,
-                                            buttons:[
-                                            {
-                                               type:"postback",
-                                               title:"Plus d'infos ℹ️",
-                                               payload:"plus d'infos sur " + session.userData.title2 
-                                            },
-                                            {
-                                                type:"web_url",
-                                                url:"http://maps.google.com/maps?z=5&q=loc:"+session.userData.lat2+"+"+session.userData.lng2,
-                                                title:"Le lieu du départ 🏁"
-                                            },
-                                            {
-                                                type:"element_share"
-                                            }]
-                                        },
-                                        {
-                                            image_url:"https://image.ibb.co/iRYuKF/bye_bye_emoji.jpg",
-                                            buttons:[
-                                            {
-                                                type:"postback",
-                                                title:"C'est bon merci 🙂",
-                                                payload:"C'est bon merci 🙂"
-                                            }
-                                            ]
-                                        }
-                                        ]
-                                        }
-                                    }
+                        var msg = new builder.Message(session)
+                            .attachmentLayout(builder.AttachmentLayout.carousel)
+                            .attachments([
+                                new builder.HeroCard(session)
+                                    .title(res0.Title)
+                                    .subtitle(res0.St)
+                                    .images([
+                                        builder.CardImage.create(session,res0.Image)
+                                    ])
+                                    .buttons([
+                                        builder.CardAction.imBack(session,"plus d'infos sur " + res0.Title)
+                                            .title("Plus d'infos ℹ️"),
+                                        builder.CardAction.openUrl(session,"http://maps.google.com/maps?z=5&q=loc:"+res0.Lat+"+"+res0.Lng)
+                                            .title("Lieu du départ 🏁")
+                                    ]),
+                                new builder.HeroCard(session)
+                                    .title(res0.Title)
+                                    .subtitle(res0.St)
+                                    .images([
+                                        builder.CardImage.create(session,res1.Image)
+                                    ])
+                                    .buttons([
+                                        builder.CardAction.imBack(session,"plus d'infos sur " + res1.Title)
+                                            .title("Plus d'infos ℹ️"),
+                                        builder.CardAction.openUrl(session,"http://maps.google.com/maps?z=5&q=loc:"+res1.Lat+"+"+res1.Lng)
+                                            .title("Lieu du départ 🏁")
+                                    ]),
+                                new builder.HeroCard(session)
+                                    .title(res0.Title)
+                                    .subtitle(res0.St)
+                                    .images([
+                                        builder.CardImage.create(session,res2.Image)
+                                    ])
+                                    .buttons([
+                                        builder.CardAction.imBack(session,"plus d'infos sur " + res2.Title)
+                                            .title("Plus d'infos ℹ️"),
+                                        builder.CardAction.openUrl(session,"http://maps.google.com/maps?z=5&q=loc:"+res2.Lat+"+"+res2.Lng)
+                                            .title("Lieu du départ 🏁")
+                                    ]),
+                                new builder.HeroCard(session)
+                                            .images([
+                                                builder.CardImage.create(session, "https://image.ibb.co/iPDBia/plus_events.jpg")
+                                            ])
+                                            .buttons([
+                                                builder.CardAction.imBack(session, "plus d'évènements")
+                                                    .title("plus ➕")
+                                            ]), 
+                                new builder.HeroCard(session)
+                                        .images([
+                                            builder.CardImage.create(session, "https://image.ibb.co/iRYuKF/bye_bye_emoji.jpg")
+                                        ])
+                                        .buttons([
+                                            builder.CardAction.imBack(session, "C'est bon merci 🙂")
+                                                .title("C'est bon merci 🙂")
+                                        ])    
+                            ]);
 
-                        var msg = new builder.Message(session);
-                           msg.sourceEvent({
-                                facebook: {
-                                    attachment: ans
-                                }
-                            });
-                        session.send(msg);
                         post_req.end();
-                        builder.Prompts.choice(session,"",["plus d'infos sur " + res0.Title,"plus d'infos sur " + res1.Title,"plus d'infos sur " + res2.Title,"plus d'évènements","C'est bon merci 🙂"],{maxRetries:0});       
+                        builder.Prompts.choice(session,msg,["plus d'infos sur " + res0.Title,"plus d'infos sur " + res1.Title,"plus d'infos sur " + res2.Title,"plus d'évènements","C'est bon merci 🙂"],{maxRetries:0});       
                     }
                 }
             }else{

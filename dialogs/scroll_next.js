@@ -3,11 +3,6 @@ var restify = require('restify'); // pour le serveur
 var sentiment = require('sentiment-multilang'); //sentiment analysis
 var math = require('mathjs'); //math module
 var request = require('request');
-var funcs_time = require('./funcs/funcs_time.js');
-
-
-//time functions 
-var f0_transforme_time = funcs_time.f0_transforme_time
 
 
 module.exports = [
