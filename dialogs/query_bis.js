@@ -378,7 +378,7 @@ module.exports = [
                                     }
                                 }
                             });      
-                        post_req.end();
+
                         builder.Prompts.choice(session,msg,["je voudrais plus d'infos sur " + res0.Title,"je voudrais plus d'infos sur " + res1.Title,"je voudrais plus d'infos sur " + res2.Title,"plus d'évènements","C'est bon merci 🙂"],{maxRetries:0});      
                     }
 			}

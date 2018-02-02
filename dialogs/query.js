@@ -91,7 +91,6 @@ module.exports = [
                                         ])    
                             ]);
 
-                        post_req.end();
                         builder.Prompts.choice(session,msg,["plus d'infos sur " + res0.Title,"plus d'infos sur " + res1.Title,"plus d'infos sur " + res2.Title,"plus d'évènements","C'est bon merci 🙂"],{maxRetries:0}); 
                         
                     }else if(n == 2){
@@ -145,9 +144,7 @@ module.exports = [
                                         ])    
                             ]);
 
-                        post_req.end();
-                        builder.Prompts.choice(session,msg,["plus d'infos sur " + res0.Title,"plus d'infos sur " + res1.Title,"plus d'infos sur " + res2.Title,"plus d'évènements","C'est bon merci 🙂"],{maxRetries:0}); 
-                        
+                        builder.Prompts.choice(session,msg,["plus d'infos sur " + res0.Title,"plus d'infos sur " + res1.Title,"plus d'infos sur " + res2.Title,"plus d'évènements","C'est bon merci 🙂"],{maxRetries:0});        
 
                     }else if(n==3){
                         var res0 = res[0]
@@ -218,7 +215,6 @@ module.exports = [
                                         ])    
                             ]);
 
-                        post_req.end();
                         builder.Prompts.choice(session,msg,["plus d'infos sur " + res0.Title,"plus d'infos sur " + res1.Title,"plus d'infos sur " + res2.Title,"plus d'évènements","C'est bon merci 🙂"],{maxRetries:0});        
                         
                     }else if(n>3){
@@ -300,7 +296,6 @@ module.exports = [
                                         ])    
                             ]);
 
-                        post_req.end();
                         builder.Prompts.choice(session,msg,["plus d'infos sur " + res0.Title,"plus d'infos sur " + res1.Title,"plus d'infos sur " + res2.Title,"plus d'évènements","C'est bon merci 🙂"],{maxRetries:0});       
                     }
                 }
