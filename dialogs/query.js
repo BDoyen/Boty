@@ -20,7 +20,6 @@ module.exports = [
 
     function(session){
 
-        session.userData.giventemps = 0;
 
         //éléments pour requête 
 
@@ -31,7 +30,7 @@ module.exports = [
               timeout:30000
         };
 
-        var timemin = new Date(session.userData.timemin)
+        var timemin = new Date()
 
         var dt = f0_transforme_time(timemin)
 
@@ -81,17 +80,28 @@ module.exports = [
                                         builder.CardAction.openUrl(session,"http://maps.google.com/maps?z=5&q=loc:"+res0.Lat+"+"+res0.Lng)
                                             .title("Lieu du départ 🏁")
                                     ]),
-                                    new builder.HeroCard(session)
+                                new builder.HeroCard(session)
                                         .images([
                                             builder.CardImage.create(session, "https://image.ibb.co/iRYuKF/bye_bye_emoji.jpg")
                                         ])
                                         .buttons([
                                             builder.CardAction.imBack(session, "C'est bon merci 🙂")
                                                 .title("C'est bon merci 🙂")
-                                        ])    
+                                        ])   
                             ]);
 
-                        builder.Prompts.choice(session,msg,["plus d'infos sur " + res0.Title,"plus d'infos sur " + res1.Title,"plus d'infos sur " + res2.Title,"plus d'évènements","C'est bon merci 🙂"],{maxRetries:0}); 
+                        var msg1 = new builder.HeroCard(session)
+                            .buttons([
+                                    builder.CardAction.imBack(session, "Cool 👍")
+                                                    .title("Cool 👍"),
+                                    builder.CardAction.imBack(session, "Nouvelle recherche ➕")
+                                                    .title("Nouvelle recherche ➕")
+                                    ]);
+                            
+
+                        session.send("👉 voici la toute dernière course dans cette catégorie : ");
+                        builder.Prompts.choice(session,msg,["Cool 👍","Nouvelle recherche ➕","plus d'infos sur " + res0.Title,"plus d'infos sur " + res1.Title,"plus d'infos sur " + res2.Title,"plus d'évènements","C'est bon merci 🙂"],{maxRetries:0}); 
+                        session.send(msg1);
                         
                     }else if(n == 2){
                         var res0 = res[0]
@@ -144,7 +154,18 @@ module.exports = [
                                         ])    
                             ]);
 
-                        builder.Prompts.choice(session,msg,["plus d'infos sur " + res0.Title,"plus d'infos sur " + res1.Title,"plus d'infos sur " + res2.Title,"plus d'évènements","C'est bon merci 🙂"],{maxRetries:0});        
+                        var msg1 = new builder.HeroCard(session)
+                            .buttons([
+                                    builder.CardAction.imBack(session, "Cool 👍")
+                                                    .title("Cool 👍"),
+                                    builder.CardAction.imBack(session, "Nouvelle recherche ➕")
+                                                    .title("Nouvelle recherche ➕")
+                                    ]);
+                            
+
+                        session.send("👉 voici les toutes dernières courses dans cette catégorie : ");
+                        builder.Prompts.choice(session,msg,["Cool 👍","Nouvelle recherche ➕","plus d'infos sur " + res0.Title,"plus d'infos sur " + res1.Title,"plus d'infos sur " + res2.Title,"plus d'évènements","C'est bon merci 🙂"],{maxRetries:0});        
+                        session.send(msg1);
 
                     }else if(n==3){
                         var res0 = res[0]
@@ -215,8 +236,18 @@ module.exports = [
                                         ])    
                             ]);
 
-                        builder.Prompts.choice(session,msg,["plus d'infos sur " + res0.Title,"plus d'infos sur " + res1.Title,"plus d'infos sur " + res2.Title,"plus d'évènements","C'est bon merci 🙂"],{maxRetries:0});        
-                        
+                        var msg1 = new builder.HeroCard(session)
+                            .buttons([
+                                    builder.CardAction.imBack(session, "Cool 👍")
+                                                    .title("Cool 👍"),
+                                    builder.CardAction.imBack(session, "Nouvelle recherche ➕")
+                                                    .title("Nouvelle recherche ➕")
+                                    ]);
+
+                        session.send("👉 voici les toutes dernières courses dans cette catégorie : ");
+                        builder.Prompts.choice(session,msg,["Cool 👍","Nouvelle recherche ➕","plus d'infos sur " + res0.Title,"plus d'infos sur " + res1.Title,"plus d'infos sur " + res2.Title,"plus d'évènements","C'est bon merci 🙂"],{maxRetries:0});        
+                        session.send(msg1);
+
                     }else if(n>3){
                         var res0 = res[0]
                         var res1 = res[1]
@@ -296,7 +327,17 @@ module.exports = [
                                         ])    
                             ]);
 
-                        builder.Prompts.choice(session,msg,["plus d'infos sur " + res0.Title,"plus d'infos sur " + res1.Title,"plus d'infos sur " + res2.Title,"plus d'évènements","C'est bon merci 🙂"],{maxRetries:0});       
+                        var msg1 = new builder.HeroCard(session)
+                            .buttons([
+                                    builder.CardAction.imBack(session, "Cool 👍")
+                                                    .title("Cool 👍"),
+                                    builder.CardAction.imBack(session, "Nouvelle recherche ➕")
+                                                    .title("Nouvelle recherche ➕")
+                                    ]);
+                            
+                        session.send("👉 voici les toutes dernières courses dans cette catégorie : ");
+                        builder.Prompts.choice(session,msg,["Cool 👍","Nouvelle recherche ➕","plus d'infos sur " + res0.Title,"plus d'infos sur " + res1.Title,"plus d'infos sur " + res2.Title,"plus d'évènements","C'est bon merci 🙂"],{maxRetries:0});       
+                        session.send(msg1);
                     }
                 }
             }else{
@@ -322,11 +363,11 @@ module.exports = [
         }else{
             switch (results.response.index){
                 case 0:
-                    session.userData.index = results.response.index;
-                    session.beginDialog("/scroll",session.userData);
+                    session.send("😊");
+                    session.beginDialog("/menu",session.userData);
                     break;
                 case 1:
-                    session.userData.index = results.response.index;
+                    session.send("Ok !");
                     session.beginDialog("/scroll",session.userData);
                     break;
                 case 2:
@@ -334,9 +375,17 @@ module.exports = [
                     session.beginDialog("/scroll",session.userData);
                     break;
                 case 3:
-                    session.beginDialog("/query_bis",session.userData);
+                    session.userData.index = results.response.index;
+                    session.beginDialog("/scroll",session.userData);
                     break;
                 case 4:
+                    session.userData.index = results.response.index;
+                    session.beginDialog("/scroll",session.userData);
+                    break;
+                case 5:
+                    session.beginDialog("/query_bis",session.userData);
+                    break;
+                case 6:
                     session.beginDialog("/menu",session.userData);
                     break;
             }
