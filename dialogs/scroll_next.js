@@ -19,12 +19,10 @@ function(session){
 
 	}else if(session.userData.lenght_descriptif == 1){
 		session.send(result[0]);
-        session.send("😊")
-        session.beginDialog("/menu",session.userData)
+        session.beginDialog("/cool",session.userData);
 
 	}else{
-		session.send("😊")
-        session.beginDialog("/menu",session.userData)
+        session.beginDialog("/cool",session.userData);
 	}
 }
 

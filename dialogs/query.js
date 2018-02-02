@@ -324,16 +324,21 @@ module.exports = [
                 case 0:
                     session.userData.index = results.response.index;
                     session.beginDialog("/scroll",session.userData);
+                    break;
                 case 1:
                     session.userData.index = results.response.index;
                     session.beginDialog("/scroll",session.userData);
+                    break;
                 case 2:
                     session.userData.index = results.response.index;
                     session.beginDialog("/scroll",session.userData);
+                    break;
                 case 3:
                     session.beginDialog("/query_bis",session.userData);
+                    break;
                 case 4:
                     session.beginDialog("/menu",session.userData);
+                    break;
             }
         }         
     }

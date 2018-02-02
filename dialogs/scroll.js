@@ -30,6 +30,7 @@ function(session){
                                 descriptif = $('.frontend-entry-content').text();
                                 //split into sentences event description
                                 var result = descriptif.match( /[^\.!\?]+[\.!\?]+/g );
+                                console.log(result)
                                 var n = result.length;
                                 session.userData.length_descriptif = n-2
                                 if(n>=2){

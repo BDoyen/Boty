@@ -229,6 +229,8 @@ bot.dialog("/scroll", require("./dialogs/scroll"));
 
 bot.dialog("/scroll_next", require("./dialogs/scroll_next"));
 
+bot.dialog("/cool", require("./dialogs/cool"));
+
 
 bot.dialog("/",
     function(session){
