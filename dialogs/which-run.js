@@ -45,49 +45,27 @@ module.exports = [
 
 	function(session){
 		session.send("Bravo "+session.userData.name+" pour ta détermination ;)")
-		builder.Prompts.choice(session,"que recherches-tu plus précisément ?",["une course 🏃","une communauté 👥"],{maxRetries:0})
+		builder.Prompts.choice(session,"que recherches-tu plus précisément ?",["un coach 💪","une course 🏃"],{maxRetries:0})
 	},
 
 	function(session,results){
 		if(!results.response){
-			session.userData.tokengen = 'cac49b88e2afe148fe34bffeca605bdb'
-	        var client = new recastai(session.userData.tokengen)
-	        var request = client.request
-	        request.analyseText(session.message.text)
-	            .then(function(res){
-	            	
-	            	if(!res.intent()){
-	            		session.send("🐅 👟");
-                    	session.beginDialog('/menu',session.userData);
-	            	}else{
-	            		var intent = res.intent();
-		                var slug = intent.slug;
-		                if(slug == "communaute"){
-		                	session.userData.level = 1;
-		                	session.userData.category = 2;
-			                session.beginDialog('/cross',session.userData);
-		                }else if(slug == "help"){
-		                	session.beginDialog('/botlesmoi',session.userData);
-		                }else{
-		                	session.userData.category = 1;
-		                	session.beginDialog('/run',session.userData);
-		                }
-	            	}
-	            	
-	            }).catch(function(err){
-	            console.log(err)
-	            session.send("aïe aïe aïe, j'ai pas tout compris là...");
-	            session.beginDialog('/menu',session.userData);     
-	    	})  
+			var sent = sentiment(session.message.text,'fr');
+            var valence = sent.score;
+            if(valence < 0){
+                session.send("Ok...");
+                session.beginDialog("/menu",session.userData);
+            }else if(valence >= 0){
+            	session.send("Ok ! 😊");
+                session.beginDialog("/menu",session.userData);
+            }
 		}else{
 			switch(results.response.index){
 				case 0:
 					session.userData.category = 1;
-                	session.beginDialog('/run',session.userData);
+                	session.beginDialog('/rungly_coach',session.userData);
 					break;
 				case 1:
-					session.userData.level = 1;
-					session.userData.category = 2;
 	                session.beginDialog('/cross',session.userData);
 	                break;
 			}

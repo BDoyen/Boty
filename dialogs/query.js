@@ -4,6 +4,7 @@ var restify = require('restify'); // pour le serveur
 var sentiment = require('sentiment-multilang'); //sentiment analysis
 var math = require('mathjs'); //math module
 var request = require('request');
+var quick = require('botbuilder-facebook-quick-replies');
 var funcs_time = require('./funcs/funcs_time.js')
 
 //Recast.ai
@@ -90,18 +91,12 @@ module.exports = [
                                         ])   
                             ]);
 
-                        var msg1 = new builder.HeroCard(session)
-                            .buttons([
-                                    builder.CardAction.imBack(session, "Cool 👍")
-                                                    .title("Cool 👍"),
-                                    builder.CardAction.imBack(session, "Nouvelle recherche ➕")
-                                                    .title("Nouvelle recherche ➕")
-                                    ]);
-                            
+                        
+                        quick.replies(msg,["Cool 👍", "Nouvelle recherche ➕"]);     
 
                         session.send("👉 voici la toute dernière course dans cette catégorie : ");
                         builder.Prompts.choice(session,msg,["Cool 👍","Nouvelle recherche ➕","plus d'infos sur " + res0.Title,"plus d'infos sur " + res1.Title,"plus d'infos sur " + res2.Title,"plus d'évènements","C'est bon merci 🙂"],{maxRetries:0}); 
-                        session.send(msg1);
+
                         
                     }else if(n == 2){
                         var res0 = res[0]
@@ -154,18 +149,10 @@ module.exports = [
                                         ])    
                             ]);
 
-                        var msg1 = new builder.HeroCard(session)
-                            .buttons([
-                                    builder.CardAction.imBack(session, "Cool 👍")
-                                                    .title("Cool 👍"),
-                                    builder.CardAction.imBack(session, "Nouvelle recherche ➕")
-                                                    .title("Nouvelle recherche ➕")
-                                    ]);
+                        quick.replies(msg,["Cool 👍", "Nouvelle recherche ➕"]);  
                             
-
                         session.send("👉 voici les toutes dernières courses dans cette catégorie : ");
                         builder.Prompts.choice(session,msg,["Cool 👍","Nouvelle recherche ➕","plus d'infos sur " + res0.Title,"plus d'infos sur " + res1.Title,"plus d'infos sur " + res2.Title,"plus d'évènements","C'est bon merci 🙂"],{maxRetries:0});        
-                        session.send(msg1);
 
                     }else if(n==3){
                         var res0 = res[0]
@@ -236,17 +223,10 @@ module.exports = [
                                         ])    
                             ]);
 
-                        var msg1 = new builder.HeroCard(session)
-                            .buttons([
-                                    builder.CardAction.imBack(session, "Cool 👍")
-                                                    .title("Cool 👍"),
-                                    builder.CardAction.imBack(session, "Nouvelle recherche ➕")
-                                                    .title("Nouvelle recherche ➕")
-                                    ]);
+                        quick.replies(msg,["Cool 👍", "Nouvelle recherche ➕"]);  
 
                         session.send("👉 voici les toutes dernières courses dans cette catégorie : ");
                         builder.Prompts.choice(session,msg,["Cool 👍","Nouvelle recherche ➕","plus d'infos sur " + res0.Title,"plus d'infos sur " + res1.Title,"plus d'infos sur " + res2.Title,"plus d'évènements","C'est bon merci 🙂"],{maxRetries:0});        
-                        session.send(msg1);
 
                     }else if(n>3){
                         var res0 = res[0]
@@ -327,17 +307,10 @@ module.exports = [
                                         ])    
                             ]);
 
-                        var msg1 = new builder.HeroCard(session)
-                            .buttons([
-                                    builder.CardAction.imBack(session, "Cool 👍")
-                                                    .title("Cool 👍"),
-                                    builder.CardAction.imBack(session, "Nouvelle recherche ➕")
-                                                    .title("Nouvelle recherche ➕")
-                                    ]);
+                        quick.replies(msg,["Cool 👍", "Nouvelle recherche ➕"]);  
                             
                         session.send("👉 voici les toutes dernières courses dans cette catégorie : ");
                         builder.Prompts.choice(session,msg,["Cool 👍","Nouvelle recherche ➕","plus d'infos sur " + res0.Title,"plus d'infos sur " + res1.Title,"plus d'infos sur " + res2.Title,"plus d'évènements","C'est bon merci 🙂"],{maxRetries:0});       
-                        session.send(msg1);
                     }
                 }
             }else{
@@ -368,7 +341,7 @@ module.exports = [
                     break;
                 case 1:
                     session.send("Ok !");
-                    session.beginDialog("/scroll",session.userData);
+                    session.beginDialog("/run",session.userData);
                     break;
                 case 2:
                     session.userData.index = results.response.index;
