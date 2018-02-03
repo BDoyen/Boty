@@ -6,9 +6,6 @@ var math = require('mathjs'); //math module
 var request = require('request');
 var funcs_time = require('./funcs/funcs_time.js')
 
-//Recast.ai
-var recastai = require('recastai').default
-
 
 //////////////////////functions//////////////////////
 
@@ -17,7 +14,10 @@ module.exports = [
 
 	function(session){
         session.send("Tu recevras chaque semaine une sélection des derniers articles" + session.userData.current_category);
-		builder.Prompts.choice(session,"Je valide ton inscription au flux de ce blog ?",["Oui 😃","Ça ira merci"]);
+        session.sendTyping();
+        setTimeout(function(){
+            builder.Prompts.choice(session,"Je valide ton inscription au flux de ce blog ?",["Oui 😃","Ça ira merci"]);
+        },3000)
 	},
 	function(session,results){
 		if(!results.response){
@@ -78,7 +78,7 @@ module.exports = [
                     });
         			break;
         		case 1:
-        			ssession.send("Ok ça marche 😊");
+        			session.send("Ok ça marche 😊");
                     session.beginDialog("/menu",session.userData);
         			break;
         	}

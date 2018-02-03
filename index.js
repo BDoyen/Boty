@@ -214,10 +214,7 @@ bot.dialog("/rungly_coach_10km", require("./dialogs/rungly_coach_10km"))
     });
 
 
-bot.dialog("/articles_blog", require("./dialogs/articles_blog"))
-    .triggerAction({ 
-        matches: /#articlesdeblog/i 
-    });
+bot.dialog("/articles_blog", require("./dialogs/articles_blog"));
 
 bot.dialog("/flux_inscription", require("./dialogs/flux_inscription"));
 

@@ -10,8 +10,8 @@ var request = require('request');
 module.exports = [
 
 	function(session){
-		session.send("Tu recevras chaque semaine une sélection des derniers articles de blog running")
-        builder.Prompts.choice(session,"Je valide ton inscription à ce flux ?",["Oui 😃","Ça ira merci"]);
+		session.send("Tu recevras chaque semaine une sélection des derniers articles tout blog cofondu")
+        builder.Prompts.choice(session,"Je valide ton inscription à ce flux ?",["Oui 😃","Ça ira merci"],{maxRetries:0});
 	},
 	function(session,results){
 		
@@ -19,7 +19,7 @@ module.exports = [
             var sent = sentiment(session.message.text,'fr');
             var valence = sent.score;
             if(valence < 0){
-                session.send("Ok ça marche 😊");
+                session.send("Ok 🙂");
                 session.beginDialog("/menu",session.userData);
             }else if(valence >= 0){
 
@@ -63,7 +63,7 @@ module.exports = [
         			break;
 
         		case 1:
-        			session.send("Ok ça marche 😊");
+        			session.send("Ok 🙂");
                 	session.beginDialog("/menu",session.userData);
         			break;
         	}
