@@ -231,8 +231,8 @@ bot.dialog("/other", require("./dialogs/other"));
 
 bot.dialog("/gestion_push", require("./dialogs/gestion_push"))
     .triggerAction({ 
-                    matches: /#mesabonnements/i 
-                });
+            matches: /#mesabonnements/i 
+         });
 
 
 bot.dialog("/",
@@ -308,6 +308,8 @@ bot.dialog("/",
 //first dialog redirection
 bot.use(builder.Middleware.firstRun({ version: 1.0, dialogId: '*:/firstRun' }));
 
+//reset
+bot.use(Middleware.dialogVersion({version: 1.0, resetCommand: /^reset/i}));
 
 //piece of middleware for send Typing action
 bot.use(builder.Middleware.sendTyping());
