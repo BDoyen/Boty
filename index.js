@@ -309,7 +309,7 @@ bot.dialog("/",
 bot.use(builder.Middleware.firstRun({ version: 1.0, dialogId: '*:/firstRun' }));
 
 //reset
-bot.use(Middleware.dialogVersion({version: 1.0, resetCommand: /^reset/i}));
+bot.use(builder.Middleware.dialogVersion({version: 1.0, resetCommand: /^reset/i}));
 
 //piece of middleware for send Typing action
 bot.use(builder.Middleware.sendTyping());
