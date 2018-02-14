@@ -76,92 +76,20 @@ module.exports = [
                             .attachmentLayout(builder.AttachmentLayout.carousel)
                             .attachments([
                                 new builder.HeroCard(session)
-                                    .title(res0.Title)
-                                    .subtitle(res0.St)
+                                    .title(res8.Title)
+                                    .subtitle(res8.Category)
                                     .images([
-                                        builder.CardImage.create(session,res0.Img)
+                                        builder.CardImage.create(session,res8.Img)
                                     ])
                                     .buttons([
-                                        builder.CardAction.imBack(session,"En résumé sur " + res0.Title)
+                                        builder.CardAction.imBack(session,"En résumé sur " + res8.Title)
                                             .title("En résumé 💬"),
-                                        builder.CardAction.openUrl(session,res0.Link)
-                                            .title("Lien vers le blog 🌐")
-                                    ]),
-                                new builder.HeroCard(session)
-                                    .title(res1.Title)
-                                    .subtitle(res1.St)
-                                    .images([
-                                        builder.CardImage.create(session,res1.Img)
-                                    ])
-                                    .buttons([
-                                        builder.CardAction.imBack(session,"En résumé sur " + res1.Title)
-                                            .title("En résumé 💬"),
-                                        builder.CardAction.openUrl(session,res1.Link)
-                                            .title("Lien vers le blog 🌐")
-                                    ]),
-                                new builder.HeroCard(session)
-                                    .title(res2.Title)
-                                    .subtitle(res2.St)
-                                    .images([
-                                        builder.CardImage.create(session,res2.Img)
-                                    ])
-                                    .buttons([
-                                        builder.CardAction.imBack(session,"En résumé sur " + res2.Title)
-                                            .title("En résumé 💬"),
-                                        builder.CardAction.openUrl(session,res2.Link)
-                                            .title("Lien vers le blog 🌐")
-                                    ]),
-                                new builder.HeroCard(session)
-                                    .title(res3.Title)
-                                    .subtitle(res3.St)
-                                    .images([
-                                        builder.CardImage.create(session,res3.Img)
-                                    ])
-                                    .buttons([
-                                        builder.CardAction.imBack(session,"En résumé sur " + res3.Title)
-                                            .title("En résumé 💬"),
-                                        builder.CardAction.openUrl(session,res3.Link)
-                                            .title("Lien vers le blog 🌐")
-                                    ]),
-                                new builder.HeroCard(session)
-                                    .title(res4.Title)
-                                    .subtitle(res4.St)
-                                    .images([
-                                        builder.CardImage.create(session,res4.Img)
-                                    ])
-                                    .buttons([
-                                        builder.CardAction.imBack(session,"En résumé sur " + res4.Title)
-                                            .title("En résumé 💬"),
-                                        builder.CardAction.openUrl(session,res4.Link)
-                                            .title("Lien vers le blog 🌐")
-                                    ]),
-                                new builder.HeroCard(session)
-                                    .title(res5.Title)
-                                    .subtitle(res5.St)
-                                    .images([
-                                        builder.CardImage.create(session,res5.Img)
-                                    ])
-                                    .buttons([
-                                        builder.CardAction.imBack(session,"En résumé sur " + res5.Title)
-                                            .title("En résumé 💬"),
-                                        builder.CardAction.openUrl(session,res5.Link)
-                                            .title("Lien vers le blog 🌐")
-                                    ]),  
-                                new builder.HeroCard(session)
-                                    .title(res6.Title)
-                                    .subtitle(res6.St)
-                                    .images([
-                                        builder.CardImage.create(session,res6.Img)
-                                    ])
-                                    .buttons([
-                                        builder.CardAction.imBack(session,"En résumé sur " + res6.Title)
-                                            .title("En résumé 💬"),
-                                        builder.CardAction.openUrl(session,res6.Link)
+                                        builder.CardAction.openUrl(session,res8.Link)
                                             .title("Lien vers le blog 🌐")
                                     ]),
                                 new builder.HeroCard(session)
                                     .title(res7.Title)
-                                    .subtitle(res7.St)
+                                    .subtitle(res7.Category)
                                     .images([
                                         builder.CardImage.create(session,res7.Img)
                                     ])
@@ -172,15 +100,87 @@ module.exports = [
                                             .title("Lien vers le blog 🌐")
                                     ]),
                                 new builder.HeroCard(session)
-                                    .title(res8.Title)
-                                    .subtitle(res8.St)
+                                    .title(res6.Title)
+                                    .subtitle(res6.Category)
                                     .images([
-                                        builder.CardImage.create(session,res8.Img)
+                                        builder.CardImage.create(session,res6.Img)
                                     ])
                                     .buttons([
-                                        builder.CardAction.imBack(session,"En résumé sur " + res8.Title)
+                                        builder.CardAction.imBack(session,"En résumé sur " + res6.Title)
                                             .title("En résumé 💬"),
-                                        builder.CardAction.openUrl(session,res8.Link)
+                                        builder.CardAction.openUrl(session,res6.Link)
+                                            .title("Lien vers le blog 🌐")
+                                    ]),
+                                new builder.HeroCard(session)
+                                    .title(res5.Title)
+                                    .subtitle(res5.Category)
+                                    .images([
+                                        builder.CardImage.create(session,res5.Img)
+                                    ])
+                                    .buttons([
+                                        builder.CardAction.imBack(session,"En résumé sur " + res5.Title)
+                                            .title("En résumé 💬"),
+                                        builder.CardAction.openUrl(session,res5.Link)
+                                            .title("Lien vers le blog 🌐")
+                                    ]),
+                                new builder.HeroCard(session)
+                                    .title(res4.Title)
+                                    .subtitle(res4.Category)
+                                    .images([
+                                        builder.CardImage.create(session,res4.Img)
+                                    ])
+                                    .buttons([
+                                        builder.CardAction.imBack(session,"En résumé sur " + res4.Title)
+                                            .title("En résumé 💬"),
+                                        builder.CardAction.openUrl(session,res4.Link)
+                                            .title("Lien vers le blog 🌐")
+                                    ]),
+                                new builder.HeroCard(session)
+                                    .title(res3.Title)
+                                    .subtitle(res3.Category)
+                                    .images([
+                                        builder.CardImage.create(session,res3.Img)
+                                    ])
+                                    .buttons([
+                                        builder.CardAction.imBack(session,"En résumé sur " + res3.Title)
+                                            .title("En résumé 💬"),
+                                        builder.CardAction.openUrl(session,res3.Link)
+                                            .title("Lien vers le blog 🌐")
+                                    ]),  
+                                new builder.HeroCard(session)
+                                    .title(res2.Title)
+                                    .subtitle(res2.Category)
+                                    .images([
+                                        builder.CardImage.create(session,res2.Img)
+                                    ])
+                                    .buttons([
+                                        builder.CardAction.imBack(session,"En résumé sur " + res2.Title)
+                                            .title("En résumé 💬"),
+                                        builder.CardAction.openUrl(session,res2.Link)
+                                            .title("Lien vers le blog 🌐")
+                                    ]),
+                                new builder.HeroCard(session)
+                                    .title(res1.Title)
+                                    .subtitle(res1.Category)
+                                    .images([
+                                        builder.CardImage.create(session,res1.Img)
+                                    ])
+                                    .buttons([
+                                        builder.CardAction.imBack(session,"En résumé sur " + res1.Title)
+                                            .title("En résumé 💬"),
+                                        builder.CardAction.openUrl(session,res1.Link)
+                                            .title("Lien vers le blog 🌐")
+                                    ]),
+                                new builder.HeroCard(session)
+                                    .title(res0.Title)
+                                    .subtitle(res0.Category)
+                                    .images([
+                                        builder.CardImage.create(session,res0.Img)
+                                    ])
+                                    .buttons([
+                                        builder.CardAction.imBack(session,"En résumé sur " + res0.Title)
+                                            .title("En résumé 💬"),
+                                        builder.CardAction.openUrl(session,res0.Link)
                                             .title("Lien vers le blog 🌐")
                                     ]), 
                             ]);

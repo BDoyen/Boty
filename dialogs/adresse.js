@@ -9,13 +9,10 @@ var request = require('request');
 
 //APIs//
 
-
 //Recast.ai
 var recastai = require('recastai').default
 
-
 //resources from other scripts
-
 
 //Tips
 var getTip = require('../get/getTip');
@@ -53,6 +50,10 @@ module.exports = [
                 facebook: {
                     quick_replies: [{
                         content_type: 'location'
+                    },{
+                        content_type:"text",
+                        title:"Paris",
+                        payload:"Paris"
                     }]
                 }
             });
@@ -91,8 +92,6 @@ module.exports = [
           session.beginDialog("/menu",session.userData);
         }
       });
-
-     
 
     }
     

@@ -4,41 +4,31 @@
   "composer_input_disabled":false,
   "call_to_actions":[
     {
-      "title":"👟🏁 OBJECTIF 10km 🏁👟",
+      "title":"OBJECTIF 10km/15 km 🏁",
       "type":"postback",
       "payload":"#coachingByRungly"
     },
     {
-      "title":"Voir les blogs 💻👟",
       "type":"postback",
-      "payload":""
-    },
-    {
-      "type":"postback",
-      "title":"Options 🔧",
+      "title":"Menu 🐅",
       "type":"nested",
         "call_to_actions":[
           {
-            "title":"gestion de mes courses 📅",
+            "title":"Je recherche... 🔎",
             "type":"postback",
-            "payload":"gestion de mes courses 📅"
+            "payload":"#menuderungly"
           },
           {
-            "title":"donner son avis 💌",
+            "title":"Mes abonnements 💌",
             "type":"postback",
-            "payload":"donner son avis 💌"
-          },
-          {
-            "title":"recommencer 🔄",
-            "type":"postback",
-            "payload":"recommencer 🔄"
-          },
-          {
-            "title":"Stop notif' ❌",
-            "type":"postback",
-            "payload":"#menuGestionNotif"
-          }
+            "payload":"#mesabonnements"
+        }
         ]
+    },
+    {
+      "title":"Partager Rungly 💚",
+      "type":"postback",
+      "payload":"Partager Rungly 💚"
     }
   ]
 }

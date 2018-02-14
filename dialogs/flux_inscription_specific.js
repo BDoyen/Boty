@@ -10,8 +10,8 @@ var request = require('request');
 module.exports = [
 
 	function(session){
-		session.send("Tu peux t'inscrire au flux d'un blog et recevoir chaque semaine une sélection des articles de ce blog");
-        session.send("On propose aussi un flux tout blog confondu");
+		session.send("tu peux t'inscrire au flux d'un blog et recevoir chaque Mercredi une sélection des articles de ce blog");
+        session.send("on propose aussi un flux condensé tout blog confondu 😎");
         session.sendTyping();
         setTimeout(function(){
             builder.Prompts.choice(session,"À quel flux tu veux t'inscrire ?",["Tous !","MoovMood","Runtastic","Geekandrun"],{maxRetries:0});

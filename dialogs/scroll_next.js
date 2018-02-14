@@ -7,22 +7,24 @@ var request = require('request');
 
 module.exports = [
 
-
 function(session){
 
-	var result = session.userData.descriptif
-
-	if(session.userData.lenght_descriptif >= 2){
-		session.send(result[0]+result[1]);
-        session.userData.descriptif = result.splice(2);
-        session.beginDialog('/scroll_next',session.userData);
-
-	}else if(session.userData.lenght_descriptif == 1){
-		session.send(result[0]);
-        session.beginDialog("/cool",session.userData);
-
+	var result_next = session.userData.descriptif
+	if(result_next == null){
+		session.beginDialog("/cool",session.userData);
 	}else{
+		var n = result_next.length;
+		if(n >= 2){
+		session.send("▪️ " + result[0]);
+        session.send("▪️ " + result[1]);
+        session.userData.descriptif = result_next.splice(2);
+        session.beginDialog('/scroll_next',session.userData);
+		}else if(n == 1){
+			session.send("▪️ " + result[0]);
+	        session.beginDialog("/cool",session.userData);
+		}else{
         session.beginDialog("/cool",session.userData);
+		}
 	}
 }
 

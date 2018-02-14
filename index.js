@@ -92,7 +92,10 @@ var f_which_category = func_which_category.f_which_category
 bot.dialog("/firstRun", require("./dialogs/firstRun"));
 
 
-bot.dialog("/menu", require("./dialogs/menu"));
+bot.dialog("/menu", require("./dialogs/menu"))
+    .triggerAction({ 
+            matches: /#menuderungly/i 
+        });
 
 
 bot.dialog("/temps", require("./dialogs/temps"));
@@ -112,11 +115,6 @@ bot.dialog("/botlesmoi", require("./dialogs/botlesmoi"))
 
 bot.dialog("/contact_phatique", require("./dialogs/contact_phatique"));
 
-
-bot.dialog("/jobrun", require("./dialogs/jobrun"))
-    .triggerAction({ 
-        matches: /JobRun 🏃👔/i 
-    });
 
 
 bot.dialog("/feedback", require("./dialogs/feedback"))
@@ -173,14 +171,6 @@ bot.dialog("/which-run", require("./dialogs/which-run"));
 bot.dialog("/confirm", require("./dialogs/confirm"));
 
 
-bot.dialog("/gestion", require("./dialogs/gestion"))
-    .triggerAction({ 
-        matches: /gestion de mes courses 📅/i 
-    });
-
-bot.dialog("/gestion_bis", require("./dialogs/gestion_bis"));
-
-
 bot.dialog("/dialog_quizz", require("./dialogs/dialog_quizz"))
     .triggerAction({ 
         matches: /#quizzDeLaSemaine/i 
@@ -197,15 +187,13 @@ bot.dialog("/resultsquizz", require("./dialogs/resultsquizz"))
         matches: /#resultatsSemaineAvant/i 
     });
 
-bot.dialog("/gestion_push", require("./dialogs/gestion_push"))
-    .triggerAction({ 
-        matches: /#menuGestionNotif/i 
-    });
 
 bot.dialog("/rungly_coach", require("./dialogs/rungly_coach"))
     .triggerAction({ 
         matches: /#coachingByRungly/i 
     });
+
+bot.dialog("/rungly_coach_1", require("./dialogs/rungly_coach_1"));
 
 
 bot.dialog("/rungly_coach_10km", require("./dialogs/rungly_coach_10km"))
@@ -214,7 +202,16 @@ bot.dialog("/rungly_coach_10km", require("./dialogs/rungly_coach_10km"))
     });
 
 
-bot.dialog("/articles_blog", require("./dialogs/articles_blog"));
+bot.dialog("/articles_blog", require("./dialogs/articles_blog"))
+    .triggerAction({ 
+            matches: /#articlesdeblog/i 
+        });
+
+bot.dialog("/share_rungly", require("./dialogs/share_rungly"))
+    .triggerAction({ 
+                matches: /Partager Rungly 💚/i 
+            });
+
 
 bot.dialog("/flux_inscription", require("./dialogs/flux_inscription"));
 
@@ -227,6 +224,15 @@ bot.dialog("/scroll", require("./dialogs/scroll"));
 bot.dialog("/scroll_next", require("./dialogs/scroll_next"));
 
 bot.dialog("/cool", require("./dialogs/cool"));
+
+bot.dialog("/confirmation", require("./dialogs/confirmation"));
+
+bot.dialog("/other", require("./dialogs/other"));
+
+bot.dialog("/gestion_push", require("./dialogs/gestion_push"))
+    .triggerAction({ 
+                    matches: /#mesabonnements/i 
+                });
 
 
 bot.dialog("/",
@@ -294,7 +300,6 @@ bot.dialog("/",
             session.beginDialog('/menu',session.userData);     
     })    
 });
-
 
 
 

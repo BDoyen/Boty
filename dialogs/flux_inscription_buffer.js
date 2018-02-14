@@ -12,7 +12,7 @@ var request = require('request');
 module.exports = [
 
 	function(session){
-		builder.Prompts.choice(session,"Tu souhaites en savoir plus ?",["Oui 😍","Bof bof..."]);
+		builder.Prompts.choice(session,"Tu aimes ce type d'articles ?",["Oui 😍","Bof bof..."]);
 	},
 	function(session,results){
 		if(!results.response){

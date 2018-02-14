@@ -8,39 +8,31 @@ var request = require('request');
 module.exports = [
 	
 	function(session){
-		
-        session.send("Bienvenue à toi dans le programme Rungly coach ! 😍")
-        session.send("Le principe est simple : chaque semaine 3 séances de coaching sont organisées par un coach de la communauté Rungly");
-        
-        session.sendTyping();
-        setTimeout(function () {
-            session.send("Le programme dure 2 mois");
-            session.send("Pendant ces 2 mois, tu seras accompagné(e) par un coach qui te donnera des conseils personnalisés pour progresser 📈");
-            session.send("Rungly sera aussi là pour te motiver en t'envoyant chaque semaine un récap de ton avancement et du programme à venir 🐅")
-            session.sendTyping();
-            setTimeout(function () {
-                session.send("À la fin, l'objectif est de courir un 10km dans un temps optimal pour toi ! 🔝");
-                session.send("Si ça t'intéresse, tu peux t'inscrire en bas pour accéder aux infos du début du programme 👇👇👇");
-                session.sendTyping();
-                setTimeout(function () {
-                    var msg = new builder.Message(session)
-                        .attachmentLayout(builder.AttachmentLayout.carousel)
-                        .attachments([
-                            new builder.HeroCard(session)
-                                .title("👟🏁 OBJECTIF 10km 🏁👟")
-                                .subtitle("Réalise tes objectifs running")
-                                .images([
-                                    builder.CardImage.create(session,"https://image.ibb.co/kX651w/Capture_d_e_cran_2018_01_25_a_11_37_29.png")
-                                ])
-                                .buttons([
-                                    builder.CardAction
-                                        .imBack(session,"S'inscrire ✅")
-                                        .title("S'inscrire ✅")
-                                ])
-                        ]);
-                    session.endDialog(msg)
-                }, 10000);
-            }, 10000);  
-        }, 10000);
-	}
+        session.send("Bienvenue à toi dans le programme Rungly coach ! 😍");
+        session.send("Rungly coach est là pour t'aider à courir un 10km ou 15km dans un temps optimal pour toi ! 🔝")
+        builder.Prompts.choice(session,"❓ Comment ça marche ❓",["Continuer 👇👇","Menu"],{maxRetries:1})
+	},
+    function(session,results){
+        if(!results.response){
+                var sent = sentiment(session.message.text,'fr');
+                var valence = sent.score;
+                if(valence < 0){
+                    session.send("Ok");
+                    session.beginDialog('/menu',session.userData);
+                }else if(valence >= 0){
+                    session.beginDialog('/rungly_coach_1',session.userData);
+                }
+            }else{
+                switch (results.response.index){
+                    case 0: 
+                        session.beginDialog('/rungly_coach_1',session.userData);
+                        break;
+                    case 1: 
+                        session.send("Ok");
+                        session.beginDialog('/menu',session.userData);
+                        break;
+            }
+        }
+    }
 ]
+

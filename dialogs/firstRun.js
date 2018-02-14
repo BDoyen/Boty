@@ -81,8 +81,8 @@ module.exports = [
         }else{
             session.send("Salut " + session.userData.name + " !"); 
         }
-        session.send("Moi c'est Rungly, ton assistant running sur Messenger 🏃🐅");
-        session.send("⚠ 🆕 En ce moment j'ai une nouveauté pour toi : des séances de coaching personnalisées avec un vrai coach. Si ça t'intéresse, clique en bas 👇👇👇");
+        session.send("Moi c'est Rungly, ton ami runner sur Messenger 🏃🐅");
+        session.send("⚠ 🆕 En ce moment j'ai une nouveauté pour toi : des séances d'entraînement running avec un coach. Si ça t'intéresse, clique en bas 👇🏁👇");
         
         session.sendTyping();
 
@@ -90,7 +90,7 @@ module.exports = [
                 .attachmentLayout(builder.AttachmentLayout.carousel)
                 .attachments([
                     new builder.HeroCard(session)
-                        .title("👟🏁 OBJECTIF 10km 🏁👟")
+                        .title("👟 🏁 OBJECTIF 10km / 15km 🏁 👟")
                         .subtitle("Réaliser ses objectifs running n'a jamais été aussi simple...")
                         .images([
                             builder.CardImage.create(session,"https://image.ibb.co/frNHyb/Rungly_coach_first_Run.png")
@@ -102,7 +102,7 @@ module.exports = [
                         ]),
                     new builder.HeroCard(session)
                         .title("Le Quizz de la semaine")
-                        .subtitle("Pour être incollable sur le running")
+                        .subtitle("Pour se la pêter devant ses amis runners")
                         .images([
                             builder.CardImage.create(session,"https://image.ibb.co/hqVRrw/Capture_d_e_cran_2018_01_24_a_23_34_21.png")
                         ])
@@ -113,14 +113,14 @@ module.exports = [
                         ]),
                     new builder.HeroCard(session)
                         .title("Tous les articles de blog")
-                        .subtitle("Pour être au courant des dernières actualités running")
+                        .subtitle("Et suivre les meilleurs blogueurs running")
                         .images([
                             builder.CardImage.create(session,"https://image.ibb.co/cPx0Jb/Capture_d_e_cran_2018_01_25_a_10_11_17.png")
                         ])
                         .buttons([
                             builder.CardAction
                                 .imBack(session,"#articlesdeblog")
-                                .title("Lire les articles 🗞")
+                                .title("Un article 🗞")
                         ]),
                     new builder.HeroCard(session)
                         .title("Trouver une course")
@@ -135,7 +135,7 @@ module.exports = [
                         ]),
                     new builder.HeroCard(session)
                         .title("Astuces running")
-                        .subtitle("Pour courir comme les pros 😉")
+                        .subtitle("Pour courir (presque) comme un pro 😉")
                         .images([
                             builder.CardImage.create(session, "https://image.ibb.co/hLJwrw/Capture_d_e_cran_2018_01_24_a_23_36_44.png")
                         ])
@@ -145,9 +145,7 @@ module.exports = [
                                 .title("Une astuce 💡")
                         ])
                 ]);
-
         session.endDialog(msg);   
-            
     });
 
     },
