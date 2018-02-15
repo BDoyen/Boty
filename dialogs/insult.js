@@ -24,7 +24,7 @@ module.exports = [
                 session.send("Ok, attends moi 2s, j'enfile mes runnings...👟🐆");
                 session.beginDialog("/menu")
             }else{
-            	session.beginDialog("/catch")
+            	session.beginDialog("/menu")
             }
         }else{
             switch (results.response.index) {
@@ -34,7 +34,7 @@ module.exports = [
                 session.beginDialog("/menu")
                 break;
             case 1:
-                session.beginDialog('/catch',session.userData);
+                session.beginDialog('/menu',session.userData);
                 break;
             }
         }

@@ -203,7 +203,6 @@ module.exports = [
 
 				}else{
 
-
 						//LeChaboté
 				        session.userData.post_options = {
 				              url: "http://217.182.206.5:8080/quizz/note",

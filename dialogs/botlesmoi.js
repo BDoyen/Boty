@@ -65,7 +65,7 @@ module.exports = [
             if(valence >= 0){
                 session.beginDialog('/botlesmoi',session.userData);
             }else{
-                session.beginDialog('/catch',session.userData);
+                session.beginDialog('/menu',session.userData);
             }
         }else{
             switch(results.response.index){

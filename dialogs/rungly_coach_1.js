@@ -12,7 +12,7 @@ module.exports = [
         session.send("le coach est là pour t'aider et te donner des conseils personnalisés pour progresser 📈");
         session.sendTyping();
         setTimeout(function(){
-            session.send("🔴 tu peux choisir les jours qui te conviennent le plus");
+            session.send("🔴 tu peux venir aux jours qui te conviennent le plus");
             session.send("🔴 Le programme dure 2 mois au total");
             var msg = new builder.Message(session)
                         .attachmentLayout(builder.AttachmentLayout.carousel)

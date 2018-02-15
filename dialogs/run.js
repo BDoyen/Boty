@@ -94,7 +94,7 @@ module.exports = [
         }else{
             session.userData.level = results.response.index + 1;
             session.userData.category = 1;
-            session.beginDialog('/cross',session.userData);  
+            session.beginDialog('/query',session.userData);  
         }   
     }
 ];

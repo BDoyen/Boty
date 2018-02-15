@@ -37,7 +37,7 @@ module.exports = [
 
         console.log(dt)
 
-        var data = JSON.stringify([{User:session.userData.idstring,Times:dt,Addr:session.userData.address,Lvl:session.userData.level,Cat:session.userData.category}]);
+        var data = JSON.stringify([{User:session.userData.idstring,Times:dt,Addr:"Paris, France",Lvl:session.userData.level,Cat:session.userData.category}]);
 
         session.userData.post_options.form = data;
 

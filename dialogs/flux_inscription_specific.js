@@ -14,7 +14,7 @@ module.exports = [
         session.send("on propose aussi un flux condensé tout blog confondu 😎");
         session.sendTyping();
         setTimeout(function(){
-            builder.Prompts.choice(session,"À quel flux tu veux t'inscrire ?",["Tous !","MoovMood","Runtastic","Geekandrun"],{maxRetries:0});
+            builder.Prompts.choice(session,"À quel flux tu veux t'inscrire ?",["Tout condensé !","MoovMood","Runtastic","Geekandrun"],{maxRetries:0});
         }, 5000);
 	},
 	function(session,results){

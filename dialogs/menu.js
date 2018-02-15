@@ -83,7 +83,7 @@ module.exports = [
                     session.beginDialog('/botlesmoi',session.userData);
                     break;
                 case 3:
-                    session.beginDialog('/cross',session.userData);
+                    session.beginDialog('/run',session.userData);
                     break;
                 case 4:
                     session.beginDialog('/promo',session.userData);

@@ -201,6 +201,8 @@ bot.dialog("/rungly_coach_10km", require("./dialogs/rungly_coach_10km"))
         matches: /S'inscrire ✅/i 
     });
 
+bot.dialog("/rungly_coach_10km_programme", require("./dialogs/rungly_coach_10km_programme"));
+
 
 bot.dialog("/articles_blog", require("./dialogs/articles_blog"))
     .triggerAction({ 
