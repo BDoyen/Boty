@@ -33,7 +33,7 @@ module.exports = [
 
         var timemin = new Date()
 
-        var dt = f0_transforme_time(timemin)
+        var dt = f0_transforme_time(timemin)//just now
 
         console.log(dt)
 

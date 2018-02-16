@@ -89,6 +89,7 @@ var f_which_category = func_which_category.f_which_category
 
 
 //dialogs
+
 bot.dialog("/firstRun", require("./dialogs/firstRun"));
 
 
@@ -96,9 +97,6 @@ bot.dialog("/menu", require("./dialogs/menu"))
     .triggerAction({ 
             matches: /#menuderungly/i 
         });
-
-
-bot.dialog("/temps", require("./dialogs/temps"));
 
 
 bot.dialog("/query", require("./dialogs/query"));
@@ -114,7 +112,6 @@ bot.dialog("/botlesmoi", require("./dialogs/botlesmoi"))
 
 
 bot.dialog("/contact_phatique", require("./dialogs/contact_phatique"));
-
 
 
 bot.dialog("/feedback", require("./dialogs/feedback"))
@@ -138,34 +135,13 @@ bot.dialog("/salut", require("./dialogs/salut"));
 bot.dialog("/contact_createur", require("./dialogs/contact_createur"));
 
 
-bot.dialog("/meet", require("./dialogs/meet"))
-    .triggerAction({ 
-        matches: /avec une communauté 👟/i 
-    });
-
-
-bot.dialog("/cross", require("./dialogs/cross"));
-
-
 bot.dialog("/insult", require("./dialogs/insult"));
-
-
-bot.dialog("/adresse", require("./dialogs/adresse"));
-
-
-bot.dialog("/adresse_bis", require("./dialogs/adresse_bis"))
-    .triggerAction({ 
-        matches: /changer d'adresse 📍/i 
-    });
 
 
 bot.dialog("/run", require("./dialogs/run"))
     .triggerAction({ 
-        matches: /une course 🎽/i 
+        matches:/une course 🎽/i 
     });
-
-
-bot.dialog("/which-run", require("./dialogs/which-run"));
 
 
 bot.dialog("/confirm", require("./dialogs/confirm"));
@@ -175,6 +151,7 @@ bot.dialog("/dialog_quizz", require("./dialogs/dialog_quizz"))
     .triggerAction({ 
         matches: /#quizzDeLaSemaine/i 
     });
+
 
 bot.dialog("/promo", require("./dialogs/promo"))
     .triggerAction({ 
@@ -190,7 +167,7 @@ bot.dialog("/resultsquizz", require("./dialogs/resultsquizz"))
 
 bot.dialog("/rungly_coach", require("./dialogs/rungly_coach"))
     .triggerAction({ 
-        matches: /#coachingByRungly/i 
+        matches:/#coachingByRungly/i 
     });
 
 bot.dialog("/rungly_coach_1", require("./dialogs/rungly_coach_1"));
@@ -212,7 +189,7 @@ bot.dialog("/articles_blog", require("./dialogs/articles_blog"))
 bot.dialog("/share_rungly", require("./dialogs/share_rungly"))
     .triggerAction({ 
                 matches: /Partager Rungly 💚/i 
-            });
+    });
 
 
 bot.dialog("/flux_inscription", require("./dialogs/flux_inscription"));
@@ -310,8 +287,6 @@ bot.dialog("/",
 //first dialog redirection
 bot.use(builder.Middleware.firstRun({ version: 1.0, dialogId: '*:/firstRun' }));
 
-//reset
-bot.use(builder.Middleware.dialogVersion({version: 1.0, resetCommand: /^reset/i}));
 
 //piece of middleware for send Typing action
 bot.use(builder.Middleware.sendTyping());
