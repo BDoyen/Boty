@@ -93,10 +93,7 @@ var f_which_category = func_which_category.f_which_category
 bot.dialog("/firstRun", require("./dialogs/firstRun"));
 
 
-bot.dialog("/menu", require("./dialogs/menu"))
-    .triggerAction({ 
-            matches: /#menuderungly/i 
-        });
+bot.dialog("/menu", require("./dialogs/menu")).triggerAction({matches: /#menuderungly/i});
 
 
 bot.dialog("/query", require("./dialogs/query"));
@@ -105,25 +102,16 @@ bot.dialog("/query", require("./dialogs/query"));
 bot.dialog("/query_bis", require("./dialogs/query_bis"));
 
 
-bot.dialog("/botlesmoi", require("./dialogs/botlesmoi"))
-    .triggerAction({ 
-        matches: /Une astuce 💡/i 
-    });
+bot.dialog("/botlesmoi", require("./dialogs/botlesmoi")).triggerAction({matches: /Une astuce 💡/i });
 
 
 bot.dialog("/contact_phatique", require("./dialogs/contact_phatique"));
 
 
-bot.dialog("/feedback", require("./dialogs/feedback"))
-    .triggerAction({ 
-        matches:/donner son avis 💌/i 
-    });
+bot.dialog("/feedback", require("./dialogs/feedback")).triggerAction({matches:/donner son avis 💌/i});
 
 
-bot.dialog("/catch", require("./dialogs/catch"))
-    .triggerAction({ 
-        matches:/recommencer 🔄/i 
-    });
+bot.dialog("/catch", require("./dialogs/catch")).triggerAction({matches:/recommencer 🔄/i});
 
 
 bot.dialog("/merci", require("./dialogs/merci"));
@@ -138,58 +126,34 @@ bot.dialog("/contact_createur", require("./dialogs/contact_createur"));
 bot.dialog("/insult", require("./dialogs/insult"));
 
 
-bot.dialog("/run", require("./dialogs/run"))
-    .triggerAction({ 
-        matches:/une course 🎽/i 
-    });
+bot.dialog("/run", require("./dialogs/run")).triggerAction({matches:/une course 🎽/i});
 
 
 bot.dialog("/confirm", require("./dialogs/confirm"));
 
 
-bot.dialog("/dialog_quizz", require("./dialogs/dialog_quizz"))
-    .triggerAction({ 
-        matches: /#quizzDeLaSemaine/i 
-    });
+bot.dialog("/dialog_quizz", require("./dialogs/dialog_quizz")).triggerAction({matches:/#quizzDeLaSemaine/i});
 
 
-bot.dialog("/promo", require("./dialogs/promo"))
-    .triggerAction({ 
-        matches: /promo/i 
-    });
+bot.dialog("/promo", require("./dialogs/promo")).triggerAction({matches:/promo/i});
 
 
-bot.dialog("/resultsquizz", require("./dialogs/resultsquizz"))
-    .triggerAction({ 
-        matches: /#resultatsSemaineAvant/i 
-    });
+bot.dialog("/resultsquizz", require("./dialogs/resultsquizz")).triggerAction({matches: /#resultatsSemaineAvant/i});
 
 
-bot.dialog("/rungly_coach", require("./dialogs/rungly_coach"))
-    .triggerAction({ 
-        matches:/#coachingByRungly/i 
-    });
+bot.dialog("/rungly_coach", require("./dialogs/rungly_coach")).triggerAction({matches:/#coachingByRungly/i });
 
 bot.dialog("/rungly_coach_1", require("./dialogs/rungly_coach_1"));
 
 
-bot.dialog("/rungly_coach_10km", require("./dialogs/rungly_coach_10km"))
-    .triggerAction({ 
-        matches: /S'inscrire ✅/i 
-    });
+bot.dialog("/rungly_coach_10km", require("./dialogs/rungly_coach_10km")).triggerAction({matches: /S'inscrire ✅/i });
 
 bot.dialog("/rungly_coach_10km_programme", require("./dialogs/rungly_coach_10km_programme"));
 
 
-bot.dialog("/articles_blog", require("./dialogs/articles_blog"))
-    .triggerAction({ 
-            matches: /#articlesdeblog/i 
-        });
+bot.dialog("/articles_blog", require("./dialogs/articles_blog")).triggerAction({matches: /#articlesdeblog/i });
 
-bot.dialog("/share_rungly", require("./dialogs/share_rungly"))
-    .triggerAction({ 
-                matches: /Partager Rungly 💚/i 
-    });
+bot.dialog("/share_rungly", require("./dialogs/share_rungly")).triggerAction({matches: /Partager Rungly 💚/i });
 
 
 bot.dialog("/flux_inscription", require("./dialogs/flux_inscription"));
@@ -208,10 +172,7 @@ bot.dialog("/confirmation", require("./dialogs/confirmation"));
 
 bot.dialog("/other", require("./dialogs/other"));
 
-bot.dialog("/gestion_push", require("./dialogs/gestion_push"))
-    .triggerAction({ 
-            matches: /#mesabonnements/i 
-         });
+bot.dialog("/gestion_push", require("./dialogs/gestion_push")).triggerAction({ matches: /#mesabonnements/i });
 
 
 bot.dialog("/",
