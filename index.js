@@ -56,7 +56,6 @@ var gifsArray = getGif.gifsArray;
 var G = getGif.G;
 
 
-
 //sentiment variables
 var positiveSentimentArray = new Array("😀","😁","😉","😊","😌","😄","😎","😃","😜","😛","🤗","🔥","😇","😺","👌","👍");
 var negativeSentimentArray = new Array("😑","😣","😶","😐","😕","😞","😦","😬");
@@ -90,10 +89,21 @@ var f_which_category = func_which_category.f_which_category
 
 //dialogs
 
+
 bot.dialog("/firstRun", require("./dialogs/firstRun"));
 
 
-bot.dialog("/menu", require("./dialogs/menu")).triggerAction({matches: /#menuderungly/i});
+// reset the bot 
+bot.dialog('reset', function (session) {
+    // reset data
+    session.endConversation("Ok… À plus !");
+}).triggerAction({ matches: /^bye/i }); 
+
+
+bot.dialog('menu', require("./dialogs/menu"))
+    .triggerAction({
+        matches: /^#menuderungly$/i
+});
 
 
 bot.dialog("/query", require("./dialogs/query"));
@@ -143,15 +153,18 @@ bot.dialog("/resultsquizz", require("./dialogs/resultsquizz")).triggerAction({ma
 
 bot.dialog("/rungly_coach", require("./dialogs/rungly_coach")).triggerAction({matches:/#coachingByRungly/i });
 
+
 bot.dialog("/rungly_coach_1", require("./dialogs/rungly_coach_1"));
 
 
 bot.dialog("/rungly_coach_10km", require("./dialogs/rungly_coach_10km")).triggerAction({matches: /S'inscrire ✅/i });
 
+
 bot.dialog("/rungly_coach_10km_programme", require("./dialogs/rungly_coach_10km_programme"));
 
 
 bot.dialog("/articles_blog", require("./dialogs/articles_blog")).triggerAction({matches: /#articlesdeblog/i });
+
 
 bot.dialog("/share_rungly", require("./dialogs/share_rungly")).triggerAction({matches: /Partager Rungly 💚/i });
 
@@ -188,53 +201,23 @@ bot.dialog("/",
                     session.beginDialog('/menu',session.userData);
                 }else{
                     var slug = intent.slug;
-                    var entities = res.entities;
-                    var rungly = !entities.runglyrelax && !entities.runglyfun && !entities.runglysolidaire && !entities.runglyintermediaire && !entities.runglypro     
-                    if(slug == 'ask-courir'){
-                        if(!res.entities.datetime){
-                            if(rungly){
-                                session.beginDialog('/which-run',session.userData);
-                            }else{
-                                f_which_category(entities.runglyrelax,entities.runglysolidaire,entities.runglyfun,entities.runglyintermediaire,entities.runglypro,session)//go for tagging
-                                session.beginDialog('/cross',session.userData);
-                            }
-                        }else{
-                            var accuracy = res.entities.datetime[0].accuracy;
-                            var chronology = res.entities.datetime[0].chronology;
-                            var iso = res.entities.datetime[0].iso;
-                            session.userData.giventemps = 1;
-                            f1_time(session,chronology,accuracy,iso,slug)
-                            if(rungly){
-                                session.beginDialog('/which-run',session.userData);
-                            }else{
-                                f_which_category(entities.runglyrelax,entities.runglysolidaire,entities.runglyfun,entities.runglyintermediaire,entities.runglypro,session)//go for tagging
-                                session.beginDialog('/cross',session.userData);
-                            }
+                        if(slug == 'greetings'){
+                            session.beginDialog('/salut',session.userData);
+                        }else if(slug == 'goodbye' || slug == "reset"){
+                            session.beginDialog('/catch',session.userData);
+                        }else if(slug == 'say-thanks'){
+                            session.beginDialog('/merci',session.userData);
+                        }else if(slug == 'ask-feeling'){
+                            session.beginDialog('/contact_phatique',session.userData);
+                        }else if(slug == 'who-is-your-creator'){
+                            session.beginDialog('/contact_createur',session.userData);
+                        }else if(slug == 'insult'){
+                            session.beginDialog('/insult',session.userData);
+                        }else if(slug == 'help'){
+                            session.beginDialog('/botlesmoi',session.userData);
                         }
-                    }else if(slug == 'ask-jobrun'){
-                        session.beginDialog('/network',session.userData);
-                    }else if(slug == 'greetings'){
-                        session.beginDialog('/salut',session.userData);
-                    }else if(slug == 'goodbye' || slug == "reset"){
-                        session.beginDialog('/catch',session.userData);
-                    }else if(slug == 'say-thanks'){
-                        session.beginDialog('/merci',session.userData);
-                    }else if(slug == 'ask-feeling'){
-                        session.beginDialog('/contact_phatique',session.userData);
-                    }else if(slug == 'who-is-your-creator'){
-                        session.beginDialog('/contact_createur',session.userData);
-                    }else if(slug == 'insult'){
-                        session.beginDialog('/insult',session.userData);
-                    }else if(slug == 'help'){
-                        session.beginDialog('/botlesmoi',session.userData);
-                    }else if(slug == "change-address"){
-                        session.beginDialog("/adresse_bis",session.userData);
-                    }else{
-                        session.send("🐅 👟");
-                        session.beginDialog('/menu',session.userData);
-                    }
                 }
-        }).catch(function(err){
+    }).catch(function(err){
             console.log(err)
             session.send("🐅 👟");
             session.beginDialog('/menu',session.userData);     
@@ -242,12 +225,10 @@ bot.dialog("/",
 });
 
 
-
 //general commands
 
 //first dialog redirection
-bot.use(builder.Middleware.firstRun({ version: 1.0, dialogId: '*:/firstRun' }));
-
+bot.use(builder.Middleware.dialogVersion({ version: 1.0, resetCommand: /^reset/i, message: 'reset!' }));
 
 //piece of middleware for send Typing action
 bot.use(builder.Middleware.sendTyping());
