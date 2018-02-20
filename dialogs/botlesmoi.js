@@ -51,12 +51,12 @@ module.exports = [
     function(session,results){
         var tip = tipsArray[math.round(math.random()*(N+1))];
         session.send("Running Tips by Rungly 🔆🏃");
-        if(!tip){
+        if(!tip){w
             tipsArray[N]
         }else{
             session.send(tip);
         }
-        builder.Prompts.choice(session,"Encore ?",["oui !","ça ira merci..."],{maxRetries:0})  
+        builder.Prompts.choice(session,"Encore ?",["oui !","ça ira merci...","une tous les 2 jours"],{maxRetries:0})  
     },
     function(session,results){
         if(!results.response){
@@ -73,12 +73,14 @@ module.exports = [
                     session.beginDialog('/botlesmoi',session.userData);
                     break;
                 case 1:
+                    session.beginDialog('/botlesmoi_push',session.userData);
+                    break;
+                case 2:
                     session.beginDialog('/menu',session.userData);
                     break;
             }
         }
     }
-
 ];
 
 

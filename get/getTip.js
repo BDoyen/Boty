@@ -29,8 +29,6 @@ tipsArray.push("Selon une étude américaine, consommer du chocolot noir augment
 tipsArray.push("En course, l'objectif n°1 ce serait de prendre son pied je dirai. #superJeuDeMot");
 
 
-
-
 var N = tipsArray.length;
 
 module.exports = {

@@ -9,8 +9,8 @@ module.exports = [
 	
 	function(session){
         session.send("Bienvenue à toi dans le programme Rungly coach ! 😍");
-        session.send("Rungly coach est là pour t'aider à courir un 10km ou 15km dans un temps optimal pour toi ! 🔝")
-        builder.Prompts.choice(session,"❓ Comment ça marche ❓",["Découvrir 👇👇","Menu"],{maxRetries:1})
+        session.send("Les coachs Rungly sont là pour t'aider à donner le meilleur de toi-même sur un 10km ou 15km 🔝")
+        builder.Prompts.choice(session,"❓ Comment ça marche ❓",["Découvrir 👇👇","Back ◀️"],{maxRetries:1})
 	},
     function(session,results){
         if(!results.response){

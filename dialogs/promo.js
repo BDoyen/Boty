@@ -10,7 +10,7 @@ module.exports =[
 	function(session){
 		session.send("Voici une sélection des meilleures promo du moment que j'ai à te proposer : ");
 		 
-         msg = new builder.Message(session);
+        var msg = new builder.Message(session);
            msg.sourceEvent({
                 facebook: {
                     attachment:{

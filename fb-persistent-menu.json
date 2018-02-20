@@ -9,6 +9,11 @@
       "payload":"#coachingByRungly"
     },
     {
+      "title":"Poser une question running 🙋",
+      "type":"postback",
+      "payload":"#askmyquestion"
+    },
+    {
       "type":"postback",
       "title":"Menu 🐅",
       "type":"nested",
@@ -24,11 +29,6 @@
             "payload":"#mesabonnements"
         }
         ]
-    },
-    {
-      "title":"Partager Rungly 💚",
-      "type":"postback",
-      "payload":"Partager Rungly 💚"
     }
   ]
 }

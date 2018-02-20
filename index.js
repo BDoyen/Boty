@@ -1,27 +1,11 @@
 require('dotenv').config()
-var builder = require("botbuilder");
-var restify = require('restify'); // pour le serveur
-var sentiment = require('sentiment-multilang'); //sentiment analysis
-var math = require('mathjs'); //math module
+var restify = require('restify');
+var builder = require('botbuilder');
 var azure = require('botbuilder-azure'); 
-var funcs_time = require('./dialogs/funcs/funcs_time.js');
-var func_which_category = require('./dialogs/funcs/func_which_category.js');
-
-
-//client server
-var server = restify.createServer();
-
-
-server.listen(process.env.port || process.env.PORT || 3978, function () {
- console.log('%s listening to %s', server.name, server.url);
-});
-
-
-//client connector
-var connector = new builder.ChatConnector({
- appId: process.env.MICROSOFT_APP_ID,
- appPassword: process.env.MICROSOFT_APP_PASSWORD
-});
+var math = require('mathjs'); //math module
+var sentiment = require('sentiment-multilang'); //sentiment analysis
+//Recast.ai
+var recastai = require('recastai').default
 
 
 //state data storage
@@ -35,13 +19,26 @@ var docDbClient = new azure.DocumentDbClient(documentDbOptions);
 var cosmosStorage = new azure.AzureBotStorage({ gzipData: false }, docDbClient);
 
 
+// Create bot and add dialogs
+
+//client connector
+var connector = new builder.ChatConnector({
+ appId: process.env.MICROSOFT_APP_ID,
+ appPassword: process.env.MICROSOFT_APP_PASSWORD
+});
+
 //bot object
 var bot = new builder.UniversalBot(connector)
-    .set('storage', cosmosStorage);
+     .set('storage', cosmosStorage);
 
 
-//server listening
+// Setup Restify Server
+var server = restify.createServer();
 server.post('/api/messages', connector.listen());
+server.listen(process.env.port || 3978, function () {
+    console.log('%s listening to %s', server.name, server.url); 
+});
+
 
 //resources from other scripts
 
@@ -62,112 +59,80 @@ var negativeSentimentArray = new Array("😑","😣","😶","😐","😕","😞"
 var l = positiveSentimentArray.length;
 var k = negativeSentimentArray.length;
 
+
 //time variables
 var days = new Array('lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche');
 var time = ["en matinée","dans l'après-midi","le soir venu"]
 var week = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"]
 
 
-//APIs//
-
-
-//Facebook
-var FB = require('fb');
-FB.setAccessToken("EAAFL0ok0ZCS0BAJbt8taLARWPEZAnYTBFGyZA5k5hCtWfZBPGFhOfgVnky8BXpgh6XPZAodJndVhZB494W6vxwqTM6VYvNmls9L7anXO1T7KbxxiPHv3dq2N59ABAtS8FZCuAZAKnkRZA2XaqV2SGXToL0HwMr64UaeuV4kMO3rZAmhAZDZD");
-
-
-//Recast.ai
-var recastai = require('recastai').default
-
-
-//time functions 
-var f1_time = funcs_time.f1_time
-var f2_time = funcs_time.f2_time
-var f_which_category = func_which_category.f_which_category
-
-
-
-//dialogs
-
-
-bot.dialog("/firstRun", require("./dialogs/firstRun"));
-
-
-// reset the bot 
-bot.dialog('reset', function (session) {
-    // reset data
-    session.endConversation("Ok… À plus !");
-}).triggerAction({ matches: /^bye/i }); 
-
-
-bot.dialog('menu', require("./dialogs/menu"))
-    .triggerAction({
-        matches: /^#menuderungly$/i
+bot.dialog('/',
+    function(session){
+        session.userData.tokengen = 'fb8fd247f05d3a8cf062a3aad2ef428c'
+        var client = new recastai(session.userData.tokengen)
+        var request = client.request
+        request.analyseText(session.message.text)
+            .then(function(res){
+                var intent = res.intent();
+                console.log(res)
+                if(!res.intent()){
+                    session.send("🐅 👟");
+                    session.beginDialog('/menu',session.userData);
+                }else{
+                    var slug = intent.slug;
+                        if(slug == 'greetings'){
+                            session.send("Salut ! ");
+                            session.beginDialog("/menu",session.userData);
+                        }else if(slug == 'goodbye' || slug == "reset"){
+                            session.send("Bye bye ");
+                            session.beginDialog("/menu",session.userData);
+                        }else if(slug == 'say-thanks'){
+                            session.send("Merci ");
+                            session.beginDialog("/menu",session.userData);
+                        }else if(slug == 'ask-feeling'){
+                            session.send("Ça va merci");
+                            session.beginDialog("/menu",session.userData);
+                        }else if(slug == 'insult'){
+                            session.send(":(");
+                            session.beginDialog("/menu",session.userData);
+                        }else if(slug == 'help'){
+                            session.beginDialog('/botlesmoi',session.userData);
+                        }
+                }
+    }).catch(function(err){
+            console.log(err)
+            session.send("🐅 👟");
+            session.beginDialog('/menu',session.userData);     
+    })    
 });
 
 
-bot.dialog("/query", require("./dialogs/query"));
+bot.dialog('/menu', require("./dialogs/menu"))
+    .triggerAction({
+        matches: /#menuderungly/i
+});
 
+bot.dialog("/firstRun", require("./dialogs/firstRun"));
+
+bot.dialog("/query", require("./dialogs/query"));
 
 bot.dialog("/query_bis", require("./dialogs/query_bis"));
 
-
 bot.dialog("/botlesmoi", require("./dialogs/botlesmoi")).triggerAction({matches: /Une astuce 💡/i });
 
+bot.dialog("/botlesmoi_push", require("./dialogs/botlesmoi_push"));
 
-bot.dialog("/contact_phatique", require("./dialogs/contact_phatique"));
-
-
-bot.dialog("/feedback", require("./dialogs/feedback")).triggerAction({matches:/donner son avis 💌/i});
-
-
-bot.dialog("/catch", require("./dialogs/catch")).triggerAction({matches:/recommencer 🔄/i});
-
-
-bot.dialog("/merci", require("./dialogs/merci"));
-
-
-bot.dialog("/salut", require("./dialogs/salut"));
-
-
-bot.dialog("/contact_createur", require("./dialogs/contact_createur"));
-
-
-bot.dialog("/insult", require("./dialogs/insult"));
-
+bot.dialog("/botlesmoi_buffer_push", require("./dialogs/botlesmoi_buffer_push"));
 
 bot.dialog("/run", require("./dialogs/run")).triggerAction({matches:/une course 🎽/i});
 
-
 bot.dialog("/confirm", require("./dialogs/confirm"));
-
 
 bot.dialog("/dialog_quizz", require("./dialogs/dialog_quizz")).triggerAction({matches:/#quizzDeLaSemaine/i});
 
-
 bot.dialog("/promo", require("./dialogs/promo")).triggerAction({matches:/promo/i});
 
-
 bot.dialog("/resultsquizz", require("./dialogs/resultsquizz")).triggerAction({matches: /#resultatsSemaineAvant/i});
-
-
-bot.dialog("/rungly_coach", require("./dialogs/rungly_coach")).triggerAction({matches:/#coachingByRungly/i });
-
-
-bot.dialog("/rungly_coach_1", require("./dialogs/rungly_coach_1"));
-
-
-bot.dialog("/rungly_coach_10km", require("./dialogs/rungly_coach_10km")).triggerAction({matches: /S'inscrire ✅/i });
-
-
-bot.dialog("/rungly_coach_10km_programme", require("./dialogs/rungly_coach_10km_programme"));
-
-
-bot.dialog("/articles_blog", require("./dialogs/articles_blog")).triggerAction({matches: /#articlesdeblog/i });
-
-
-bot.dialog("/share_rungly", require("./dialogs/share_rungly")).triggerAction({matches: /Partager Rungly 💚/i });
-
 
 bot.dialog("/flux_inscription", require("./dialogs/flux_inscription"));
 
@@ -187,62 +152,22 @@ bot.dialog("/other", require("./dialogs/other"));
 
 bot.dialog("/gestion_push", require("./dialogs/gestion_push")).triggerAction({ matches: /#mesabonnements/i });
 
+bot.dialog("/rungly_coach", require("./dialogs/rungly_coach")).triggerAction({matches:/#coachingByRungly/i });
 
-bot.dialog("/",
-    function(session){
-        session.userData.tokengen = '62603faf2cd89150edb9b831ee9bfc10'
-        var client = new recastai(session.userData.tokengen)
-        var request = client.request
-        request.analyseText(session.message.text)
-            .then(function(res){
-                var intent = res.intent();
-                if(!res.intent()){
-                    session.send("🐅 👟");
-                    session.beginDialog('/menu',session.userData);
-                }else{
-                    var slug = intent.slug;
-                        if(slug == 'greetings'){
-                            session.beginDialog('/salut',session.userData);
-                        }else if(slug == 'goodbye' || slug == "reset"){
-                            session.beginDialog('/catch',session.userData);
-                        }else if(slug == 'say-thanks'){
-                            session.beginDialog('/merci',session.userData);
-                        }else if(slug == 'ask-feeling'){
-                            session.beginDialog('/contact_phatique',session.userData);
-                        }else if(slug == 'who-is-your-creator'){
-                            session.beginDialog('/contact_createur',session.userData);
-                        }else if(slug == 'insult'){
-                            session.beginDialog('/insult',session.userData);
-                        }else if(slug == 'help'){
-                            session.beginDialog('/botlesmoi',session.userData);
-                        }
-                }
-    }).catch(function(err){
-            console.log(err)
-            session.send("🐅 👟");
-            session.beginDialog('/menu',session.userData);     
-    })    
-});
+bot.dialog("/rungly_coach_1", require("./dialogs/rungly_coach_1"));
+
+bot.dialog("/rungly_coach_10km", require("./dialogs/rungly_coach_10km")).triggerAction({matches: /S'inscrire ✅/i });
+
+bot.dialog("/rungly_coach_prgm", require("./dialogs/rungly_coach_prgm"));
+
+bot.dialog("/articles_blog", require("./dialogs/articles_blog")).triggerAction({matches: /#articlesdeblog/i });
+
+bot.dialog("/share_rungly", require("./dialogs/share_rungly")).triggerAction({matches: /Partager Rungly 💚/i });
 
 
-//general commands
-
-//first dialog redirection
-bot.use(builder.Middleware.dialogVersion({ version: 1.0, resetCommand: /^reset/i, message: 'reset!' }));
 
 //piece of middleware for send Typing action
+
+bot.use(builder.Middleware.dialogVersion({ version: 1.0, resetCommand: /^reset/i, message: 'reset!' }));
+bot.use(builder.Middleware.firstRun({ version: 1.0, dialogId: '*:/firstRun' }));
 bot.use(builder.Middleware.sendTyping());
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -24,7 +24,8 @@ module.exports = [
                             session.send("Voici toutes les infos de la première semaine du programme : ")
                             session.send("💚 Week #1 - Mise en route, découverte et prise de marque");
                             session.send("🕖 Heure : de 19h00 à 20h30")
-                            session.send("📍 Lieu : Champs de Mars")
+                            session.send("📍 Lieu : Jardin des Tuileries")
+                            session.send("Prix : Gratuit 🤑")
                             session.sendTyping();
                             setTimeout(function(){
                                 msg = new builder.Message(session);
@@ -36,6 +37,19 @@ module.exports = [
                                                 template_type:"generic",
                                                 elements:
                                                 [{
+                                                    title:"Lien Eventbrite",
+                                                    image_url:"https://image.ibb.co/kH2K2c/Capture_d_e_cran_2018_02_20_a_09_57_17.png",
+                                                    buttons:[
+                                                    {
+                                                        type:"web_url",
+                                                        url:"https://www.eventbrite.fr/e/billets-week-1-entrainement-10km15km-by-rungly-coach-43326588994",
+                                                        title:"👉 Lien Eventbrite 🎫"
+                                                    },
+                                                    {
+                                                        type:"element_share"
+                                                    }]
+                                                },
+                                                {
                                                     title:"Séance #1 - Lundi soir",
                                                     subtitle:"Premier contact et Footing léger",
                                                     image_url:"https://image.ibb.co/mTFUfc/Capture_d_e_cran_2018_02_07_a_18_27_21.png",
@@ -69,7 +83,7 @@ module.exports = [
                                     });
                                 session.send(msg);
                                 session.send("À la fin de cette première semaine, tu pourras mieux définir tes objectifs de temps avec le coach pour un 10km ou 15km");
-                                builder.Prompts.choice(session,"Tu en penses quoi ?",["En savoir ➕","Ça ira merci 🙂"],{maxRetries:0});
+                                builder.Prompts.choice(session,"Tu en dis quoi ?",["en savoir ➕","ça ira merci 🙂"],{maxRetries:0});
                             },3000);
                         }else{
                             session.send("J'ai eu un petit souci avec ton inscription mais ne t'inquiète pas, je vais règler ça 😉");
@@ -85,13 +99,13 @@ module.exports = [
                     session.beginDialog('/menu',session.userData);
                 }else if(valence >= 0){
                     session.send("Ok ! 😊");
-                    session.beginDialog('/rungly_coach_10km_programme',session.userData);   
+                    session.beginDialog('/rungly_coach_prgm',session.userData);   
                 }
             }else{
                 switch (results.response.index){
                     case 0: 
                         session.send("Ok ! 😊");
-                        session.beginDialog('/rungly_coach_10km_programme',session.userData); 
+                        session.beginDialog('/rungly_coach_prgm',session.userData); 
                         break;
                     case 1: 
                         session.send("Ok 🙂");

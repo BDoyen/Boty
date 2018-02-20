@@ -2,7 +2,6 @@ var builder = require("botbuilder");
 var restify = require('restify'); // pour le serveur
 var sentiment = require('sentiment-multilang'); //sentiment analysis
 var math = require('mathjs'); //math module
-var request = require('request');
 var funcs_time = require('./funcs/funcs_time.js');
 var parser = require('rss-parser');
 const cheerio = require("cheerio");
