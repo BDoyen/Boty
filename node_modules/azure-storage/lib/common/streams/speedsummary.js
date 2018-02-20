@@ -108,7 +108,7 @@ SpeedSummary.prototype._getInternalSpeed = function(totalSize, elapsedTime, huma
   }
   var speed = totalSize / elapsedTime;
   if(humanReadable !== false) {
-    speed = toHumanReadableSize(speed) + '/s';
+    speed = toHumanReadableSize(speed) + '/S';
   }
   return speed;
 };
