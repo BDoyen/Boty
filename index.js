@@ -165,7 +165,6 @@ bot.dialog("/articles_blog", require("./dialogs/articles_blog")).triggerAction({
 bot.dialog("/share_rungly", require("./dialogs/share_rungly")).triggerAction({matches: /Partager Rungly 💚/i });
 
 
-
 //piece of middleware for send Typing action
 
 bot.use(builder.Middleware.dialogVersion({ version: 1.0, resetCommand: /^reset/i, message: 'reset!' }));
