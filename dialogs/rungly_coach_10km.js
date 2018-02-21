@@ -11,22 +11,21 @@ module.exports = [
 	function(session){
 		
         session.send("Bravo et bon choix " + session.userData.name + "😉");
-                    
-                    var post_options = {
+                    session.userData.post_options = {
                         url: "http://217.182.206.5:8080/coach/ins",
                         method: 'POST',
                         timeout:30000
                     };
                     var data = JSON.stringify({User:session.userData.idstring});
                     session.userData.post_options.form = data;
-                    var post_req = request(data, function(error,response,body){
+                    var post_req = request(session.userData.post_options, function(error,response,body){
                         console.log(error);
                         if(!error){
                             session.send("Voici toutes les infos de la première semaine du programme : ")
                             session.send("💚 Week #1 - Mise en route, découverte et prise de marque");
                             session.send("🕖 Heure : de 19h00 à 20h30")
                             session.send("📍 Lieu : Jardin des Tuileries")
-                            session.send("Prix : Gratuit 🤑")
+                            session.send("🤑 Prix : Gratuit ")
                             session.sendTyping();
                             setTimeout(function(){
                                 msg = new builder.Message(session);
