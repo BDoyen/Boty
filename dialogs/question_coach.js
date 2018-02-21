@@ -31,7 +31,7 @@ module.exports = [
         }
 	},
 	function(session,results){
-		session.userData.question_coach = results.response.entity;
+		session.userData.question_coach = results.response;
         console.log(session.userData.question_coach)
 		session.userData.post_options = {
                         url: "http://217.182.206.5:8080/ticket/add",
