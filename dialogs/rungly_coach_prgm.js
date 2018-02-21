@@ -77,8 +77,7 @@ module.exports = [
                                         }
                                     });
     session.send(msg);
-    builder.Prompts.message(session,"Alors, convaincu(e) ?", ["Oui ! ","Pourquoi pas...","Non pas trop"])
-
+    builder.Prompts.choice(session,"Alors, convaincu(e) ?", ["Oui ! ","Pourquoi pas...","Non pas trop"])
 	},
     function(session,results){
         if(!results.response){
