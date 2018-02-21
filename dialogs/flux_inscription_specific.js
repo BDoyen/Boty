@@ -38,7 +38,7 @@ module.exports = [
                           method: 'POST',
                           timeout:30000
                     };
-                    var data = JSON.stringify([{Id:session.userData.idstring,Type:"article",Bool:true}]);
+                    var data = JSON.stringify({Id:session.userData.idstring,Type:"article",Bool:true});
                     session.userData.post_options.form = data;
                     var post_req = request(session.userData.post_options, function(error,response,body){
                         if(!error){
@@ -59,7 +59,7 @@ module.exports = [
                           timeout:30000
                     };
 
-                    var data = JSON.stringify([{Id:session.userData.idstring,Action:"add",Category:"moovmood"}]);
+                    var data = JSON.stringify({Id:session.userData.idstring,Action:"add",Category:"moovmood"});
 
                     session.userData.post_options.form = data;
 
@@ -83,7 +83,7 @@ module.exports = [
                           timeout:30000
                     };
 
-                    var data = JSON.stringify([{Id:session.userData.idstring,Action:"add",Category:"runtastic"}]);
+                    var data = JSON.stringify({Id:session.userData.idstring,Action:"add",Category:"runtastic"});
 
                     session.userData.post_options.form = data;
 
@@ -107,7 +107,7 @@ module.exports = [
                           timeout:30000
                     };
 
-                    var data = JSON.stringify([{Id:session.userData.idstring,Action:"add",Category:"geekandrun"}]);
+                    var data = JSON.stringify({Id:session.userData.idstring,Action:"add",Category:"geekandrun"});
 
                     session.userData.post_options.form = data;
 

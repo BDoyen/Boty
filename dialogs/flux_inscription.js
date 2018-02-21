@@ -35,7 +35,7 @@ module.exports = [
                       timeout:30000
                 };
 
-                var data = JSON.stringify([{Id:session.userData.idstring,Action:"add",Category:session.userData.current_category}]);
+                var data = JSON.stringify({Id:session.userData.idstring,Action:"add",Category:session.userData.current_category});
 
                 session.userData.post_options.form = data;
 
@@ -62,7 +62,7 @@ module.exports = [
                           timeout:30000
                     };
 
-                    var data = JSON.stringify([{Id:session.userData.idstring,Action:"add",Category:session.userData.current_category}]);
+                    var data = JSON.stringify({Id:session.userData.idstring,Action:"add",Category:session.userData.current_category});
 
                     session.userData.post_options.form = data;
 

@@ -28,7 +28,7 @@ module.exports = [
                       method: 'POST',
                       timeout:30000
                 };
-                var data = JSON.stringify([{Id:session.userData.idstring,Type:"article",Bool:true}]);
+                var data = JSON.stringify({Id:session.userData.idstring,Type:"article",Bool:true});
                 session.userData.post_options.form = data;
                 var post_req = request(session.userData.post_options, function(error,response,body){
                     if(!error){
@@ -49,7 +49,7 @@ module.exports = [
                           method: 'POST',
                           timeout:30000
                     };
-                    var data = JSON.stringify([{Id:session.userData.idstring,Type:"article",Bool:true}]);
+                    var data = JSON.stringify({Id:session.userData.idstring,Type:"article",Bool:true});
                     session.userData.post_options.form = data;
                     var post_req = request(session.userData.post_options, function(error,response,body){
                         if(!error){

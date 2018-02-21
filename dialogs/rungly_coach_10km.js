@@ -87,6 +87,7 @@ module.exports = [
                             },3000);
                         }else{
                             session.send("J'ai eu un petit souci avec ton inscription mais ne t'inquiète pas, je vais règler ça 😉");
+                            session.endDialog();
                         }
                     });
 	},
