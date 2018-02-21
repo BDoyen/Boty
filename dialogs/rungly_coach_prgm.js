@@ -84,19 +84,24 @@ module.exports = [
                 var sent = sentiment(session.message.text,'fr');
                 var valence = sent.score;
                 if(valence < 0){
-                    session.send("Ok");
+                    session.send("ok ça marche");
                     session.beginDialog('/menu',session.userData);
                 }else if(valence >= 0){
                     session.send("Ok super !");
-                    
+                    session.beginDialog('/question_coach',session.userData);
                 }
             }else{
                 switch (results.response.index){
                     case 0: 
-                        session.beginDialog('/rungly_coach_1',session.userData);
+                        session.send("Ok super !");
+                        session.beginDialog('/question_coach',session.userData);
                         break;
                     case 1: 
                         session.send("Ok");
+                        session.beginDialog('/question_coach',session.userData);
+                        break;
+                    case 2:
+                        session.send("ok ça marche");
                         session.beginDialog('/menu',session.userData);
                         break;
             }

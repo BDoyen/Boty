@@ -9,7 +9,7 @@
       "payload":"#coachingByRungly"
     },
     {
-      "title":"Poser une question running 🙋",
+      "title":"Une question à un coach 🙋",
       "type":"postback",
       "payload":"#askmyquestion"
     },
