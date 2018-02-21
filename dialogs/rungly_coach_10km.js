@@ -13,7 +13,7 @@ module.exports = [
         session.send("Bravo et bon choix " + session.userData.name + "😉");
                     
                     var post_options = {
-                        url: "http://217.182.206.5:8080/coach/ins/",
+                        url: "http://217.182.206.5:8080/coach/ins",
                         method: 'POST',
                         timeout:30000
                     };
