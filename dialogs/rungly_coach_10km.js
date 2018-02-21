@@ -20,6 +20,7 @@ module.exports = [
                     var data = JSON.stringify({User:session.userData.idstring});
                     session.userData.post_options.form = data;
                     var post_req = request(data, function(error,response,body){
+                        console.log(error);
                         if(!error){
                             session.send("Voici toutes les infos de la première semaine du programme : ")
                             session.send("💚 Week #1 - Mise en route, découverte et prise de marque");
@@ -86,8 +87,8 @@ module.exports = [
                                 builder.Prompts.choice(session,"Tu en dis quoi ?",["en savoir ➕","ça ira merci 🙂"],{maxRetries:0});
                             },3000);
                         }else{
-                            session.send("J'ai eu un petit souci avec ton inscription mais ne t'inquiète pas, je vais règler ça 😉");
-                            session.endDialog();
+                            session.send("J'ai un petit souci avec les inscriptions en ce moment, n'hésite pas à revenir me parler quand j'aurai arrangé ça 🙂");
+                            session.beginDialog("/menu",session.userData);
                         }
                     });
 	},
