@@ -17,7 +17,7 @@ module.exports = [
                         method: 'POST',
                         timeout:30000
                     };
-                    var data = JSON.stringify([{User:session.userData.idstring}]);
+                    var data = JSON.stringify({User:session.userData.idstring});
                     session.userData.post_options.form = data;
                     var post_req = request(data, function(error,response,body){
                         if(!error){

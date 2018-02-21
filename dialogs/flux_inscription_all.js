@@ -34,7 +34,7 @@ module.exports = [
                     if(!error){
                         session.send("Top !");
                         session.send("Je te souhaite une bonne lecture 😉");
-                        session.send("/menu",session.userData);
+                        session.beginDialog("/menu",session.userData);
                     }else{
                         session.send("J'ai eu un petit souci avec ton inscription mais ne t'inquiète pas, je vais règler ça 😉");
                     }
@@ -55,7 +55,7 @@ module.exports = [
                         if(!error){
                             session.send("Top !");
                             session.send("Je te souhaite une bonne lecture 😉");
-                            session.send("/menu",session.userData);
+                            session.beginDialog("/menu",session.userData);
                         }else{
                             session.send("J'ai eu un petit souci avec ton inscription mais ne t'inquiète pas, je vais règler ça 😉");
                         }
@@ -64,7 +64,7 @@ module.exports = [
 
         		case 1:
         			session.send("Ok 🙂");
-                	session.beginDialog("/menu",session.userData);
+                	session.beginDialog('/menu',session.userData);
         			break;
         	}
         }

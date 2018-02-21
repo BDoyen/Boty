@@ -67,47 +67,6 @@ var time = ["en matinée","dans l'après-midi","le soir venu"]
 var week = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"]
 
 
-bot.dialog('/',
-    function(session){
-        session.userData.tokengen = 'fb8fd247f05d3a8cf062a3aad2ef428c'
-        var client = new recastai(session.userData.tokengen)
-        var request = client.request
-        request.analyseText(session.message.text)
-            .then(function(res){
-                var intent = res.intent();
-                console.log(res)
-                if(!res.intent()){
-                    session.send("🐅 👟");
-                    session.beginDialog('/menu',session.userData);
-                }else{
-                    var slug = intent.slug;
-                        if(slug == 'greetings'){
-                            session.send("Salut ! ");
-                            session.beginDialog("/menu",session.userData);
-                        }else if(slug == 'goodbye' || slug == "reset"){
-                            session.send("Bye bye ");
-                            session.beginDialog("/menu",session.userData);
-                        }else if(slug == 'say-thanks'){
-                            session.send("Merci ");
-                            session.beginDialog("/menu",session.userData);
-                        }else if(slug == 'ask-feeling'){
-                            session.send("Ça va merci");
-                            session.beginDialog("/menu",session.userData);
-                        }else if(slug == 'insult'){
-                            session.send(":(");
-                            session.beginDialog("/menu",session.userData);
-                        }else if(slug == 'help'){
-                            session.beginDialog('/botlesmoi',session.userData);
-                        }
-                }
-    }).catch(function(err){
-            console.log(err)
-            session.send("🐅 👟");
-            session.beginDialog('/menu',session.userData);     
-    })    
-});
-
-
 bot.dialog('/menu', require("./dialogs/menu"))
     .triggerAction({
         matches: /#menuderungly/i
@@ -137,6 +96,8 @@ bot.dialog("/resultsquizz", require("./dialogs/resultsquizz")).triggerAction({ma
 
 bot.dialog("/flux_inscription", require("./dialogs/flux_inscription"));
 
+bot.dialog("/flux_inscription_specific", require("./dialogs/flux_inscription_specific"));
+
 bot.dialog("/flux_inscription_buffer", require("./dialogs/flux_inscription_buffer"));
 
 bot.dialog("/flux_inscription_all", require("./dialogs/flux_inscription_all"));
@@ -165,6 +126,45 @@ bot.dialog("/articles_blog", require("./dialogs/articles_blog")).triggerAction({
 
 bot.dialog("/share_rungly", require("./dialogs/share_rungly")).triggerAction({matches: /Partager Rungly 💚/i });
 
+bot.dialog('/',
+    function(session){
+        session.userData.tokengen = 'fb8fd247f05d3a8cf062a3aad2ef428c'
+        var client = new recastai(session.userData.tokengen)
+        var request = client.request
+        request.analyseText(session.message.text)
+            .then(function(res){
+                var intent = res.intent();
+                console.log(res)
+                if(!res.intent()){
+                    session.send("🐅 👟");
+                    session.beginDialog('/menu',session.userData);
+                }else{
+                    var slug = intent.slug;
+                        if(slug == 'greetings'){
+                            session.send("Salut ! ");
+                            session.beginDialog('/menu',session.userData);
+                        }else if(slug == 'goodbye' || slug == "reset"){
+                            session.send("Bye bye ");
+                            session.beginDialog('/menu',session.userData);
+                        }else if(slug == 'say-thanks'){
+                            session.send("Merci ");
+                            session.beginDialog('/menu',session.userData);
+                        }else if(slug == 'ask-feeling'){
+                            session.send("Ça va merci");
+                            session.beginDialog('/menu',session.userData);
+                        }else if(slug == 'insult'){
+                            session.send(":(");
+                            session.beginDialog('/menu',session.userData);
+                        }else if(slug == 'help'){
+                            session.beginDialog('/botlesmoi',session.userData);
+                        }
+                }
+    }).catch(function(err){
+            console.log(err)
+            session.send("🐅 👟");
+            session.beginDialog('/menu',session.userData);     
+    })    
+});
 
 //piece of middleware for send Typing action
 
