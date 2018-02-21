@@ -31,13 +31,14 @@ module.exports = [
         }
 	},
 	function(session,results){
-		var question = results.response.entity;
+		session.userData.question_coach = results.response.entity;
+        console.log(session.userData.question_coach)
 		session.userData.post_options = {
                         url: "http://217.182.206.5:8080/ticket/add",
                         method: 'POST',
                         timeout:30000
                     };
-                    var data = JSON.stringify({Id:session.userData.idstring,Text : question});
+                    var data = JSON.stringify({Id:session.userData.idstring,Text:session.userData.question_coach});
                     session.userData.post_options.form = data;
                     var post_req = request(session.userData.post_options, function(error,response,body){
                         console.log(error);
