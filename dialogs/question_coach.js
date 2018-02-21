@@ -5,7 +5,7 @@ var request = require('request');
 
 
 module.exports = [
-	function(results){
+	function(session){
 		builder.Prompts.choice(session,"Si tu veux poser une question running à un coach Rungly, tu peux le faire ici 👇👇",["Poser une question ❓","ça ira merci"],{maxRetries:0})
 	},
 	function(session,results){
@@ -42,10 +42,10 @@ module.exports = [
                     var post_req = request(session.userData.post_options, function(error,response,body){
                         console.log(error);
                         if(!error){
-                        	session.send("Ta question a bien été prise en compte, un coach te répondra au plus vite 😊 🏃");
+                        	session.send("ta question a bien été prise en compte, un coach te répondra au plus vite 😊 🏃");
                         	session.beginDialog('/menu',session.userData);
                         }else{
-                        	session.send("Ta question a bien été prise en compte, un coach te répondra au plus vite 😊 🏃");
+                        	session.send("Ok ! Un coach te répondra au plus vite 😊 🏃");
                         	session.beginDialog('/menu',session.userData);
                         }
                     })
