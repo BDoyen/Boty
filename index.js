@@ -112,7 +112,7 @@ bot.dialog("/confirmation", require("./dialogs/confirmation"));
 
 bot.dialog("/other", require("./dialogs/other"));
 
-bot.dialog("/question_push", require("./dialogs/question_push")).triggerAction({ matches: /#askmyquestion/i }); 
+bot.dialog("/question_coach", require("./dialogs/question_coach")).triggerAction({ matches: /#askmyquestion/i }); 
 
 bot.dialog("/gestion_push", require("./dialogs/gestion_push")).triggerAction({ matches: /#mesabonnements/i });
 
