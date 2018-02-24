@@ -6,7 +6,8 @@ var request = require('request');
 
 module.exports = [
 	function(session){
-		builder.Prompts.choice(session,"Si tu veux poser une question running à un coach Rungly, tu peux le faire ici 👇👇",["Poser une question ❓","ça ira merci"],{maxRetries:0})
+        session.send("")
+		builder.Prompts.choice(session,"Si tu as une question à poser à un coach sur le running ou bien sur notre programme d'entraînement, tu peux le faire ici 👇👇",["Poser une question ❓","ça ira merci"],{maxRetries:0})
 	},
 	function(session,results){
 		if(!results.response){
@@ -16,12 +17,12 @@ module.exports = [
                     session.send("Ok ça marche");
                     session.beginDialog('/menu',session.userData);
                 }else if(valence >= 0){
-                    builder.Prompts.text(session,"Ok super, quelle est ta question au coach ❓");
+                    builder.Prompts.text(session,"Ok super, quelle est ta question ❓");
                 }
             }else{
                 switch (results.response.index){
                     case 0: 
-                        builder.Prompts.text(session,"Ok super, quelle est ta question au coach ❓");
+                        builder.Prompts.text(session,"Ok super, quelle est ta question ❓");
                         break;
                     case 1: 
                         session.send("Ok ça marche");

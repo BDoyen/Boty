@@ -8,7 +8,7 @@ var request = require('request');
 module.exports = [
 	
 	function(session){
-        session.send("Voici un aperçu du programme Rungly Coach : ");
+        session.send("Voici un aperçu plus complet du programme Rungly Coach : ");
         var msg = new builder.Message(session);
                                    msg.sourceEvent({
                                         facebook: {
@@ -20,7 +20,7 @@ module.exports = [
                                                 [{
                                                     title:"Week 1 - Découverte",
                                                     subtitle:"Premier contact et Footings légers",
-                                                    image_url:"https://image.ibb.co/mTFUfc/Capture_d_e_cran_2018_02_07_a_18_27_21.png",
+                                                    image_url:"https://image.ibb.co/ngFGLx/Capture_d_e_cran_2018_02_23_a_10_53_18.png",
                                                     buttons:[
                                                     {
                                                         type:"element_share"
@@ -29,7 +29,7 @@ module.exports = [
                                                 {
                                                     title:"Week 2 & 3 - Développement Foncier",
                                                     subtitle:"Les qualités générales du bon runner",
-                                                    image_url:"https://image.ibb.co/jUuuDx/Capture_d_e_cran_2018_02_07_a_18_29_09.png",
+                                                    image_url:"https://image.ibb.co/huJgnc/Capture_d_e_cran_2018_02_23_a_10_54_42.png",
                                                     buttons:[
                                                     {
                                                         type:"element_share"
@@ -38,7 +38,7 @@ module.exports = [
                                                 {
                                                     title:"Week 4 & 5 - Techniques running",
                                                     subtitle:"Les techniques plus specifiques du runner",
-                                                    image_url:"https://image.ibb.co/mvTMtx/Capture_d_e_cran_2018_02_07_a_18_31_11.png",
+                                                    image_url:"https://image.ibb.co/bstmLx/Capture_d_e_cran_2018_02_23_a_10_55_34.png",
                                                     buttons:[
                                                     {
                                                         type:"element_share"
@@ -47,7 +47,7 @@ module.exports = [
                                                 {
                                                     title:"Week 6 - On fait le point",
                                                     subtitle:"Premier bilan et retour sur ton objectif",
-                                                    image_url:"https://image.ibb.co/mvTMtx/Capture_d_e_cran_2018_02_07_a_18_31_11.png",
+                                                    image_url:"https://image.ibb.co/h8V0fx/Capture_d_e_cran_2018_02_23_a_10_56_46.png",
                                                     buttons:[
                                                     {
                                                         type:"element_share"
@@ -56,7 +56,7 @@ module.exports = [
                                                 {
                                                     title:"Week 7 - Ré-ajustements",
                                                     subtitle:"Les derniers détails pour atteindre ton objectif !",
-                                                    image_url:"https://image.ibb.co/mvTMtx/Capture_d_e_cran_2018_02_07_a_18_31_11.png",
+                                                    image_url:"https://image.ibb.co/kco8YH/Capture_d_e_cran_2018_02_23_a_10_57_34.png",
                                                     buttons:[
                                                     {
                                                         type:"element_share"
@@ -65,7 +65,7 @@ module.exports = [
                                                 {
                                                     title:"Week 8 - Libère l'athlète en toi !",
                                                     subtitle:"Être confiant pour le jour J",
-                                                    image_url:"https://image.ibb.co/mvTMtx/Capture_d_e_cran_2018_02_07_a_18_31_11.png",
+                                                    image_url:"https://image.ibb.co/bNfoYH/Capture_d_e_cran_2018_02_23_a_11_01_41.png",
                                                     buttons:[
                                                     {
                                                         type:"element_share"

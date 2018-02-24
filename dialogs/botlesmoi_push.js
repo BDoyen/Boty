@@ -2,6 +2,8 @@ var builder = require("botbuilder");
 var restify = require('restify'); // pour le serveur
 var sentiment = require('sentiment-multilang'); //sentiment analysis
 var math = require('mathjs'); //math module
+var request = require('request');
+var quick = require('botbuilder-facebook-quick-replies');
 
 
 //APIs//

@@ -76,6 +76,8 @@ bot.dialog("/firstRun", require("./dialogs/firstRun"));
 
 bot.dialog("/query", require("./dialogs/query"));
 
+bot.dialog("/inscription_push_event", require("./dialogs/inscription_push_event"));
+
 bot.dialog("/query_bis", require("./dialogs/query_bis"));
 
 bot.dialog("/botlesmoi", require("./dialogs/botlesmoi")).triggerAction({matches: /Une astuce 💡/i });
@@ -127,6 +129,7 @@ bot.dialog("/rungly_coach_prgm", require("./dialogs/rungly_coach_prgm"));
 bot.dialog("/articles_blog", require("./dialogs/articles_blog")).triggerAction({matches: /#articlesdeblog/i });
 
 bot.dialog("/share_rungly", require("./dialogs/share_rungly")).triggerAction({matches: /Partager Rungly 💚/i });
+
 
 bot.dialog('/',
     function(session){

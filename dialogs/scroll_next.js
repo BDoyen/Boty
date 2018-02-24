@@ -15,8 +15,8 @@ function(session){
 	}else{
 		var n = result_next.length;
 		if(n >= 2){
-		session.send("▪️ " + result[0]);
-        session.send("▪️ " + result[1]);
+		session.send("▪️ " + result_next[0]);
+        session.send("▪️ " + result_next[1]);
         session.userData.descriptif = result_next.splice(2);
         session.beginDialog('/scroll_next',session.userData);
 		}else if(n == 1){

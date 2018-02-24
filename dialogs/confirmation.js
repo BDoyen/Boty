@@ -9,7 +9,7 @@ var quick = require('botbuilder-facebook-quick-replies');
 
 module.exports = [
 	function(session){
-		builder.Prompts.choice(session,"Cool ?",["👍","👎"],{maxRetries:0})
+		builder.Prompts.choice(session,"Cool 😎",["👍","👎"],{maxRetries:0})
 	},
 	function(session,results){
 		if(!results.response){

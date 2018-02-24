@@ -43,7 +43,7 @@ module.exports = [
                     var post_req = request(session.userData.post_options, function(error,response,body){
                         if(!error){
                             session.send("c'est enregistré ✅");
-                            session.send("/menu",session.userData);
+                            session.beginDialog("/menu",session.userData);
                         }else{
                             session.send("J'ai eu un petit souci avec ton inscription mais ne t'inquiète pas, je vais règler ça 😉");
                         }
@@ -67,7 +67,7 @@ module.exports = [
 
                         if(!error){
                             session.send("c'est enregistré ✅");
-                            session.send("/menu",session.userData);
+                            session.beginDialog("/menu",session.userData);
                         }else{
                             session.send("J'ai eu un petit souci avec ton inscription mais ne t'inquiète pas, je vais règler ça 😉")
                         }
@@ -91,7 +91,7 @@ module.exports = [
 
                         if(!error){
                             session.send("c'est enregistré ✅");
-                            session.send("/menu",session.userData);
+                            session.beginDialog("/menu",session.userData);
                         }else{
                             session.send("J'ai eu un petit souci avec ton inscription mais ne t'inquiète pas, je vais règler ça 😉")
                         }
@@ -115,7 +115,7 @@ module.exports = [
 
                         if(!error){
                             session.send("c'est enregistré ✅");
-                            session.send("/menu",session.userData);
+                            session.beginDialog("/menu",session.userData);
                         }else{
                             session.send("J'ai eu un petit souci avec ton inscription mais ne t'inquiète pas, je vais règler ça 😉")
                         }

@@ -317,7 +317,6 @@ module.exports = [
                 console.log(error);
                 session.send("Je suis désolé " + session.userData.name + "... 😕");
                 session.send("j'ai un petit trou de mémoire, mais tu peux essayer avec une autre demande ;)");
-                post_req.end();
                 session.beginDialog('/menu',session.userData);
             }
         });
@@ -337,7 +336,7 @@ module.exports = [
             switch (results.response.index){
                 case 0:
                     session.send("😊");
-                    session.beginDialog("/menu",session.userData);
+                    session.beginDialog("/inscription_push_event",session.userData);
                     break;
                 case 1:
                     session.send("Ok !");
