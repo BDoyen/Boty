@@ -84,7 +84,7 @@ module.exports = [
                                 session.send(msg);
                                 session.send("À la fin de cette première semaine, tu pourras mieux définir tes objectifs de temps avec le coach pour un 10km ou 15km");
                                 builder.Prompts.choice(session,"Tu en dis quoi ?",["en savoir ➕","ça ira merci 🙂"],{maxRetries:0});
-                            },3000);
+                            },5000);
                         }else{
                             session.send("J'ai un petit souci avec les inscriptions en ce moment, n'hésite pas à revenir me parler quand j'aurai arrangé ça 🙂");
                             session.beginDialog("/menu",session.userData);

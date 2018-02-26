@@ -10,10 +10,11 @@ module.exports = [
         session.send("Le principe est simple :");
         session.send("🔴 chaque semaine 3 séances de coaching seront organisées avec un coach");
         session.send("le coach est là pour t'aider et te donner des conseils personnalisés pour progresser 📈");
+        session.send("🔴 tu peux venir aux jours qui te conviennent le mieux");
         session.sendTyping();
         setTimeout(function(){
-            session.send("🔴 tu peux venir aux jours qui te conviennent le plus");
-            session.send("🔴 Le programme dure 8 semaines au total");
+            session.send("🔴 le programme dure 8 semaines au total");
+            session.send("🔴 la première semaine est gratuite 💸 Tu peux ensuite prendre un forfait à 15€ par mois");
             var msg = new builder.Message(session);
                msg.sourceEvent({
                     facebook: {
@@ -48,6 +49,6 @@ module.exports = [
                 });
         session.send(msg);
         session.endDialog();
-        },4500);
+        },6500);
 	}
 ]
