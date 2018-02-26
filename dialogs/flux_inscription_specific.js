@@ -12,13 +12,9 @@ module.exports = [
 	function(session){
 		session.send("tu peux t'inscrire au flux d'un blog et recevoir chaque Mercredi une sélection des articles de ce blog");
         session.send("on propose aussi un flux condensé tout blog confondu 😎");
-        session.sendTyping();
-        setTimeout(function(){
-            builder.Prompts.choice(session,"À quel flux tu veux t'inscrire ?",["Tout condensé !","MoovMood","Runtastic","Geekandrun"],{maxRetries:0});
-        }, 5000);
+        builder.Prompts.choice(session,"À quel flux tu veux t'inscrire ?",["Tout condensé !","MoovMood","Runtastic","Geekandrun"],{maxRetries:0});
 	},
 	function(session,results){
-		
         if(!results.response){
             var sent = sentiment(session.message.text,'fr');
             var valence = sent.score;
