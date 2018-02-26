@@ -101,6 +101,17 @@ module.exports = [
                                 .title("C'est parti ! 💪")
                         ]),
                     new builder.HeroCard(session)
+                        .title("Une question à un coach 🙋")
+                        .subtitle("Pose une question running à un des coachs Rungly")
+                        .images([
+                            builder.CardImage.create(session,"https://image.ibb.co/mF5sdH/Capture_d_e_cran_2018_02_24_a_11_33_17.png")
+                        ])
+                        .buttons([
+                            builder.CardAction
+                                .imBack(session,"#askmyquestion")
+                                .title("J'ai une question, coach ⁉️ " )
+                        ]),
+                    new builder.HeroCard(session)
                         .title("Le Quizz de la semaine")
                         .subtitle("Pour se la pêter devant ses amis runners")
                         .images([

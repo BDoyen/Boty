@@ -128,8 +128,8 @@ module.exports = [
                                             .title("Lieu du départ 🏁")
                                     ]),
                                 new builder.HeroCard(session)
-                                    .title(res0.Title)
-                                    .subtitle(res0.St)
+                                    .title(res1.Title)
+                                    .subtitle(res1.St)
                                     .images([
                                         builder.CardImage.create(session,res1.Image)
                                     ])
@@ -139,7 +139,7 @@ module.exports = [
                                         builder.CardAction.openUrl(session,"http://maps.google.com/maps?z=5&q=loc:"+res1.Lat+"+"+res1.Lng)
                                             .title("Lieu du départ 🏁")
                                     ]),
-                                    new builder.HeroCard(session)
+                                new builder.HeroCard(session)
                                         .images([
                                             builder.CardImage.create(session, "https://image.ibb.co/iRYuKF/bye_bye_emoji.jpg")
                                         ])
@@ -190,8 +190,8 @@ module.exports = [
                                             .title("Lieu du départ 🏁")
                                     ]),
                                 new builder.HeroCard(session)
-                                    .title(res0.Title)
-                                    .subtitle(res0.St)
+                                    .title(res1.Title)
+                                    .subtitle(res1.St)
                                     .images([
                                         builder.CardImage.create(session,res1.Image)
                                     ])
@@ -202,8 +202,8 @@ module.exports = [
                                             .title("Lieu du départ 🏁")
                                     ]),
                                 new builder.HeroCard(session)
-                                    .title(res0.Title)
-                                    .subtitle(res0.St)
+                                    .title(res2.Title)
+                                    .subtitle(res2.St)
                                     .images([
                                         builder.CardImage.create(session,res2.Image)
                                     ])
@@ -266,8 +266,8 @@ module.exports = [
                                             .title("Lieu du départ 🏁")
                                     ]),
                                 new builder.HeroCard(session)
-                                    .title(res0.Title)
-                                    .subtitle(res0.St)
+                                    .title(res1.Title)
+                                    .subtitle(res1.St)
                                     .images([
                                         builder.CardImage.create(session,res1.Image)
                                     ])
@@ -278,8 +278,8 @@ module.exports = [
                                             .title("Lieu du départ 🏁")
                                     ]),
                                 new builder.HeroCard(session)
-                                    .title(res0.Title)
-                                    .subtitle(res0.St)
+                                    .title(res2.Title)
+                                    .subtitle(res2.St)
                                     .images([
                                         builder.CardImage.create(session,res2.Image)
                                     ])

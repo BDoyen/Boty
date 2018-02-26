@@ -141,7 +141,7 @@ module.exports = [
 	                            console.log(error);
 	                            session.send(";) 🐅");
 	                        }else{
-	                            session.send("C'est noté ✅ tu recevras chaque Lundi un quizz running");
+	                            session.send("C'est noté ✅ tu recevras chaque Lundi un quizz running 💯🏃");
 	                            session.beginDialog("/confirmation",session.userData);
 	                        }
                     	});
@@ -182,7 +182,7 @@ module.exports = [
 	                            console.log(error);
 	                            session.send(";) 🐅");
 	                        }else{
-	                            session.send("C'est noté ✅ tu recevras chaque Jeudi un recap des prochains events running");
+	                            session.send("C'est noté ✅ tu recevras chaque Jeudi un recap des prochains events running 📆🏃");
 	                            session.beginDialog("/confirmation",session.userData);
 	                        }
                     	});
@@ -218,11 +218,11 @@ module.exports = [
 	                            console.log(error);
 	                            session.send(";) 🐅");
 	                        }else{
-	                            session.send("C'est noté ✅ tu recevras chaque jour à 10h une petite astuce running");
+	                            session.send("C'est noté ✅ tu recevras tous les Lundi, Mercredi et Vendredi à 10h une petite astuce running 💌🏃");
 	                            session.beginDialog("/confirmation",session.userData);
 	                        }
                     	});
-                    break;
+                    break
                 case 7:
                 	var data = JSON.stringify({Id:session.userData.idstring,Type:"astuce",Bool:false});
 	                    session.userData.post_options = {

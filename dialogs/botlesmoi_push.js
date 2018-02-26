@@ -33,15 +33,17 @@ module.exports = [
                           method: 'POST',
                           timeout:30000
                     };
-                    var data = JSON.stringify([{Id:session.userData.idstring,Type:"astuce",Bool:true}]);
+                    var data = JSON.stringify({Id:session.userData.idstring,Type:"astuce",Bool:true});
                     session.userData.post_options.form = data;
                     var post_req = request(session.userData.post_options, function(error,response,body){
                         if(!error){
                             session.send("Cool !")
                             session.send("Ton inscription est validée ✅")
-                            session.send("/menu",session.userData);
+                            session.beginDialog("/menu",session.userData);
                         }else{
+                            console.log(error);
                             session.send("J'ai eu un petit souci avec ton inscription mais ne t'inquiète pas, je vais règler ça 😉");
+                            session.beginDialog("/menu",session.userData);
                         }
                     });
         

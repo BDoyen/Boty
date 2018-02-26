@@ -73,10 +73,10 @@ module.exports = [
                     session.beginDialog('/botlesmoi',session.userData);
                     break;
                 case 1:
-                    session.beginDialog('/botlesmoi_push',session.userData);
+                    session.beginDialog('/menu',session.userData);
                     break;
                 case 2:
-                    session.beginDialog('/menu',session.userData);
+                    session.beginDialog('/botlesmoi_push',session.userData);
                     break;
             }
         }
