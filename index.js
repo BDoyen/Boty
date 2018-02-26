@@ -173,6 +173,5 @@ bot.dialog('/',
 
 //piece of middleware for send Typing action
 
-bot.use(builder.Middleware.dialogVersion({ version: 1.0, resetCommand: /^reset/i, message: 'reset!' }));
 bot.use(builder.Middleware.firstRun({ version: 1.0, dialogId: '*:/firstRun' }));
 bot.use(builder.Middleware.sendTyping());
