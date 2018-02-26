@@ -13,13 +13,8 @@ module.exports = [
 
 function(session){
 
-    var events_url = {
-        0 : session.userData.url0,
-        1 : session.userData.url1,
-        2 : session.userData.url2
-    }
 
-    https.get(events_url[session.userData.index],function(res){
+    https.get(session.userData.current_url,function(res){
                         var data = '';
                         res.on('data', function(data_){
                                 data += data_.toString(); 

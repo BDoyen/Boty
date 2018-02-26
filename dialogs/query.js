@@ -343,15 +343,15 @@ module.exports = [
                     session.beginDialog("/run",session.userData);
                     break;
                 case 2:
-                    session.userData.index = results.response.index;
+                    session.userData.current_url = session.userData.url0;
                     session.beginDialog("/scroll",session.userData);
                     break;
                 case 3:
-                    session.userData.index = results.response.index;
+                    session.userData.current_url = session.userData.url1;
                     session.beginDialog("/scroll",session.userData);
                     break;
                 case 4:
-                    session.userData.index = results.response.index;
+                    session.userData.current_url = session.userData.url2;
                     session.beginDialog("/scroll",session.userData);
                     break;
                 case 5:
