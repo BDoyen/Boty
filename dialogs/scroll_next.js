@@ -20,7 +20,7 @@ function(session){
         session.userData.descriptif = result_next.splice(2);
         session.beginDialog('/scroll_next',session.userData);
 		}else if(n == 1){
-			session.send("▪️ " + result[0]);
+			session.send("▪️ " + result_next[0]);
 	        session.beginDialog("/cool",session.userData);
 		}else{
         session.beginDialog("/cool",session.userData);
